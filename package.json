@@ -8,6 +8,7 @@
   "repository": "",
   "license": "MIT",
   "author": "",
+  "homepage": "https://embermap.github.io/fastboot-testing",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -20,14 +21,24 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0"
+    "ember-cli-babel": "^6.6.0",
+    "fastboot": "^1.2.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
+    "broccoli-plugin": "^1.3.0",
+    "broccoli-stew": "^2.0.0",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "~3.2.0",
+    "ember-cli": "~3.1.4",
+    "ember-cli-addon-docs": "^0.5.0",
+    "ember-cli-addon-docs-yuidoc": "^0.2.1",
     "ember-cli-dependency-checker": "^2.0.0",
+    "ember-cli-deploy": "^1.0.2",
+    "ember-cli-deploy-build": "^1.1.1",
+    "ember-cli-deploy-git": "^1.3.3",
+    "ember-cli-deploy-git-ci": "^1.0.1",
     "ember-cli-eslint": "^4.2.1",
+    "ember-cli-fastboot": "^1.1.4-beta.1",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -37,6 +48,7 @@
     "ember-cli-uglify": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
+    "ember-fetch": "^5.0.1",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
@@ -52,6 +64,10 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "before": [
+      "ember-cli-fastboot"
+    ],
+    "after": []
   }
 }
