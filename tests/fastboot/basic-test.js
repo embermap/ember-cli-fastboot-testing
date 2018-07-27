@@ -1,10 +1,10 @@
-import { module, test, todo } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setup, visit, renderedHtml } from 'ember-cli-fastboot-testing/test-support';
 
 module('Fastboot | basic', function(hooks) {
   setup(hooks);
 
-  todo('it renders html that matches the browser', async function(assert) {
+  skip('it renders html that matches the browser', async function(assert) {
     let { body } = await visit('/');
 
     assert.equal(body, renderedHtml());
