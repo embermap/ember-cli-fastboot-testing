@@ -3,7 +3,7 @@
 let FastBoot = require('fastboot');
 
 module.exports = {
-  name: 'fastboot-testing',
+  name: 'ember-cli-fastboot-testing',
 
   isDevelopingAddon() {
     return true;
@@ -19,8 +19,6 @@ module.exports = {
 
   _fastbootRenderingMiddleware(app) {
     app.use('/__fastboot-testing', (req, res) => {
-      // debugger;
-
       this.fastboot
         .visit(req.query.url)
         .then(page => {

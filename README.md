@@ -1,4 +1,4 @@
-fastboot-testing
+ember-cli-fastboot-testing
 ==============================================================================
 
 [Short description of the addon.]
@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install fastboot-testing
+ember install ember-cli-fastboot-testing
 ```
 
 
@@ -23,7 +23,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd fastboot-testing`
+* `cd ember-cli-fastboot-testing`
 * `npm install`
 
 ### Linting

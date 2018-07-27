@@ -1,5 +1,5 @@
 {
-  "name": "fastboot-testing",
+  "name": "ember-cli-fastboot-testing",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
@@ -8,7 +8,7 @@
   "repository": "",
   "license": "MIT",
   "author": "",
-  "homepage": "https://embermap.github.io/fastboot-testing",
+  "homepage": "https://embermap.github.io/ember-cli-fastboot-testing",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -39,6 +39,7 @@
     "ember-cli-deploy-git-ci": "^1.0.1",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-fastboot": "^1.1.4-beta.1",
+    "ember-cli-head": "^0.4.1",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",

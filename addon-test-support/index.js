@@ -1,20 +1,58 @@
 import request from 'ember-ajax/request';
+import { setupContext, teardownContext } from '@ember/test-helpers';
 
-export async function visit(url, options = {}) {
+export function setup(hooks) {
+  hooks.beforeEach(function() {
+    return setupContext(this);
+  });
+
+  hooks.afterEach(function() {
+    return teardownContext(this);
+  });
+}
+
+export async function fastboot(url) {
   let endpoint = `/__fastboot-testing?url=${url}`;
-  let result = await request(endpoint, options);
+  let result = await request(endpoint);
 
-  document.querySelector('#ember-testing').innerHTML = result.html;
+  let body = extractBody(result.html);
+
+  result.body = body;
+  result.htmlDocument = parseHtml(result.html)
 
   return result;
 }
 
-export function correctlyRendered(html, rendered = null) {
-  if (rendered === null) {
-    rendered = document.querySelector('#ember-testing').innerHTML;
+export async function visit(url) {
+  let result = await fastboot(url);
+
+  document.querySelector('#ember-testing').innerHTML = result.body;
+
+  return result;
+}
+
+export function renderedHtml() {
+  return document.querySelector('#ember-testing').innerHTML;
+}
+
+export function parseHtml(str) {
+  let parser = new DOMParser();
+  return parser.parseFromString(str, "text/html");
+}
+
+export function extractBody(html) {
+  let start = '<script type="x/boundary" id="fastboot-body-start"></script>';
+  let end = '<script type="x/boundary" id="fastboot-body-end"></script>';
+
+  let startPosition = html.indexOf(start);
+  let endPosition = html.indexOf(end);
+
+  if (!startPosition || !endPosition) {
+    throw "Could not find fastboot boundary";
   }
 
-  debugger;
+  let startAt = startPosition + start.length;
+  let endAt = endPosition - startAt;
 
-  return html === rendered;
+  return html.substr(startAt, endAt);
 }
