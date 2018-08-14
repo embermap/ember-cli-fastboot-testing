@@ -1,50 +1,12 @@
-ember-cli-fastboot-testing
-==============================================================================
+# Ember CLI Fastboot Testing
 
-[Short description of the addon.]
+[![npm version](https://img.shields.io/npm/v/ember-cli-fastboot-testing.svg?style=flat-square)](http://badge.fury.io/js/ember-cli-fastboot-testing)
+[![Build Status](https://img.shields.io/travis/embermap/ember-cli-fastboot-testing/master.svg?style=flat-square)](https://travis-ci.org/embermap/ember-cli-fastboot-testing)
 
-Installation
-------------------------------------------------------------------------------
+A collection of APIs for testing Fastboot rendered applications.
 
-```
-ember install ember-cli-fastboot-testing
-```
+[View the docs here](https://embermap.github.io/ember-cli-fastboot-testing/).
 
+## About
 
-Usage
-------------------------------------------------------------------------------
-
-[Longer description of how to use the addon in apps.]
-
-
-Contributing
-------------------------------------------------------------------------------
-
-### Installation
-
-* `git clone <repository-url>`
-* `cd ember-cli-fastboot-testing`
-* `npm install`
-
-### Linting
-
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Running tests
-
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
-
-### Running the dummy application
-
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
-
-License
-------------------------------------------------------------------------------
-
-This project is licensed under the [MIT License](LICENSE.md).
+This library is developed and maintained by [EmberMap](https://embermap.com/). If your company is looking to see how it can get the most out of Ember, please [get in touch](mailto:info@embermap.com)!
