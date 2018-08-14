@@ -24,7 +24,7 @@ module.exports = function() {
           npm: {
             devDependencies: {
               'ember-source': null,
-              'ember-data': "~2.8.0"
+              'ember-cli-head': '0.3.1'
             }
           }
         },
