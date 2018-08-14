@@ -25,7 +25,6 @@ install:
 before_script:
   - ember version
   - yarn list | grep ember-source
-  - yarn list | grep ember-data
 
 notifications:
   email: false
