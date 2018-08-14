@@ -56,10 +56,10 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default
 
-    # - stage: deploy
-    #   if: (branch = master OR tag IS present) AND type = push
-    #   env: NAME=deploy
-    #   script: node_modules/.bin/ember deploy production
+    - stage: deploy
+      if: (branch = master OR tag IS present) AND type = push
+      env: NAME=deploy
+      script: node_modules/.bin/ember deploy production
 
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-beta
