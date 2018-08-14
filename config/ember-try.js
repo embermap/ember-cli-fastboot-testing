@@ -9,7 +9,25 @@ module.exports = function() {
     getChannelURL('canary')
   ]).then((urls) => {
     return {
+      useYarn: true,
       scenarios: [
+        {
+          name: 'ember-lts-2.8',
+          bower: {
+            dependencies: {
+              'ember': 'components/ember#lts-2-8'
+            },
+            resolutions: {
+              'ember': 'lts-2-8'
+            }
+          },
+          npm: {
+            devDependencies: {
+              'ember-source': null,
+              'ember-data': "~2.8.0"
+            }
+          }
+        },
         {
           name: 'ember-lts-2.12',
           npm: {
