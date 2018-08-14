@@ -4,10 +4,31 @@
   logo='ember-cli'
   slimHeading='Fastboot'
   strongHeading='Testing'
-  byline='My addon demo/marketing page.'}}
+  byline="Test your Fastboot rendered html alongside your application's tests."}}
 
-{{!-- {{#docs-demo as |demo|}}
-  {{#demo.example name='my-demo.hbs'}}
-    <p>Make sure to read up on the DocsDemo component before building out this page.</p>
-  {{/demo.example}}
-{{/docs-demo}} --}}
+<div class='docs-container'>
+  <section class='max-w-md mx-auto pb-8 docs-md mt-8'>
+
+    {{#docs-snippet name="example-test.js"}}
+      import { module, test } from 'qunit';
+      import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+
+      module('Fastboot | it works!', function(hooks) {
+        setup(hooks);
+
+        test('Fastboot renders the correct title', async function(assert) {
+          await visit('/');
+
+          assert.dom('h1').includesText('My application!');
+        });
+      });
+    {{/docs-snippet}}
+
+    <div class="mt-8 text-right">
+      {{#docs-link 'docs'}}
+        Get started &rarr;
+      {{/docs-link}}
+    </div>
+    
+  </section>
+</div>

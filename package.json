@@ -1,13 +1,13 @@
 {
   "name": "ember-cli-fastboot-testing",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/embermap/ember-cli-fastboot-testing",
   "license": "MIT",
-  "author": "",
+  "author": "Ryan Toronto <ryanto@gmail.com> (https://embermap.com)",
   "homepage": "https://embermap.github.io/ember-cli-fastboot-testing",
   "directories": {
     "doc": "doc",
