@@ -8,7 +8,7 @@ You can test rendered HTML using `qunit-dom`.
 import { module, test } from 'qunit';
 import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
 
-module('Fastboot | testing html', function(hooks) {
+module('FastBoot | testing html', function(hooks) {
   setup(hooks);
 
   test('it renders the correct h1 title', async function(assert) {

@@ -9,6 +9,7 @@ const Router = AddonDocsRouter.extend({
 Router.map(function() {
   docsRoute(this, function() {
     this.route('quickstart');
+    this.route('debugging');
     this.route('html');
     this.route('document');
     this.route('status-code');

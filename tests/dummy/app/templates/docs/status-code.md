@@ -1,4 +1,4 @@
-# Status code testing
+# Status code tests
 
 > This document is a work in progress.
 
@@ -6,15 +6,19 @@
 import { module, test, skip } from 'qunit';
 import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
 
-test('it gets a success response code', async function(assert) {
-  let { statusCode } = await visit('/');
+module('FastBoot | status code test', function(hooks) {
+  setup(hooks);
 
-  assert.equal(statusCode, 200);
-});
+  test('it gets a success response code', async function(assert) {
+    let { statusCode } = await visit('/');
 
-test('it gets a 404 response code', async function(assert) {
-  let { statusCode } = await visit('/file-not-found');
+    assert.equal(statusCode, 200);
+  });
 
-  assert.equal(statusCode, 404);
+  test('it gets a 404 response code', async function(assert) {
+    let { statusCode } = await visit('/file-not-found');
+
+    assert.equal(statusCode, 404);
+  });
 });
 ```
