@@ -19,8 +19,17 @@ module.exports = {
 
   _fastbootRenderingMiddleware(app) {
     app.use('/__fastboot-testing', (req, res) => {
+      let options = {
+        request: {
+          headers: {
+            host: 'ember-cli-fastboot-testing.localhost'
+          }
+        },
+        response: {}
+      };
+
       this.fastboot
-        .visit(req.query.url)
+        .visit(req.query.url, options)
         .then(page => {
           page.html().then(html => {
             res.json({
