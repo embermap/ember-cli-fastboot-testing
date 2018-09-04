@@ -10,6 +10,7 @@ Router.map(function() {
   docsRoute(this, function() {
     this.route('quickstart');
     this.route('debugging');
+    this.route('videos');
     this.route('html');
     this.route('document');
     this.route('status-code');
