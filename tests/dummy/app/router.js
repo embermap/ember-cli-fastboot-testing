@@ -15,6 +15,11 @@ Router.map(function() {
     this.route('status-code');
   });
 
+  this.route('redirects', function() {
+    this.route('transition-to');
+    this.route('replace-with');
+  });
+
   this.route('not-found', { path: '/*path' });
 });
 
