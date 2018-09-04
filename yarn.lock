@@ -67,6 +67,10 @@
   version "9.6.23"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.23.tgz#fc429962c1b75f32bd66214a3997f660e8434f0d"
 
+"@xg-wang/whatwg-fetch@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@xg-wang/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#f7b222c012a238e7d6e89ed3d72a1e0edb58453d"
+
 abab@^1.0.0, abab@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -433,7 +437,7 @@ babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-core@^6.24.1, babel-core@^6.26.0:
+babel-core@^6.24.1, babel-core@^6.26.0, babel-core@^6.26.3:
   version "6.26.3"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.3.tgz#b2e2f09e342d0f0c88e2f02e067794125e75c207"
   dependencies:
@@ -1448,7 +1452,7 @@ broccoli-rollup@^1.2.0:
     symlink-or-copy "^1.1.8"
     walk-sync "^0.3.1"
 
-broccoli-rollup@^2.0.0:
+broccoli-rollup@^2.0.0, broccoli-rollup@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/broccoli-rollup/-/broccoli-rollup-2.1.1.tgz#0b77dc4b7560a53e998ea85f3b56772612d4988d"
   dependencies:
@@ -2518,12 +2522,6 @@ electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.47:
   version "1.3.52"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.52.tgz#d2d9f1270ba4a3b967b831c40ef71fb4d9ab5ce0"
 
-ember-ajax@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/ember-ajax/-/ember-ajax-3.1.0.tgz#3db36e67357ef447639517656aeac4bb13e73a9c"
-  dependencies:
-    ember-cli-babel "^6.6.0"
-
 ember-app-scheduler@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/ember-app-scheduler/-/ember-app-scheduler-0.2.2.tgz#e4a66275d1789d1b054815ee230c6f759b4b75eb"
@@ -3114,18 +3112,22 @@ ember-fetch@^4.0.2:
     node-fetch "^2.0.0-alpha.9"
     yetch "^0.0.1"
 
-ember-fetch@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/ember-fetch/-/ember-fetch-5.0.1.tgz#a1acc230be3454dd3c2476aaa72ea05bebbd7f9d"
+ember-fetch@^5.1.3:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/ember-fetch/-/ember-fetch-5.1.3.tgz#f649c60d523bf1949125a4c497751df3b0c9f587"
   dependencies:
+    "@xg-wang/whatwg-fetch" "^3.0.0"
     abortcontroller-polyfill "^1.1.9"
+    babel-core "^6.26.3"
+    babel-preset-env "^1.7.0"
     broccoli-concat "^3.2.2"
-    broccoli-merge-trees "^2.0.0"
-    broccoli-stew "^1.4.2"
+    broccoli-merge-trees "^3.0.0"
+    broccoli-rollup "^2.1.1"
+    broccoli-stew "^2.0.0"
     broccoli-templater "^2.0.1"
     ember-cli-babel "^6.8.2"
     node-fetch "^2.0.0-alpha.9"
-    yetch "^0.0.1"
+    rollup-plugin-babel "^3.0.7"
 
 ember-getowner-polyfill@^2.0.1:
   version "2.2.0"
@@ -3591,6 +3593,10 @@ esrecurse@^4.1.0:
 estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
+
+estree-walker@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.2.1.tgz#bdafe8095383d8414d5dc2ecf4c9173b6db9412e"
 
 estree-walker@^0.5.2:
   version "0.5.2"
@@ -7409,6 +7415,19 @@ rimraf@2, rimraf@^2.2.8, rimraf@^2.3.2, rimraf@^2.3.4, rimraf@^2.4.1, rimraf@^2.
 rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
+
+rollup-plugin-babel@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-3.0.7.tgz#5b13611f1ab8922497e9d15197ae5d8a23fe3b1e"
+  dependencies:
+    rollup-pluginutils "^1.5.0"
+
+rollup-pluginutils@^1.5.0:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-1.5.2.tgz#1e156e778f94b7255bfa1b3d0178be8f5c552408"
+  dependencies:
+    estree-walker "^0.2.1"
+    minimatch "^3.0.2"
 
 rollup-pluginutils@^2.0.1:
   version "2.3.0"
