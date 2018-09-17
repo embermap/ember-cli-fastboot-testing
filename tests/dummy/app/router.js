@@ -21,6 +21,8 @@ Router.map(function() {
     this.route('replace-with');
   });
 
+  this.route('query-parameters');
+
   this.route('not-found', { path: '/*path' });
 });
 

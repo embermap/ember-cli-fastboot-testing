@@ -12,7 +12,8 @@ export function setup(hooks) {
 }
 
 export async function fastboot(url) {
-  let endpoint = `/__fastboot-testing?url=${url}`;
+  let encodedURL = encodeURIComponent(url);
+  let endpoint = `/__fastboot-testing?url=${encodedURL}`;
   let response = await fetch(endpoint);
   let result = await response.json();
 

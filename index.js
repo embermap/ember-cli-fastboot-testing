@@ -19,6 +19,7 @@ module.exports = {
 
   _fastbootRenderingMiddleware(app) {
     app.use('/__fastboot-testing', (req, res) => {
+      let url = decodeURIComponent(req.query.url);
       let options = {
         request: {
           headers: {
@@ -29,7 +30,7 @@ module.exports = {
       };
 
       this.fastboot
-        .visit(req.query.url, options)
+        .visit(url, options)
         .then(page => {
           page.html().then(html => {
             res.json({
