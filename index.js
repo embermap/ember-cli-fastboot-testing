@@ -1,12 +1,13 @@
 'use strict';
 
 let FastBoot = require('fastboot');
+let url = require('url');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
 
   isDevelopingAddon() {
-    return true;
+    return false;
   },
 
   serverMiddleware(options) {
@@ -19,9 +20,15 @@ module.exports = {
 
   _fastbootRenderingMiddleware(app) {
     app.use('/__fastboot-testing', (req, res) => {
-      let url = decodeURIComponent(req.query.url);
+      let urlToVisit = decodeURIComponent(req.query.url);
+      let parsed = url.parse(urlToVisit, true);
+
       let options = {
         request: {
+          method: 'GET',
+          protocol: 'http',
+          url: parsed.path,
+          query: parsed.query,
           headers: {
             host: 'ember-cli-fastboot-testing.localhost'
           }
@@ -30,7 +37,7 @@ module.exports = {
       };
 
       this.fastboot
-        .visit(url, options)
+        .visit(urlToVisit, options)
         .then(page => {
           page.html().then(html => {
             res.json({

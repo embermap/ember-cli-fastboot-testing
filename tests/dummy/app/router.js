@@ -23,6 +23,8 @@ Router.map(function() {
 
   this.route('query-parameters');
 
+  this.route('request-object');
+
   this.route('not-found', { path: '/*path' });
 });
 
