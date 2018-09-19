@@ -1,0 +1,80 @@
+<h1>The request object</h1>
+
+<table>
+
+  <tr>
+    <th>
+      Host
+    </th>
+    <td data-test-id="host">
+      {{request.host}}
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      Protocol
+    </th>
+    <td data-test-id="protocol">
+      {{request.protocol}}
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      Headers
+    </th>
+    <td data-test-id="headers">
+      {{#each-in request.headers.headers as |header value|}}
+        <div>
+          {{header}}: {{value}}
+        </div>
+      {{/each-in}}
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      Query params
+    </th>
+    <td data-test-id="query-params">
+      {{#each-in request.queryParams as |param value|}}
+        <div>
+          {{param}}: {{value}}
+        </div>
+      {{/each-in}}
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      Path
+    </th>
+    <td data-test-id="path">
+      {{request.path}}
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      Method
+    </th>
+    <td data-test-id="method">
+      {{request.method}}
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      Cookies
+    </th>
+    <td>
+      {{#each-in request.cookies as |cookie value|}}
+        <div>
+          {{cookie}}: {{value}}
+        </div>
+      {{/each-in}}
+    </td>
+  </tr>
+
+</table>
