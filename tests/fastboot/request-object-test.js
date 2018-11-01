@@ -28,6 +28,14 @@ module('FastBoot | request object test', function(hooks) {
       .includesText('host: ember-cli-fastboot-testing.localhost');
   });
 
+  test('it has user agent in headers', async function(assert) {
+    await visit('/request-object');
+
+    assert
+      .dom('[data-test-id=headers]')
+      .includesText('user-agent: ember-cli-fastboot-testing');
+  });
+
   test('it has query params', async function(assert) {
     await visit('/request-object?testing=true');
 

@@ -30,7 +30,8 @@ module.exports = {
           url: parsed.path,
           query: parsed.query,
           headers: {
-            host: 'ember-cli-fastboot-testing.localhost'
+            host: 'ember-cli-fastboot-testing.localhost',
+            'user-agent': 'ember-cli-fastboot-testing'
           }
         },
         response: {}
