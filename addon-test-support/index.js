@@ -11,9 +11,10 @@ export function setup(hooks) {
   });
 }
 
-export async function fastboot(url) {
+export async function fastboot(url, { headers = {} }) {
   let encodedURL = encodeURIComponent(url);
-  let endpoint = `/__fastboot-testing?url=${encodedURL}`;
+  let customHeaders = JSON.stringify(headers)
+  let endpoint = `/__fastboot-testing?url=${encodedURL}&headers=${customHeaders}`;
   let response = await fetch(endpoint);
   let result = await response.json();
 
@@ -25,8 +26,8 @@ export async function fastboot(url) {
   return result;
 }
 
-export async function visit(url) {
-  let result = await fastboot(url);
+export async function visit(url, options = {}) {
+  let result = await fastboot(url, { headers: options.headers || {} });
 
   document.querySelector('#ember-testing').innerHTML = result.body;
 

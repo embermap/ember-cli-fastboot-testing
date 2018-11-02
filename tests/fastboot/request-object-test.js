@@ -36,6 +36,18 @@ module('FastBoot | request object test', function(hooks) {
       .includesText('user-agent: ');
   });
 
+  test('it can override header in visit request', async function (assert) {
+    await visit('/request-object', {
+      headers: {
+        'user-agent': 'ember-cli-fastboot-testing'
+      }
+    });
+
+    assert
+      .dom('[data-test-id=headers] [data-header-name=user-agent')
+      .includesText('user-agent: ember-cli-fastboot-testing');
+  });
+
   test('it includes cookies in request headers', async function (assert) {
     await visit('/request-object');
 

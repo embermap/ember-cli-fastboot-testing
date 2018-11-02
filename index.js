@@ -21,11 +21,11 @@ module.exports = {
   _fastbootRenderingMiddleware(app) {
     app.use('/__fastboot-testing', (req, res) => {
       let urlToVisit = decodeURIComponent(req.query.url);
+      let customHeaders = JSON.parse(req.query.headers);
       let parsed = url.parse(urlToVisit, true);
 
-      let headers = Object.assign(req.headers, {
-        host: 'ember-cli-fastboot-testing.localhost'
-      });
+      let headers = Object.assign(req.headers, customHeaders)
+      headers.host = 'ember-cli-fastboot-testing.localhost';
 
       let options = {
         request: {
