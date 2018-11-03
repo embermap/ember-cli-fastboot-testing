@@ -26,7 +26,7 @@
     </th>
     <td data-test-id="headers">
       {{#each-in request.headers.headers as |header value|}}
-        <div>
+        <div data-header-name={{header}}>
           {{header}}: {{value}}
         </div>
       {{/each-in}}
