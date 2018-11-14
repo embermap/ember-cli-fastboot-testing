@@ -1,0 +1,8 @@
+<h1>external request</h1>
+
+{{#each model.posts as |post|}}
+  <div data-post-id={{post.id}}>
+    <h2>{{post.title}}</h2>
+    <p>{{post.body}}</p>
+  </div>
+{{/each}}

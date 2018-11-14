@@ -2,12 +2,14 @@
 
 let FastBoot = require('fastboot');
 let url = require('url');
+let RequestProxy = require('./lib/request-proxy');
+let RequestProxyServer = require('./lib/request-proxy-server');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
 
   isDevelopingAddon() {
-    return false;
+    return true;
   },
 
   serverMiddleware(options) {
@@ -15,7 +17,13 @@ module.exports = {
   },
 
   testemMiddleware(app) {
+    this._websocketsMiddleware(app);
     this._fastbootRenderingMiddleware(app);
+  },
+
+  _websocketsMiddleware() {
+    this.wss = new RequestProxyServer();
+    this.wss.listen();
   },
 
   _fastbootRenderingMiddleware(app) {
@@ -56,14 +64,36 @@ module.exports = {
 
   postBuild(result) {
     let distPath = result.directory;
+    let client = new RequestProxy('ws://127.0.0.1:7001');
 
+    let sandboxGlobals = {
+      fetch: function(url, options) {
+        return client.request(url, options).then(response => {
+          return response;
+        }).catch(e => {
+          // eslint-disable-next-line no-console
+          console.error(e);
+        });
+      }
+      // },
+      // najax: function(url, options) {
+      //   return client.request(url, options).then(response => {
+      //     return response;
+      //   }).catch(e => {
+      //     // eslint-disable-next-line no-console
+      //     console.error(e);
+      //   });
+      // }
+    };
     if (this.fastboot) {
       this.fastboot.reload({
-        distPath
+        distPath,
+        sandboxGlobals
       });
     } else {
       this.fastboot = new FastBoot({
-        distPath
+        distPath,
+        sandboxGlobals
       });
     }
 
