@@ -27,6 +27,12 @@ Router.map(function() {
   this.route('external-request');
 
   this.route('not-found', { path: '/*path' });
+
+  this.route('externals', function() {
+    this.route('native-fetch-get');
+    this.route('native-fetch-post');
+    this.route('ember-fetch-get');
+  });
 });
 
 export default Router;
