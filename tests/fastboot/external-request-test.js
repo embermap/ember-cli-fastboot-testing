@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setup, visit, setHandler } from 'ember-cli-fastboot-testing/test-support';
 
 module('Fastboot | external request', function(hooks) {
@@ -42,7 +42,7 @@ module('Fastboot | external request', function(hooks) {
       .includesText('stubbed-request-handler');
   });
 
-  skip('it handles a fastboot get request using ember fetch', async function (assert) {
+  test('it handles a fastboot get request using ember fetch', async function (assert) {
     setHandler(async ( /* url , options = {} */ ) => {
       return new Response(JSON.stringify([{
         id: 1,
