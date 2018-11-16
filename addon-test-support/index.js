@@ -1,5 +1,6 @@
 import fetch from 'fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
+import param from 'jquery-param';
 
 export function setup(hooks) {
   hooks.beforeEach(function() {
@@ -12,9 +13,7 @@ export function setup(hooks) {
 }
 
 export async function fastboot(url, { headers = {} }) {
-  let encodedURL = encodeURIComponent(url);
-  let customHeaders = JSON.stringify(headers)
-  let endpoint = `/__fastboot-testing?url=${encodedURL}&headers=${customHeaders}`;
+  let endpoint = `/__fastboot-testing?${param({url, headers})}`;
   let response = await fetch(endpoint);
   let result = await response.json();
 
