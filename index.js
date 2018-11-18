@@ -23,8 +23,11 @@ module.exports = {
       let urlToVisit = decodeURIComponent(req.query.url);
       let parsed = url.parse(urlToVisit, true);
 
-      let headers = Object.assign(req.headers, req.query.headers)
-      headers.host = 'ember-cli-fastboot-testing.localhost';
+      let defaults = {
+        host: 'ember-cli-fastboot-testing.localhost'
+      }
+
+      let headers = Object.assign(req.headers, defaults, req.query.headers);
 
       let options = {
         request: {
