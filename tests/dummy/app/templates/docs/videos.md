@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Here's a video of me installing this addon into the [EmberMap](https://embermap.com) code base.
+Here's a video installing this addon into the [EmberMap](https://embermap.com) code base.
 
 <section class="text-left">
   <iframe

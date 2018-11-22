@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('html');
     this.route('document');
     this.route('status-code');
+    this.route('visit');
   });
 
   this.route('redirects', function() {
