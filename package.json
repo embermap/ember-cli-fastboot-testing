@@ -21,9 +21,11 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "ember-auto-import": "^1.2.15",
     "ember-cli-babel": "^6.6.0",
     "ember-fetch": "^6.1.0",
-    "fastboot": "^1.2.0"
+    "fastboot": "^1.2.0",
+    "jquery-param": "^1.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",

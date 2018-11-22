@@ -32,8 +32,20 @@ module('FastBoot | request object test', function(hooks) {
     await visit('/request-object');
 
     assert
-      .dom('[data-test-id=headers] [data-header-name=user-agent')
+      .dom('[data-test-id=headers] [data-header-name=user-agent]')
       .includesText('user-agent: ');
+  });
+
+  test('it can override header in visit request', async function (assert) {
+    await visit('/request-object', {
+      headers: {
+        'user-agent': 'ember-cli-fastboot-testing'
+      }
+    });
+
+    assert
+      .dom('[data-test-id=headers] [data-header-name=user-agent]')
+      .includesText('user-agent: ember-cli-fastboot-testing');
   });
 
   test('it includes cookies in request headers', async function (assert) {
@@ -42,6 +54,18 @@ module('FastBoot | request object test', function(hooks) {
     assert
       .dom('[data-test-id=headers] [data-header-name=cookie]')
       .includesText('cookie: ');
+  });
+
+  test('it can specify cookies header in visit request', async function (assert) {
+    await visit('/request-object', {
+      headers: {
+        cookie: 'test_cookie=test; user_id=what-user005;'
+      }
+    });
+
+    assert
+      .dom('[data-test-id=headers] [data-header-name=cookie]')
+      .includesText('cookie: test_cookie=test; user_id=what-user005;');
   });
 
   test('it has query params', async function(assert) {
