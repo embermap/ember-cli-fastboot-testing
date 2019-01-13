@@ -13,8 +13,8 @@ module('Fastboot | validate html', function(hooks) {
   test('it renders invalid html', async function(assert) {
     // this route has a template with invalid html, specifically,
     // it puts block elements inside of a p tag.
-    let result = await visit('/html/simple-invalid');
+    let { isValidHtml }= await visit('/html/simple-invalid');
 
-    assert.notOk(result.isValidHtml);
-  })
+    assert.notOk(isValidHtml);
+  });
 });

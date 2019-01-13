@@ -1,7 +1,7 @@
 import fetch from 'fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
 import param from 'jquery-param';
-import { htmlCompare } from './-private/validate-html';
+import { validateHtml } from './-private/validate-html';
 
 export function setup(hooks) {
   hooks.beforeEach(function() {
@@ -32,11 +32,11 @@ export async function visit(url, options = {}) {
 
   renderTo.innerHTML = result.body;
 
-  // the browser will auto correct any html once we render it.
-  // so we can now compare our element's innerHTML to the result
-  // form fastboot. if they differ, we know that fastboot isn't
-  // rendering valid html.
-  result.isValidHtml = htmlCompare(renderTo.innerHTML, result.body);
+  Object.defineProperty(result, 'isValidHtml', {
+    get() {
+      return validateHtml(result.body);
+    }
+  });
 
   return result;
 }

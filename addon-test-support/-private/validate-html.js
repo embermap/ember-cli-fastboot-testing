@@ -1,28 +1,9 @@
-let htmlCompare = function(html1, html2) {
-  let document1 = htmlToDocument(html1);
-  let document2 = htmlToDocument(html2);
-
-  return isValidDocument(document1) &&
-    isValidDocument(document2) &&
-    compareTrees(document1, document2);
-};
-
-let isValidHtml = function(html) {
-  let doc = htmlToDocument(html);
-  return isValidDocument(doc);
-};
-
-let htmlToDocument = function(html) {
+let validateHtml = function(html) {
   let parser = new DOMParser();
-  return parser.parseFromString(html, "application/xml");
-}
+  let fastbootDocument = parser.parseFromString(html, "text/xml");
+  let correctedHtml = parser.parseFromString( html, "text/html");
 
-let isValidDocument = function(doc) {
-  // make sure this document has no parsererror tags
-  return Array.from(doc.children).reduce((result, node) => {
-    // console.log(result, node, node.tagName);
-    return result && node.tagName !== 'parsererror' && isValidDocument(node);
-  }, true);
+  return compareTrees(fastbootDocument, correctedHtml.body);
 };
 
 let zip = function(list1, list2) {
@@ -32,7 +13,7 @@ let zip = function(list1, list2) {
 };
 
 let tagsMatch = function(node1, node2) {
-  return node1 && node2 && node1.tagName === node2.tagName;
+  return node1 && node2 && node1.tagName.toLowerCase() === node2.tagName.toLowerCase();
 }
 
 let compareTrees = function(tree1, tree2) {
@@ -43,7 +24,30 @@ let compareTrees = function(tree1, tree2) {
     }, true);
 };
 
-export {
-  htmlCompare,
-  isValidHtml
+export { validateHtml };
+
+
+// todo, should we keep this?
+
+let parserErrors = function(html) {
+  let parser = new DOMParser();
+  // will this ever fail?
+  let correctedHtml = parser.parseFromString(html, "text/html");
+
+  return extractParsingErrors(correctedHtml);
+}
+
+let extractParsingErrors = function(doc) {
+  // make sure this document has no parsererror tags
+  return Array.from(doc.body.children).reduce((errors, node) => {
+    if (node.tagName === "parsererror") {
+      // add errors
+      errors.push("figure out the error...");
+      return errors;
+    } else {
+      return errors.concat(extractParsingErrors(node));
+    }
+  }, []);
 };
+
+export { parserErrors };
