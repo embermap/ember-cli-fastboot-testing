@@ -26,6 +26,11 @@ Router.map(function() {
 
   this.route('request-object');
 
+  this.route('html', function() {
+    this.route('simple-valid');
+    this.route('simple-invalid');
+  });
+
   this.route('not-found', { path: '/*path' });
 });
 
