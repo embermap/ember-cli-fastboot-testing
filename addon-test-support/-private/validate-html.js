@@ -1,7 +1,11 @@
+import { HTMLtoTree } from './html-parser';
+
 let validateHtml = function(html) {
+  let fastbootDocument = HTMLtoTree(html);
   let parser = new DOMParser();
-  let fastbootDocument = parser.parseFromString(html, "text/xml");
-  let correctedHtml = parser.parseFromString( html, "text/html");
+  let correctedHtml = parser.parseFromString(html, "text/html");
+
+  // debugger;
 
   return compareTrees(fastbootDocument, correctedHtml.body);
 };

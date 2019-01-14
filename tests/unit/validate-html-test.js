@@ -1,5 +1,5 @@
-import { validateHtml, parserErrors  } from 'ember-cli-fastboot-testing/test-support/-private/validate-html';
-import { module, test, skip } from 'qunit';
+import { validateHtml } from 'ember-cli-fastboot-testing/test-support/-private/validate-html';
+import { module, test } from 'qunit';
 
 module('Unit | validate-html', function() {
 
@@ -17,12 +17,12 @@ module('Unit | validate-html', function() {
     });
 
     module('attributes', function() {
-      skip('it will ignore valueless attribute parsing errors', function(assert) {
-        let html = '<p data-something>hello world</p>';
+      test('it will ignore valueless attribute parsing errors', function(assert) {
+        let html = '<p data-paragraph>hello world</p>';
         assert.ok(validateHtml(html));
       });
 
-      skip('invalid html because attribute values are not quoted', function(assert) {
+      test('it will ignore unquoted attribute parsing errors', function(assert) {
         let html = '<div><p x=1>hello</p><div>';
         assert.ok(validateHtml(html));
       });
@@ -39,19 +39,6 @@ module('Unit | validate-html', function() {
         let html = '<p><p>hello</p><p>world</p></div>';
         assert.notOk(validateHtml(html));
       });
-    });
-  });
-
-  module('todo: parserErrors', function() {
-    skip('data attribute', function(assert) {
-      // data attributes need to have values
-      let html = '<p data-something>hello world</p>';
-      assert.notOk(parserErrors(html));
-    });
-
-    skip('invalid html because attribute values are not quoted', function(assert) {
-      let html = '<p x=1>hello</p>';
-      assert.notOk(parserErrors(html));
     });
   });
 });
