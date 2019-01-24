@@ -65,6 +65,9 @@
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
   },
+  "resolutions": {
+    "**/tough-cookie": "~2.4.0"
+  },
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "before": [
