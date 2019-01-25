@@ -6,8 +6,8 @@
   strongHeading='Testing'
   byline="Test your Fastboot rendered html alongside your application's tests."}}
 
-<div class='docs-container'>
-  <section class="max-w-md mx-auto text-center pb-8">
+<div class='container'>
+  <section class="max-w-md mx-auto text-center mt-16">
     <iframe
       width="640"
       height="360"
@@ -17,28 +17,11 @@
       allowfullscreen></iframe>
   </section>
 
-  <section class='max-w-md mx-auto pb-8 docs-md mt-8'>
-    {{#docs-snippet name="example-test.js"}}
-      import { module, test } from 'qunit';
-      import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
-
-      module('Fastboot | it works!', function(hooks) {
-        setup(hooks);
-
-        test('Fastboot renders the correct title', async function(assert) {
-          await visit('/');
-
-          assert.dom('h1').includesText('My application!');
-        });
-      });
-    {{/docs-snippet}}
-  </section>
-
-  <section class='max-w-md mx-auto text-right pb-8 mt-8'>
+  <section class='max-w-md mx-auto text-right mt-16'>
     {{#link-to "docs" class="
       py-2 px-3
       rounded no-underline
-      text-white bg-green
+      text-white bg-brand
       font-bold"}}
       Get started &rarr;
     {{/link-to}}

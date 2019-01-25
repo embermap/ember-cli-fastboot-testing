@@ -1,4 +1,4 @@
-import fetch from 'fetch';
+import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
 import param from 'jquery-param';
 
