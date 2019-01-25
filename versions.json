@@ -1,56 +1,64 @@
 {
   "master": {
-    "path": "master",
+    "path": "versions/master",
     "name": "master",
-    "sha": "57045189e6318e1ef7c55ae83890dda644d91fd5",
+    "sha": "6c4897e3909deab8f69c7a3ce10d6c6221360da6",
     "tag": null
   },
   "v0.0.1": {
-    "path": "v0.0.1",
+    "path": "versions/v0.0.1",
     "name": "v0.0.1",
     "sha": "e86e1ecf2e6cff48c2ad560d38058db1518ff641",
-    "tag": "v0.0.1"
-  },
-  "latest": {
-    "path": "latest",
-    "name": "latest",
-    "sha": "efecc5e2ad2cafc1e79429528a28d7aa3323d17a",
-    "tag": "v0.0.8"
+    "tag": "v0.0.1",
+    "oldPath": "v0.0.1"
   },
   "v0.0.3": {
-    "path": "v0.0.3",
+    "path": "versions/v0.0.3",
     "name": "v0.0.3",
     "sha": "87fdb0c58ceb12c26b75615a3dc2057c12904ce5",
-    "tag": "v0.0.3"
+    "tag": "v0.0.3",
+    "oldPath": "v0.0.3"
   },
   "v0.0.2": {
-    "path": "v0.0.2",
+    "path": "versions/v0.0.2",
     "name": "v0.0.2",
     "sha": "6df483ce0c864b877c3d9d2ec0b32c1f7bdf2787",
-    "tag": "v0.0.2"
+    "tag": "v0.0.2",
+    "oldPath": "v0.0.2"
   },
   "v0.0.4": {
-    "path": "v0.0.4",
+    "path": "versions/v0.0.4",
     "name": "v0.0.4",
     "sha": "5509a707cd4f23b7cf041c7857aa1fdb397e6aa3",
-    "tag": "v0.0.4"
+    "tag": "v0.0.4",
+    "oldPath": "v0.0.4"
   },
   "v0.0.6": {
-    "path": "v0.0.6",
+    "path": "versions/v0.0.6",
     "name": "v0.0.6",
     "sha": "8e8d307ed4615cdc478506ada17c601072c04356",
-    "tag": "v0.0.6"
+    "tag": "v0.0.6",
+    "oldPath": "v0.0.6"
   },
   "v0.0.7": {
-    "path": "v0.0.7",
+    "path": "versions/v0.0.7",
     "name": "v0.0.7",
     "sha": "06e7f23c35d79d23674e30ab5c45718f90184c79",
-    "tag": "v0.0.7"
+    "tag": "v0.0.7",
+    "oldPath": "v0.0.7"
   },
   "v0.0.8": {
-    "path": "v0.0.8",
+    "path": "versions/v0.0.8",
     "name": "v0.0.8",
     "sha": "efecc5e2ad2cafc1e79429528a28d7aa3323d17a",
-    "tag": "v0.0.8"
+    "tag": "v0.0.8",
+    "oldPath": "v0.0.8"
+  },
+  "-latest": {
+    "path": "",
+    "name": "Latest",
+    "sha": "efecc5e2ad2cafc1e79429528a28d7aa3323d17a",
+    "tag": "v0.0.8",
+    "oldPath": "latest"
   }
 }
