@@ -9,7 +9,7 @@ module('FastBoot | request object test', function(hooks) {
 
     assert
       .dom('[data-test-id=host]')
-      .includesText('ember-cli-fastboot-testing.localhost');
+      .includesText('localhost:7357');
   });
 
   test('it has a protocol', async function(assert) {
@@ -25,7 +25,7 @@ module('FastBoot | request object test', function(hooks) {
 
     assert
       .dom('[data-test-id=headers]')
-      .includesText('host: ember-cli-fastboot-testing.localhost');
+      .includesText('host: localhost');
   });
 
   test('it has user agent in headers', async function(assert) {

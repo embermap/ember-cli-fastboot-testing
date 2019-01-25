@@ -5,7 +5,9 @@ module.exports = function(environment, appConfig) {
     appConfig.fastboot = appConfig.fastboot || {};
     appConfig.fastboot.hostWhitelist = appConfig.fastboot.hostWhitelist || [];
 
-    appConfig.fastboot.hostWhitelist.push('ember-cli-fastboot-testing.localhost');
+    if (!appConfig.fastboot.hostWhitelist.includes('localhost')) {
+      appConfig.fastboot.hostWhitelist.push('localhost');
+    }
   }
 
   return { };
