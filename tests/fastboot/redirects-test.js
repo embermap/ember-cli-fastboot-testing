@@ -9,7 +9,7 @@ module('FastBoot | redirects test', function(hooks) {
 
     assert.equal(statusCode, 307);
     assert.equal(url, '/');
-    assert.equal(headers.location, '//ember-cli-fastboot-testing.localhost/');
+    assert.equal(headers.location, `//${window.location.host}/`);
   });
 
   test('redirects with a replace with', async function(assert) {
@@ -17,7 +17,7 @@ module('FastBoot | redirects test', function(hooks) {
 
     assert.equal(statusCode, 307);
     assert.equal(url, '/');
-    assert.equal(headers.location, '//ember-cli-fastboot-testing.localhost/');
+    assert.equal(headers.location, `//${window.location.host}/`);
   });
 
 });
