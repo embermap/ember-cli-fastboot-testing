@@ -98,7 +98,7 @@ module('FastBoot | The posts page', function(hooks) {
     assert.dom('h1.title').includesText('Hello world!');
   });
 
-  test('it renders a post', async function(assert) {
+  test('it renders an error when the post is not found', async function(assert) {
 
     await fetch("/create-fastboot-testing-mock", {
       method: "post",
