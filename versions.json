@@ -59,5 +59,11 @@
     "name": "Latest",
     "sha": "43eaf4eacb01b658107f519f01497b936a27c683",
     "tag": null
+  },
+  "before-create-fastboot-hook": {
+    "path": "versions/before-create-fastboot-hook",
+    "name": "before-create-fastboot-hook",
+    "sha": "c98705566c34379d7987122bbb5e6d8846900347",
+    "tag": null
   }
 }
