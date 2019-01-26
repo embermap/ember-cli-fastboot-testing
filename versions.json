@@ -63,7 +63,7 @@
   "before-create-fastboot-hook": {
     "path": "versions/before-create-fastboot-hook",
     "name": "before-create-fastboot-hook",
-    "sha": "a4925e0caf4dbf54e1d47cf729f667a4476f201f",
+    "sha": "6122de73822748aa9a81b1bf4253a19cdb5026f6",
     "tag": null
   },
   "v0.0.9": {
