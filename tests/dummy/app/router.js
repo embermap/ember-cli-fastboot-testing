@@ -11,6 +11,8 @@ Router.map(function() {
     this.route('quickstart');
     this.route('debugging');
     this.route('videos');
+    this.route('hooks');
+    this.route('network-mocking');
     this.route('html');
     this.route('document');
     this.route('status-code');
