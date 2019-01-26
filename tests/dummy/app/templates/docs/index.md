@@ -1,6 +1,6 @@
 # Why test FastBoot?
 
-FastBoot applications run on the server inside of a node process that does not support the full DOM specification. The server's minimal DOM implementation is optimized for Ember's view layer, but its missing APIs often lead to surprising and unexpected bugs.
+FastBoot applications run on the server inside of a node process that does not support the full DOM specification. The server's minimal DOM implementation is optimized for Ember's view layer, but missing APIs often lead to surprising and unexpected bugs.
 
 Ember has an amazing suite of testing tools built into the framework. As Ember developers, we've come to rely on a passing test suite as a sign the application is ready to be deployed.
 
@@ -17,7 +17,9 @@ Component.extend({
     // When the component is rendered with a loading spinner we
     // need to figure out how to adjust the left margin so we can
     // make room for the spinner
-    let spinnerWidth = this.$('[data-loading-spinner]').width();
+    let spinnerWidth = this.element
+      .querySelector('[data-loading-spinner]')
+      .offsetWidth();
     let offset = spinnerWidth / 2;
 
     this.set('spinnerOffset', `margin-left: -${offset}px`);
@@ -26,9 +28,9 @@ Component.extend({
 })
 ```
 
-This code relies on jQuery's `width` method to preform this calculation. We've got this code tested in our application and it's passing, but when we go to render a page using this component in FastBoot we get a 500 error.
+This code relies on an elements `offsetWidth` method to preform this calculation. We've got this code tested in our application and it's passing, but when we go to render a page using this component in FastBoot we get a 500 error.
 
-That's because jQuery doesn't work in FastBoot. There's no `document` API, so this code crashes our application even though our test suite is passing.
+That's because there's there's no `document` API in FastBoot, so this code crashes our application even though our test suite is passing.
 
 Wouldn't it be great if we could run our test suite in FastBoot? That way, we know there's no code in our application that's incompatible with FastBoot's DOM API.
 
