@@ -31,4 +31,86 @@ module.exports = function(hooks) {
 
 ## Per test responses
 
-> TODO: This is harder!
+You may want to add mocks specific to a single FastBoot test. Currently, there is no high level API to accomplish this, but with hooks such a system can be built.
+
+The code below creates an express middleware that lets your FastBoot tests define their own mocks. These mocks are then created using nock before any calls are made to FastBoot. Once FastBoot has finished generating a response, these mocks are destroyed.
+
+```js
+let perTestMocks = [];
+
+modules.exports = function(hooks) {
+
+  // the middleware exposes an endpoint letting our tests
+  // create mocks.
+  hooks.middleware(({ app, fastbootTesting }) => {
+    app.post('/create-fastboot-testing-mock', (res, res) => {
+      let urlToMock = req.body.urlToMock;
+      let mockStatusCode = req.body.mockStatusCode;
+      let mockResponse = req.body.mockResponse;
+
+      let mock = nock.get(urlToMock)
+        .reply(mockStatusCode, mockResponse);
+
+      perTestMocks.push(mock);
+
+      res.send(201);
+    });
+
+    app.use(fastbootTesting);
+  });
+
+  // the after visit hook will clear out all mocks that were created
+  // for our test.
+  hooks.afterVisit(() => {
+    perTestMocks.forEach(mock => nock.removeInterceptor(mock));
+
+    perTestMocks = [];
+  });
+}
+```
+
+Next, each of our FastBoot tests can create their own mocks using the `/create-fastboot-testing-mock` endpoint. Here's an exa
+
+```js
+import fetch from 'fetch';
+import { module, test } from 'qunit';
+import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+
+module('FastBoot | The posts page', function(hooks) {
+  setup(hooks);
+
+  test('it renders a post', async function(assert) {
+
+    await fetch("/create-fastboot-testing-mock", {
+      method: "post",
+      body: JSON.stringify({
+        urlToMock: '/api/posts/1',
+        mockStatusCode: 200,
+        mockResponse: {
+          title: "Hello world!",
+          body: "..."
+        }
+      })
+    });
+
+    await visit('/posts/1');
+
+    assert.dom('h1.title').includesText('Hello world!');
+  });
+
+  test('it renders a post', async function(assert) {
+
+    await fetch("/create-fastboot-testing-mock", {
+      method: "post",
+      body: JSON.stringify({
+        urlToMock: '/api/posts/1',
+        mockStatusCode: 404,
+      })
+    });
+
+    await visit('/posts/1');
+
+    assert.dom('h1.title').includesText('Post not found');
+  });
+});
+```
