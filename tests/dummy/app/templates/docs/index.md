@@ -28,7 +28,7 @@ Component.extend({
 })
 ```
 
-This code relies on an elements `offsetWidth` method to preform this calculation. We've got this code tested in our application and it's passing, but when we go to render a page using this component in FastBoot we get a 500 error.
+This code relies on the `offsetWidth` of an element in our template preform this calculation. We've got this code tested in our application and it's passing, but when we go to render a page using this component in FastBoot we get a 500 error.
 
 That's because there's there's no `document` API in FastBoot, so this code crashes our application even though our test suite is passing.
 
