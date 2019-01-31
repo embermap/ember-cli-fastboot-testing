@@ -69,7 +69,7 @@ modules.exports = function(hooks) {
 }
 ```
 
-Next, each of our FastBoot tests can create their own mocks using the `/create-fastboot-testing-mock` endpoint. Here's an exa
+Next, each of our FastBoot tests can create their own mocks using the `/create-fastboot-testing-mock` endpoint. Here's an example:
 
 ```js
 import fetch from 'fetch';
