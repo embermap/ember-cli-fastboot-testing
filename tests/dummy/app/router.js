@@ -27,6 +27,9 @@ Router.map(function() {
 
     this.route('request-object');
 
+    this.route('load-data');
+    this.route('load-data-post');
+
     this.route('errors', function() {
       this.route('throw-message');
       this.route('throw-error-object');

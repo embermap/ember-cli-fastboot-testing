@@ -21,11 +21,13 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ember-auto-import": "^1.2.15",
     "ember-cli-babel": "^6.6.0",
     "fastboot": "1.2.* || 2.*",
     "jquery-param": "^1.0.1",
     "resolve": "^1.10.0",
+    "nock": "^10.0.6",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
@@ -53,7 +55,7 @@
     "ember-cli-uglify": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
-    "ember-fetch": "^6.4.0",
+    "ember-fetch": "^6.5.0",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
