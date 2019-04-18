@@ -9,7 +9,7 @@ module('FastBoot | request object test', function(hooks) {
 
     assert
       .dom('[data-test-id=host]')
-      .includesText('localhost:7357');
+      .includesText(window.location.host);
   });
 
   test('it has a protocol', async function(assert) {
