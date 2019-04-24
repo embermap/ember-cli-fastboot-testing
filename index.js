@@ -11,6 +11,10 @@ module.exports = {
     return false;
   },
 
+  isEnabled() {
+    return this.app.env !== "production";
+  },
+
   included() {
     this._super.included.apply(this, arguments);
 
