@@ -2,12 +2,23 @@
 
 let FastBoot = require('fastboot');
 let url = require('url');
+let resolve = require('resolve');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
 
   isDevelopingAddon() {
     return false;
+  },
+
+  included() {
+    this._super.included.apply(this, arguments);
+
+    try {
+      resolve.sync('ember-cli-fastboot/package.json', { basedir: this.project.root });
+    } catch(err) {
+      throw new Error(`Unable to find FastBoot. Did you forget to add ember-cli-fastboot to your app? ${err}`);
+    }
   },
 
   serverMiddleware(options) {
