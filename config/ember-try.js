@@ -69,6 +69,24 @@ module.exports = function() {
           }
         },
         {
+          name: 'fastboot-1.2',
+          npm: {
+            devDependencies: {
+              'ember-source': '~3.8.0',
+              'fastboot': '~1.2.0'
+            }
+          }
+        },
+        {
+          name: 'fastboot-2.0',
+          npm: {
+            devDependencies: {
+              'ember-source': '~3.8.0',
+              'fastboot': '~2.0.0'
+            }
+          }
+        },
+        {
           name: 'ember-release',
           npm: {
             devDependencies: {
