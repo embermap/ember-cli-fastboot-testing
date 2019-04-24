@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-fastboot-testing",
   "version": "0.0.10",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Test your FastBoot-rendered HTML alongside your application's tests.",
   "keywords": [
     "ember-addon"
   ],
