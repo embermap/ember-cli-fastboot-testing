@@ -65,6 +65,31 @@ module.exports = {
               html: html
             });
           });
+        })
+        .catch(err => {
+          let errorObject;
+          let jsonError = {};
+
+          errorObject = (typeof err === 'string') ?
+            new Error(err) :
+            err;
+
+          // we need to copy these properties off the error
+          // object into a pojo that can be serialized and
+          // sent over the wire to the test runner.
+          let errorProps = [
+            'description',
+            'fileName',
+            'lineNumber',
+            'message',
+            'name',
+            'number',
+            'stack'
+          ];
+
+          errorProps.forEach(key => jsonError[key] = errorObject[key]);
+
+          res.json({ err: jsonError });
         });
     });
   },
