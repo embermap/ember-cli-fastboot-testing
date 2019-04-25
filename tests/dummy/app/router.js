@@ -27,6 +27,12 @@ Router.map(function() {
 
     this.route('request-object');
 
+    this.route('errors', function() {
+      this.route('throw-message');
+      this.route('throw-error-object');
+      this.route('access-document');
+    });
+
     this.route('not-found', { path: '/*path' });
   });
 

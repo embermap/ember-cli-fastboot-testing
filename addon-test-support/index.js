@@ -17,10 +17,12 @@ export async function fastboot(url, { headers = {} }) {
   let response = await fetch(endpoint);
   let result = await response.json();
 
-  let body = extractBody(result.html);
+  let body = result.err ?
+    formatError(result.err) :
+    extractBody(result.html);
 
-  result.body = body;
   result.htmlDocument = parseHtml(result.html)
+  result.body = body;
 
   return result;
 }
@@ -58,3 +60,7 @@ export function extractBody(html) {
 
   return html.substr(startAt, endAt);
 }
+
+let formatError = function(err) {
+  return `<pre>${err.stack}</pre>`;
+};
