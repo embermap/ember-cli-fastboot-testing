@@ -31,7 +31,7 @@ module('Fastboot | basic', function(hooks) {
   });
 
   test('it preserves all query parameters', async function(assert) {
-    await visit('/query-parameters?first=1&second=2&third=3');
+    await visit('/examples/query-parameters?first=1&second=2&third=3');
 
     assert.dom('h1').hasText('1 2 3');
   });
