@@ -28,7 +28,24 @@ export async function fastboot(url, { headers = {} }) {
 }
 
 export async function visit(url, options = {}) {
-  let result = await fastboot(url, { headers: options.headers || {} });
+  let result;
+
+  try {
+    result = await fastboot(url, { headers: options.headers || {} });
+  } catch (e) {
+    let message;
+
+    if (e.message && e.message.match(/^Mirage:/)) {
+      message = `Ember CLI FastBoot Testing: It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render ${url}. Please disable Mirage when running FastBoot tests.`;
+      console.error(message);
+      throw new Error(message);
+    } else if (e.message) {
+      message = `Ember CLI FastBoot Testing: generic error`
+    } else {
+
+    }
+
+  }
 
   document.querySelector('#ember-testing').innerHTML = result.body;
 
