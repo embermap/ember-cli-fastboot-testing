@@ -89,5 +89,11 @@
     "name": "v0.0.12",
     "sha": "e95aef3a490ba3de5d88629edb294c58f0ed6c59",
     "tag": "v0.0.12"
+  },
+  "fix-addon-docs-build": {
+    "path": "versions/fix-addon-docs-build",
+    "name": "fix-addon-docs-build",
+    "sha": "aa490bc388d21d381c57ac0d8ef9de9ecb5d9c42",
+    "tag": null
   }
 }
