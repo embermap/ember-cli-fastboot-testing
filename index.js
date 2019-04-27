@@ -53,6 +53,8 @@ module.exports = {
         response: {}
       };
 
+      res.set('x-fastboot-testing', true);
+
       this.fastboot
         .visit(urlToVisit, options)
         .then(page => {
