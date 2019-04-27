@@ -1,0 +1,1 @@
+{"jsonapi":{"version":"1.0"},"data":{"type":"project","id":"ember-cli-fastboot-testing","attributes":{"name":"ember-cli-fastboot-testing","version":"0.0.12","navigationIndex":[]},"relationships":{"modules":{"data":[]}}}}
