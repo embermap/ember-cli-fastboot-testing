@@ -32,10 +32,9 @@ Router.map(function() {
       this.route('throw-error-object');
       this.route('access-document');
     });
-
-    this.route('not-found', { path: '/*path' });
   });
 
+  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;
