@@ -57,8 +57,8 @@
   "-latest": {
     "path": "",
     "name": "Latest",
-    "sha": "aa490bc388d21d381c57ac0d8ef9de9ecb5d9c42",
-    "tag": null
+    "sha": "03311a194d8e3eccfba3f7a68045054066e3efa2",
+    "tag": "v0.0.13"
   },
   "before-create-fastboot-hook": {
     "path": "versions/before-create-fastboot-hook",
@@ -95,5 +95,11 @@
     "name": "fix-addon-docs-build",
     "sha": "aa490bc388d21d381c57ac0d8ef9de9ecb5d9c42",
     "tag": null
+  },
+  "v0.0.13": {
+    "path": "versions/v0.0.13",
+    "name": "v0.0.13",
+    "sha": "03311a194d8e3eccfba3f7a68045054066e3efa2",
+    "tag": "v0.0.13"
   }
 }
