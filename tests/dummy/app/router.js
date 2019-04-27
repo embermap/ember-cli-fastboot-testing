@@ -27,8 +27,10 @@ Router.map(function() {
 
     this.route('request-object');
 
-    this.route('load-data');
-    this.route('load-data-post');
+    this.route('network', function() {
+      this.route('post');
+      this.route('get');
+    });
 
     this.route('errors', function() {
       this.route('throw-message');
