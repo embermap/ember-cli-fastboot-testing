@@ -13,8 +13,7 @@ export function setup(hooks) {
 }
 
 export async function fastboot(url, { headers = {} }) {
-  let endpoint = `/__fastboot-testing?${param({url, headers})}`;
-  let response = await fetch(endpoint);
+  let response = await fetchFromEmberCli(url, headers);
   let result = await response.json();
 
   let body = result.err ?
@@ -35,16 +34,42 @@ export async function visit(url, options = {}) {
   return result;
 }
 
-export function renderedHtml() {
-  return document.querySelector('#ember-testing').innerHTML;
-}
+// private
 
-export function parseHtml(str) {
+let fetchFromEmberCli = async function(url, headers) {
+  let endpoint = `/__fastboot-testing?${param({url, headers})}`;
+  let response;
+  let error;
+
+  try {
+    response = await fetch(endpoint);
+  } catch (e) {
+    if (e.message && e.message.match(/^Mirage:/)) {
+      error = `Ember CLI FastBoot Testing: It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render ${url}. Please disable Mirage when running FastBoot tests.`;
+    } else {
+      error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests? Error: ${e.message ? e.message : e}.`
+    }
+  }
+
+  if (response && response.headers && response.headers.get && response.headers.get('x-fastboot-testing') !== 'true') {
+    error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests?`;
+  }
+
+  if (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    throw new Error(error);
+  }
+
+  return response;
+};
+
+let parseHtml = function(str) {
   let parser = new DOMParser();
   return parser.parseFromString(str, "text/html");
 }
 
-export function extractBody(html) {
+let extractBody = function(html) {
   let start = '<script type="x/boundary" id="fastboot-body-start"></script>';
   let end = '<script type="x/boundary" id="fastboot-body-end"></script>';
 
