@@ -2,7 +2,7 @@
   "master": {
     "path": "versions/master",
     "name": "master",
-    "sha": "3dbb8612f21204bc8b3c562ecf6c09aad79f58e7",
+    "sha": "aa490bc388d21d381c57ac0d8ef9de9ecb5d9c42",
     "tag": null
   },
   "v0.0.1": {
@@ -57,7 +57,7 @@
   "-latest": {
     "path": "",
     "name": "Latest",
-    "sha": "3dbb8612f21204bc8b3c562ecf6c09aad79f58e7",
+    "sha": "aa490bc388d21d381c57ac0d8ef9de9ecb5d9c42",
     "tag": null
   },
   "before-create-fastboot-hook": {
