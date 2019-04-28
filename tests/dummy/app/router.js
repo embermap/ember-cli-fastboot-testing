@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('document');
     this.route('status-code');
     this.route('visit');
+    this.route('network-mocking');
   });
 
   this.route('examples', function() {
@@ -28,8 +29,14 @@ Router.map(function() {
     this.route('request-object');
 
     this.route('network', function() {
-      this.route('post');
-      this.route('get');
+      this.route('posts', function() {
+        this.route('post', { path: ':post_id' });
+      });
+
+      this.route('other', function() {
+        this.route('get-request');
+        this.route('post-request');
+      });
     });
 
     this.route('errors', function() {

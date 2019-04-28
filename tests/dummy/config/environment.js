@@ -24,6 +24,9 @@ module.exports = function(environment) {
     },
     fastboot: {
       hostWhitelist: [/^localhost:\d+$/]
+    },
+    'ember-cli-mirage': {
+      enabled: false
     }
   };
 

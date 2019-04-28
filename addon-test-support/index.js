@@ -1,47 +1,7 @@
 import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
+import { mockServer } from './-private/mock-server';
 import param from 'jquery-param';
-
-let cleanupMocks = function() {
-  return fetch('/__cleanup-mocks');
-};
-
-let createMock = async function(path, method, statusCode, response) {
-  return await fetch('/__mock-request', {
-    method: 'post',
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      path,
-      method,
-      statusCode,
-      response
-    }),
-  });
-}
-
-export let mockServer = {
-  async get(path, response, status = 200) {
-    return createMock(path, "GET", status, response);
-  },
-
-  async post(path, response, status = 200) {
-    return createMock(path, "POST", status, response);
-  },
-
-  async patch(path, response, status = 200) {
-    return createMock(path, "PATCH", status, response);
-  },
-
-  async put(path, response, status = 200) {
-    return createMock(path, "PUT", status, response);
-  },
-
-  async delete(path, response, status = 200) {
-    return createMock(path, "DELETE", status, response);
-  }
-};
 
 export function setup(hooks) {
   hooks.beforeEach(function() {
@@ -49,7 +9,7 @@ export function setup(hooks) {
   });
 
   hooks.afterEach(async function() {
-    await cleanupMocks();
+    await mockServer.cleanUp();
     return teardownContext(this);
   });
 }
@@ -75,6 +35,8 @@ export async function visit(url, options = {}) {
 
   return result;
 }
+
+export { mockServer };
 
 // private
 

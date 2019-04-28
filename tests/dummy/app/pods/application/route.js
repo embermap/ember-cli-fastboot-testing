@@ -7,5 +7,4 @@ export default Route.extend({
   afterModel() {
     this.set('headData.title', 'Fastboot testing');
   }
-
 });
