@@ -4,9 +4,9 @@
     "assets/auto-import-fastboot.js": "assets/auto-import-fastboot-d41d8cd98f00b204e9800998ecf8427e.js",
     "assets/dummy-fastboot.js": "assets/dummy-fastboot-b032a950c0eef68da8235fa90a579fa4.js",
     "assets/dummy.css": "assets/dummy-a6dc006e61e25c24c9bceeba9f5c37ea.css",
-    "assets/dummy.js": "assets/dummy-d128b73a01344f1389e56e309cbb2d5a.js",
+    "assets/dummy.js": "assets/dummy-aeac46d9be388442981e6a4e12cbe253.js",
     "assets/vendor.css": "assets/vendor-529ba0a78524629a093f46b767151bf2.css",
-    "assets/vendor.js": "assets/vendor-bd0857d013431fac919484ffcaf98340.js",
+    "assets/vendor.js": "assets/vendor-0f623012f4cd5222b0ea38cd509e58d3.js",
     "ember-fetch/fetch-fastboot.js": "ember-fetch/fetch-fastboot-5e5d008c8b65b0ac116f7635d0c6c6b9.js"
   },
   "prepend": ""
