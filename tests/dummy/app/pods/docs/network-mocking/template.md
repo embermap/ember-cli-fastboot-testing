@@ -1,10 +1,10 @@
 # Network mocking
 
-Just about every Ember application ends up having pages that require data from an external API. It's common to use tools like [Mirage](https://www.ember-cli-mirage.com/) to mock the network when testing these applications.
+Just about every Ember application ends up having pages that depend on data from an external API. It's common to use tools like [Mirage](https://www.ember-cli-mirage.com/) to mock the network when testing these applications.
 
-It makes sense that we would also want to mock the network in FastBoot tests. However, since FastBoot runs inside of Node.js, we'll need to use a network mocking library that is written for node applications.
+It makes sense that we would also want to mock the network while running FastBoot tests. However, since FastBoot runs inside of Node.js, we'll need to use a network mocking library that is written for node.
 
-FastBoot Testing exposes an API for networking mocking in node that can be used to intercept requests made from your FastBoot app.
+FastBoot Testing exposes an API for intercepting requests made from your FastBoot app.
 
 The following example shows how to mock a test that fetches blog post data.
 
@@ -17,10 +17,12 @@ module('Fastboot | Blog post page', function(hooks) {
 
   test('it can render a blog post', async function(assert) {
     await mockServer.get('/api/posts/1', {
-      type: 'post',
-      id: '1',
-      attributes: {
-        title: 'Hello world!'
+      data: {
+        type: 'post',
+        id: '1',
+        attributes: {
+          title: 'Hello world!'
+        }
       }
     });
 
