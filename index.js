@@ -3,6 +3,8 @@
 let FastBoot = require('fastboot');
 let url = require('url');
 let resolve = require('resolve');
+let nock = require('nock');
+let bodyParser = require('body-parser')
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
@@ -39,6 +41,23 @@ module.exports = {
   },
 
   _fastbootRenderingMiddleware(app) {
+
+    app.use(bodyParser.json());
+    app.post('/__mock-request', (req, res) => {
+      let mock = nock(req.headers.origin)
+        .persist()
+        .intercept(req.body.path, req.body.method)
+        .reply(req.body.statusCode, req.body.response);
+
+      res.json({ mocks: mock.pendingMocks() });
+    });
+
+    app.use('/__cleanup-mocks', (req, res) => {
+      nock.cleanAll()
+
+      res.json({ ok: true });
+    });
+
     app.use('/__fastboot-testing', (req, res) => {
       let urlToVisit = decodeURIComponent(req.query.url);
       let parsed = url.parse(urlToVisit, true);

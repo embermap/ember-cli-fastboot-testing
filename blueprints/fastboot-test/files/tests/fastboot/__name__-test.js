@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+import { setup, visit, /* mockServer */ } from 'ember-cli-fastboot-testing/test-support';
 
 module('FastBoot | <%= dasherizedModuleName %> test', function(hooks) {
   setup(hooks);

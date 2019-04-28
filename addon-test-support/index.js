@@ -1,5 +1,6 @@
 import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
+import { mockServer } from './-private/mock-server';
 import param from 'jquery-param';
 
 export function setup(hooks) {
@@ -7,7 +8,8 @@ export function setup(hooks) {
     return setupContext(this);
   });
 
-  hooks.afterEach(function() {
+  hooks.afterEach(async function() {
+    await mockServer.cleanUp();
     return teardownContext(this);
   });
 }
@@ -33,6 +35,8 @@ export async function visit(url, options = {}) {
 
   return result;
 }
+
+export { mockServer };
 
 // private
 
