@@ -42,8 +42,7 @@ module.exports = {
 
   _fastbootRenderingMiddleware(app) {
 
-    app.use(bodyParser.json());
-    app.post('/__mock-request', (req, res) => {
+    app.post('/__mock-request', bodyParser.json(), (req, res) => {
       let mock = nock(req.headers.origin)
         .persist()
         .intercept(req.body.path, req.body.method)
@@ -118,6 +117,13 @@ module.exports = {
           res.json({ err: jsonError });
         });
     });
+
+    if (this.app.name === "dummy") {
+      // our dummy app has an echo endpoint!
+      app.post('/fastboot-testing/echo', bodyParser.text(), (req, res) => {
+        res.send(req.body);
+      });
+    }
   },
 
   postBuild(result) {

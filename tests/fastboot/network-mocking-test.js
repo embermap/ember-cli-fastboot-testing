@@ -4,6 +4,11 @@ import { setup, visit, mockServer } from 'ember-cli-fastboot-testing/test-suppor
 module('Fastboot | network mocking', function(hooks) {
   setup(hooks);
 
+  test('it will not change an endpoint that already exists', async function(assert) {
+    await visit('/examples/network/other/echo?message=hello%20world');
+    assert.dom('[data-test-id="echo"]').hasText("hello world");
+  });
+
   test('it can mock an array of models', async function(assert) {
     await mockServer.get('/api/posts', {
       data: [
