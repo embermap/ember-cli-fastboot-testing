@@ -73,7 +73,7 @@ module.exports = function() {
           npm: {
             devDependencies: {
               'ember-source': '~3.8.0',
-              'fastboot': '~1.2.0'
+              'fastboot': '^1.2.1'
             }
           }
         },
