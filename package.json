@@ -24,7 +24,7 @@
     "body-parser": "^1.18.3",
     "ember-auto-import": "^1.2.15",
     "ember-cli-babel": "^6.6.0",
-    "fastboot": "1.2.* || 2.*",
+    "fastboot": "^1.2.1",
     "jquery-param": "^1.0.1",
     "resolve": "^1.10.0",
     "nock": "^10.0.6",
