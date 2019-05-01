@@ -36,6 +36,7 @@ Router.map(function() {
       this.route('other', function() {
         this.route('get-request');
         this.route('post-request');
+        this.route('echo');
       });
     });
 
