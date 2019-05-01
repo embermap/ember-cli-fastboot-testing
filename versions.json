@@ -57,8 +57,8 @@
   "-latest": {
     "path": "",
     "name": "Latest",
-    "sha": "0cee90ea962191a0102b9ae6b8c8a2a80ab4d5f9",
-    "tag": "v0.0.14"
+    "sha": "03b4c2ec486acf6e76ec58c18c2df2fdaaac8671",
+    "tag": "v0.0.15"
   },
   "before-create-fastboot-hook": {
     "path": "versions/before-create-fastboot-hook",
@@ -107,5 +107,11 @@
     "name": "v0.0.14",
     "sha": "0cee90ea962191a0102b9ae6b8c8a2a80ab4d5f9",
     "tag": "v0.0.14"
+  },
+  "v0.0.15": {
+    "path": "versions/v0.0.15",
+    "name": "v0.0.15",
+    "sha": "03b4c2ec486acf6e76ec58c18c2df2fdaaac8671",
+    "tag": "v0.0.15"
   }
 }
