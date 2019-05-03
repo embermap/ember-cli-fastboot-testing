@@ -4,7 +4,8 @@ import { mockServer } from './-private/mock-server';
 import param from 'jquery-param';
 
 export function setup(hooks) {
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
+    await mockServer.cleanUp();
     return setupContext(this);
   });
 
