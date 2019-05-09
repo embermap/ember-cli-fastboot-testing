@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setup, visit, /* mockServer */ } from 'ember-cli-fastboot-testing/test-support';
 
-module('FastBoot | <%= dasherizedModuleName %> test', function(hooks) {
+module('FastBoot | <%= dasherizedModuleName %>', function(hooks) {
   setup(hooks);
 
   test('it renders a page...', async function(assert) {
