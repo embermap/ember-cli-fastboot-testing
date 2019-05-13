@@ -118,7 +118,7 @@ module.exports = {
         });
     });
 
-    if (this.app.name === "dummy") {
+    if (this.app && this.app.name === "dummy") {
       // our dummy app has an echo endpoint!
       app.post('/fastboot-testing/echo', bodyParser.text(), (req, res) => {
         res.send(req.body);
