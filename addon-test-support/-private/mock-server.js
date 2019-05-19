@@ -1,6 +1,6 @@
 import { fetch } from 'whatwg-fetch';
 
-let createMock = async function(path, method, statusCode, response) {
+let createMock = async function({ path, method, body, statusCode, response }) {
   return await fetch('/__mock-request', {
     method: 'post',
     headers: {
@@ -8,6 +8,7 @@ let createMock = async function(path, method, statusCode, response) {
     },
     body: JSON.stringify({
       path,
+      body,
       method,
       statusCode,
       response
@@ -15,28 +16,48 @@ let createMock = async function(path, method, statusCode, response) {
   });
 }
 
-export let mockServer = {
-  async get(path, response, status = 200) {
-    return createMock(path, "GET", status, response);
+let mockServer = {
+  get(path, response, statusCode = 200) {
+    // when needed we'll change this to use something like MockGet
+    // see MockPost for the idea
+    return createMock({
+      path,
+      method: "GET",
+      statusCode,
+      response
+    });
   },
 
-  async post(path, response, status = 200) {
-    return createMock(path, "POST", status, response);
-  },
-
-  async patch(path, response, status = 200) {
-    return createMock(path, "PATCH", status, response);
-  },
-
-  async put(path, response, status = 200) {
-    return createMock(path, "PUT", status, response);
-  },
-
-  async delete(path, response, status = 200) {
-    return createMock(path, "DELETE", status, response);
+  post(path, body = {}) {
+    return new MockPost({ path, body });
   },
 
   async cleanUp() {
     return fetch('/__cleanup-mocks');
   }
 };
+
+class MockPost {
+  constructor({ path, body }) {
+    this.path = path;
+    this.body = body;
+    this.status = 200;
+  }
+
+  statusCode(status) {
+    this.status = status;
+    return this;
+  }
+
+  reply(response) {
+    return createMock({
+      path: this.path,
+      body: this.body,
+      method: "POST",
+      statusCode: this.status,
+      response
+    });
+  }
+}
+
+export { mockServer };

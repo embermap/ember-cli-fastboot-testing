@@ -68,7 +68,7 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock a get request', async function(assert) {
-    await mockServer.post('/api/posts', [
+    await mockServer.get('/api/posts', [
       { id: 1, title: 'get post'},
     ]);
 
@@ -78,9 +78,14 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock a post request', async function(assert) {
-    await mockServer.post('/api/posts', [
-      { id: 1, title: 'post post'},
-    ]);
+    await mockServer
+      .post('/api/posts')
+      .reply([
+        {
+          id: 1,
+          title: 'post post'
+        }
+      ]);
 
     await visit('/examples/network/other/post-request');
 
