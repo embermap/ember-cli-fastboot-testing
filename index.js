@@ -45,7 +45,7 @@ module.exports = {
     app.post('/__mock-request', bodyParser.json(), (req, res) => {
       let mock = nock(req.headers.origin)
         .persist()
-        .intercept(req.body.path, req.body.method)
+        .intercept(req.body.path, req.body.method, req.body.body)
         .reply(req.body.statusCode, req.body.response);
 
       res.json({ mocks: mock.pendingMocks() });

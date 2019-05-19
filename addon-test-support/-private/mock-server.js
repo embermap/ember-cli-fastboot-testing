@@ -28,7 +28,7 @@ let mockServer = {
     });
   },
 
-  post(path, body = {}) {
+  post(path, body) {
     return new MockPost({ path, body });
   },
 

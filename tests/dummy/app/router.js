@@ -33,6 +33,11 @@ Router.map(function() {
         this.route('post', { path: ':post_id' });
       });
 
+      this.route('graphql', function() {
+        this.route('simple');
+        this.route('variables', { path: 'variables/:id' });
+      });
+
       this.route('other', function() {
         this.route('get-request');
         this.route('post-request');
