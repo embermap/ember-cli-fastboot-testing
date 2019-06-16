@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "comlink": "^4.0.1",
     "ember-auto-import": "^1.2.15",
     "ember-cli-babel": "^6.6.0",
     "fastboot": "^1.2.1",

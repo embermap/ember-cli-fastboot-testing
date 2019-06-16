@@ -2,6 +2,7 @@ import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
 import { mockServer } from './-private/mock-server';
 import param from 'jquery-param';
+import * as Comlink from 'comlink';
 
 export function setup(hooks) {
   hooks.beforeEach(async function() {
@@ -38,6 +39,35 @@ export async function visit(url, options = {}) {
 }
 
 export { mockServer };
+
+export const nock = Comlink.wrapChain({
+  listeners: [],
+
+  async postMessage(message) {
+    let response = await fetch('/__nock-proxy', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(message),
+    });
+
+    let result = await response.json();
+
+    for (let listener of this.listeners) {
+      listener({ data: result });
+    }
+  },
+
+  addEventListener(type, listener) {
+    this.listeners.push(listener);
+  },
+
+  removeEventListener(type, listener) {
+    let index = this.listeners.indexOf(listener);
+    this.listeners.splice(index, 1);
+  },
+});
 
 // private
 

@@ -4,7 +4,46 @@ let FastBoot = require('fastboot');
 let url = require('url');
 let resolve = require('resolve');
 let nock = require('nock');
-let bodyParser = require('body-parser')
+let bodyParser = require('body-parser');
+let Comlink = require('comlink');
+
+let nockInterface = {
+  listeners: [],
+  lastMessage: null,
+
+  dispatchEvent(message) {
+    let listener = this.listeners[0];
+    return listener({ data: message });
+  },
+
+  postMessage(message) {
+    this.lastMessage = message;
+  },
+
+  addEventListener(type, listener) {
+    this.listeners.push(listener);
+  },
+
+  removeEventListener(type, listener) {
+    let index = this.listeners.indexOf(listener);
+    this.listeners.splice(index, 1);
+  },
+}
+
+Comlink.expose(nock, nockInterface);
+
+let getCircularReplacer = () => {
+  let seen = new WeakSet();
+  return (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
+}
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
@@ -41,6 +80,16 @@ module.exports = {
   },
 
   _fastbootRenderingMiddleware(app) {
+    app.post('/__nock-proxy', bodyParser.json(), (req, res) => {
+      nockInterface.dispatchEvent(req.body).then(() => {
+        let body = JSON.stringify(
+          nockInterface.lastMessage,
+          getCircularReplacer()
+        );
+
+        res.send(body);
+      });
+    });
 
     app.post('/__mock-request', bodyParser.json({ limit: '50mb' }), (req, res) => {
       let mock = nock(req.headers.origin)
