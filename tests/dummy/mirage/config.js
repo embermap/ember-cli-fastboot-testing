@@ -15,11 +15,11 @@ export default function() {
   /*
     Shorthand cheatsheet:
 
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
+    this.get('/notes');
+    this.post('/notes');
+    this.get('/notes/:id');
+    this.put('/notes/:id'); // or this.patch
+    this.del('/notes/:id');
 
     http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
   */

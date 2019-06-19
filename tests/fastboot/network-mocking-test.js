@@ -10,17 +10,17 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock an array of models', async function(assert) {
-    await mockServer.get('/api/posts', {
+    await mockServer.get('/api/notes', {
       data: [
         {
-          type: 'post',
+          type: 'note',
           id: '1',
           attributes: {
-            title: 'test post'
+            title: 'test note'
           }
         },
         {
-          type: 'post',
+          type: 'note',
           id: '2',
           attributes: {
             title: 'test 2'
@@ -29,31 +29,31 @@ module('Fastboot | network mocking', function(hooks) {
       ]
     });
 
-    await visit('/examples/network/posts');
+    await visit('/examples/network/notes');
 
-    assert.dom('[data-test-id="title-1"]').hasText("test post")
+    assert.dom('[data-test-id="title-1"]').hasText("test note")
     assert.dom('[data-test-id="title-2"]').hasText("test 2")
   });
 
   test('it can mock a single model', async function(assert) {
-    await mockServer.get('/api/posts/1', {
+    await mockServer.get('/api/notes/1', {
       data: {
-        type: "posts",
+        type: "note",
         id: "1",
         attributes: {
-          title: 'test post'
+          title: 'test note'
         }
       }
     });
 
-    await visit('/examples/network/posts/1');
+    await visit('/examples/network/notes/1');
 
-    assert.dom('[data-test-id="title"]').hasText("test post");
+    assert.dom('[data-test-id="title"]').hasText("test note");
   });
 
   test('it can mock 404s', async function(assert) {
     await mockServer.get(
-      '/api/posts/1',
+      '/api/notes/1',
       {
         errors: [
           { title: "Not found" }
@@ -62,28 +62,28 @@ module('Fastboot | network mocking', function(hooks) {
       404
     );
 
-    await visit('/examples/network/posts/1');
+    await visit('/examples/network/notes/1');
 
-    assert.dom().includesText('Ember Data Request GET /api/posts/1 returned a 404');
+    assert.dom().includesText('Ember Data Request GET /api/notes/1 returned a 404');
   });
 
   test('it can mock a get request', async function(assert) {
-    await mockServer.post('/api/posts', [
-      { id: 1, title: 'get post'},
+    await mockServer.post('/api/notes', [
+      { id: 1, title: 'get note'},
     ]);
 
     await visit('/examples/network/other/get-request');
 
-    assert.dom('[data-test-id="title-1"]').hasText("get post")
+    assert.dom('[data-test-id="title-1"]').hasText("get note")
   });
 
   test('it can mock a post request', async function(assert) {
-    await mockServer.post('/api/posts', [
-      { id: 1, title: 'post post'},
+    await mockServer.post('/api/notes', [
+      { id: 1, title: 'post note'},
     ]);
 
     await visit('/examples/network/other/post-request');
 
-    assert.dom('[data-test-id="title-1"]').hasText("post post")
+    assert.dom('[data-test-id="title-1"]').hasText("post note")
   });
 });

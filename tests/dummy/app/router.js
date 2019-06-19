@@ -29,8 +29,8 @@ Router.map(function() {
     this.route('request-object');
 
     this.route('network', function() {
-      this.route('posts', function() {
-        this.route('post', { path: ':post_id' });
+      this.route('notes', function() {
+        this.route('note', { path: ':note_id' });
       });
 
       this.route('other', function() {
