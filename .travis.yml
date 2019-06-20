@@ -44,9 +44,7 @@ jobs:
       env: NAME=floating dependencies
       install: yarn install --no-lockfile --non-interactive
       script: yarn test
-
-    - stage: versioned tests
-      env: EMBER_TRY_SCENARIO=ember-lts-2.8
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.8
     - env: EMBER_TRY_SCENARIO=ember-lts-2.18
     - env: EMBER_TRY_SCENARIO=ember-lts-3.4
     - env: EMBER_TRY_SCENARIO=ember-lts-3.8
