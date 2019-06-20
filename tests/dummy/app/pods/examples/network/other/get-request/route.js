@@ -4,7 +4,7 @@ import fetch from 'fetch';
 export default Route.extend({
 
   async model() {
-    let response = await fetch('/api/posts');
+    let response = await fetch('/api/notes');
     return await response.json();
   }
 
