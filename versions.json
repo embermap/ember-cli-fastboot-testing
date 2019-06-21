@@ -119,5 +119,11 @@
     "name": "v0.0.16",
     "sha": "61065f5327d6e657789fce77ccc7b3686902210a",
     "tag": "v0.0.16"
+  },
+  "addon-docs-terser": {
+    "path": "versions/addon-docs-terser",
+    "name": "addon-docs-terser",
+    "sha": "b0921e65be7f631766e8e4239432450d4a91d579",
+    "tag": null
   }
 }
