@@ -60,12 +60,6 @@
     "sha": "61065f5327d6e657789fce77ccc7b3686902210a",
     "tag": "v0.0.16"
   },
-  "before-create-fastboot-hook": {
-    "path": "versions/before-create-fastboot-hook",
-    "name": "before-create-fastboot-hook",
-    "sha": "60e88aff8714fbcc31e66d953e0ade87646b570d",
-    "tag": null
-  },
   "v0.0.9": {
     "path": "versions/v0.0.9",
     "name": "v0.0.9",
@@ -90,12 +84,6 @@
     "sha": "e95aef3a490ba3de5d88629edb294c58f0ed6c59",
     "tag": "v0.0.12"
   },
-  "fix-addon-docs-build": {
-    "path": "versions/fix-addon-docs-build",
-    "name": "fix-addon-docs-build",
-    "sha": "aa490bc388d21d381c57ac0d8ef9de9ecb5d9c42",
-    "tag": null
-  },
   "v0.0.13": {
     "path": "versions/v0.0.13",
     "name": "v0.0.13",
@@ -119,11 +107,5 @@
     "name": "v0.0.16",
     "sha": "61065f5327d6e657789fce77ccc7b3686902210a",
     "tag": "v0.0.16"
-  },
-  "addon-docs-terser": {
-    "path": "versions/addon-docs-terser",
-    "name": "addon-docs-terser",
-    "sha": "b0921e65be7f631766e8e4239432450d4a91d579",
-    "tag": null
   }
 }
