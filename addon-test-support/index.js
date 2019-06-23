@@ -1,7 +1,6 @@
 import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
 import { mockServer } from './-private/mock-server';
-import param from 'jquery-param';
 
 export function setup(hooks) {
   hooks.beforeEach(async function() {
@@ -15,8 +14,8 @@ export function setup(hooks) {
   });
 }
 
-export async function fastboot(url, { headers = {} }) {
-  let response = await fetchFromEmberCli(url, headers);
+export async function fastboot(url, options = {}) {
+  let response = await fetchFromEmberCli(url, options);
   let result = await response.json();
 
   let body = result.err ?
@@ -30,7 +29,7 @@ export async function fastboot(url, { headers = {} }) {
 }
 
 export async function visit(url, options = {}) {
-  let result = await fastboot(url, { headers: options.headers || {} });
+  let result = await fastboot(url, options);
 
   document.querySelector('#ember-testing').innerHTML = result.body;
 
@@ -41,13 +40,21 @@ export { mockServer };
 
 // private
 
-let fetchFromEmberCli = async function(url, headers) {
-  let endpoint = `/__fastboot-testing?${param({url, headers})}`;
+let fetchFromEmberCli = async function(url, options) {
   let response;
   let error;
 
   try {
-    response = await fetch(endpoint);
+    response = await fetch('/__fastboot-testing', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        url,
+        options,
+      }),
+    });
   } catch (e) {
     if (e.message && e.message.match(/^Mirage:/)) {
       error = `Ember CLI FastBoot Testing: It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render ${url}. Please disable Mirage when running FastBoot tests.`;

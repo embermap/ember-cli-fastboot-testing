@@ -7663,11 +7663,6 @@ jquery-deferred@^0.3.0:
   resolved "https://registry.yarnpkg.com/jquery-deferred/-/jquery-deferred-0.3.1.tgz#596eca1caaff54f61b110962b23cafea74c35355"
   integrity sha1-WW7KHKr/VPYbEQlisjyv6nTDU1U=
 
-jquery-param@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jquery-param/-/jquery-param-1.0.1.tgz#fba32ca58a91e8b1d64ac4765d2fe5a25ac46781"
-  integrity sha512-7HN1dLvfweR7lNDtajA8FfhghN+SKsKz/ME7D/PAPQ8eDUr2ub42WqeyrZptWEdslckrpKpp+ZGGiKjE+r7iuQ==
-
 jquery@^3.3.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
