@@ -42,7 +42,7 @@ module.exports = {
 
   _fastbootRenderingMiddleware(app) {
 
-    app.post('/__mock-request', bodyParser.json(), (req, res) => {
+    app.post('/__mock-request', bodyParser.json({ limit: '50mb' }), (req, res) => {
       let mock = nock(req.headers.origin)
         .persist()
         .intercept(req.body.path, req.body.method)
