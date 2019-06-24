@@ -14,6 +14,25 @@ export function setup(hooks) {
   });
 }
 
+/**
+ * TODO
+ *
+ * @example
+ * ```
+ * // TODO
+ * ```
+ *
+ * @param {string} url the URL path to render, like `/photos/1`
+ * @param {Object} options
+ * @param {string} [options.html] the HTML document to insert the rendered app into
+ * @param {Object} [options.metadata] Per request specific data used in the app.
+ * @param {Boolean} [options.shouldRender] whether the app should do rendering or not. If set to false, it puts the app in routing-only.
+ * @param {Boolean} [options.disableShoebox] whether we should send the API data in the shoebox. If set to false, it will not send the API data used for rendering the app on server side in the index.html.
+ * @param {Integer} [options.destroyAppInstanceInMs] whether to destroy the instance in the given number of ms. This is a failure mechanism to not wedge the Node process (See: https://github.com/ember-fastboot/fastboot/issues/90)
+ * @param {ClientRequest} [options.request] Node's `ClientRequest` object is provided to the Ember application via the FastBoot service.
+ * @param {ClientResponse} [options.response] Node's `ServerResponse` object is provided to the Ember application via the FastBoot service.
+ * @returns {Promise<Result>} result
+ */
 export async function fastboot(url, options = {}) {
   let response = await fetchFromEmberCli(url, options);
   let result = await response.json();
@@ -28,6 +47,25 @@ export async function fastboot(url, options = {}) {
   return result;
 }
 
+/**
+ * TODO
+ *
+ * @example
+ * ```
+ * // TODO
+ * ```
+ *
+ * @param {string} url the URL path to render, like `/photos/1`
+ * @param {Object} options
+ * @param {string} [options.html] the HTML document to insert the rendered app into
+ * @param {Object} [options.metadata] Per request specific data used in the app.
+ * @param {Boolean} [options.shouldRender] whether the app should do rendering or not. If set to false, it puts the app in routing-only.
+ * @param {Boolean} [options.disableShoebox] whether we should send the API data in the shoebox. If set to false, it will not send the API data used for rendering the app on server side in the index.html.
+ * @param {Integer} [options.destroyAppInstanceInMs] whether to destroy the instance in the given number of ms. This is a failure mechanism to not wedge the Node process (See: https://github.com/ember-fastboot/fastboot/issues/90)
+ * @param {ClientRequest} [options.request] Node's `ClientRequest` object is provided to the Ember application via the FastBoot service.
+ * @param {ClientResponse} [options.response] Node's `ServerResponse` object is provided to the Ember application via the FastBoot service.
+ * @returns {Promise<Result>} result
+ */
 export async function visit(url, options = {}) {
   let result = await fastboot(url, options);
 
