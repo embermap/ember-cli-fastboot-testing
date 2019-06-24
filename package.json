@@ -69,7 +69,7 @@
     "qunit-dom": "^0.6.2"
   },
   "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "node": "8.* || >= 10.*"
   },
   "resolutions": {
     "**/tough-cookie": "~2.4.0"
