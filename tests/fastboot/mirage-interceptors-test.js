@@ -1,7 +1,6 @@
 import { module, test } from 'qunit';
 import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-
+import { setupMirage } from 'ember-cli-mirage/test-support';
 
 /*
   This test is setup to emulate the following scenario: Someone is using
