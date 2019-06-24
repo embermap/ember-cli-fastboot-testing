@@ -80,7 +80,7 @@ module.exports = {
   },
 
   _fastbootRenderingMiddleware(app) {
-    app.post('/__nock-proxy', bodyParser.json(), (req, res) => {
+    app.post('/__nock-proxy', bodyParser.json({ limit: '50mb' }), (req, res) => {
       nockInterface.dispatchEvent(req.body).then(() => {
         let body = JSON.stringify(
           nockInterface.lastMessage,
