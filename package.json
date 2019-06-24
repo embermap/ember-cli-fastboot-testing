@@ -65,7 +65,7 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^9.1.0",
     "loader.js": "^4.2.3",
-    "pretender": "~2.1.0",
+    "pretender": "~3.0.1",
     "qunit-dom": "^0.6.2"
   },
   "engines": {
