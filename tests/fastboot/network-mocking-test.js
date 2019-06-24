@@ -86,4 +86,16 @@ module('Fastboot | network mocking', function(hooks) {
 
     assert.dom('[data-test-id="title-1"]').hasText("post note")
   });
+
+  test('it can mock a large response', async function(assert) {
+    let title = 'a'.repeat(1024 * 1024 * 5); // 5 MB
+
+    await mockServer.get('/api/notes', [
+      { id: 1, title },
+    ]);
+
+    await visit('/examples/network/other/get-request');
+
+    assert.dom('[data-test-id="title-1"]').exists();
+  });
 });
