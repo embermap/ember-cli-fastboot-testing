@@ -4828,17 +4828,21 @@ var t=e.isClipboardSupported=window&&window.Clipboard?window.Clipboard.isSupport
 e.default=Ember.Helper.helper(t)}),define("ember-cli-clipboard/templates/components/copy-button",["exports"],function(e){"use strict"
 e.__esModule=!0,e.default=Ember.HTMLBars.template({id:"sogRpHge",block:'{"symbols":["&default"],"statements":[[13,1],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"ember-cli-clipboard/templates/components/copy-button.hbs"}})}),define("ember-cli-fastboot/instance-initializers/clear-double-boot",["exports"],function(e){"use strict"
 function t(){var e=document.getElementById("fastboot-body-start")
-if(e){var t=document.getElementById("fastboot-body-end"),r=e.parentElement,n=void 0
-do{n=e.nextSibling,r.removeChild(e),e=n}while(n&&n!==t)
-r.removeChild(t)}}Object.defineProperty(e,"__esModule",{value:!0}),e.clearHtml=t,e.default={name:"clear-double-boot",initialize:function(e){if("undefined"==typeof FastBoot){var r=e.didCreateRootView
-e.didCreateRootView=function(){t(),r.apply(e,arguments)}}}}}),define("ember-cli-fastboot/locations/none",["exports"],function(e){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0})
-e.default=Ember.NoneLocation.extend({implementation:"fastboot",fastboot:Ember.inject.service(),_config:Ember.computed(function(){return Ember.getOwner(this).resolveRegistration("config:environment")}),_fastbootHeadersEnabled:Ember.computed.bool("_config.fastboot.fastbootHeaders"),_redirectCode:Ember.computed(function(){return Ember.get(this,"_config.fastboot.redirectCode")||307}),_response:Ember.computed.readOnly("fastboot.response"),_request:Ember.computed.readOnly("fastboot.request"),setURL:function(e){if(Ember.get(this,"fastboot.isFastBoot")){var t=Ember.get(this,"_response"),r=Ember.get(this,"path"),n=!r||0===r.length
+if(e){for(var t=document.getElementById("fastboot-body-end"),r=document.querySelectorAll('[type="fastboot/shoebox"]'),n=[],i=0;i<r.length;i++)n.push(r[i])
+var o,a=e.parentElement
+do{o=e.nextSibling,a.removeChild(e),e=o}while(o&&o!==t&&n.indexOf(o)<0)
+t.parentElement.removeChild(t)}}Object.defineProperty(e,"__esModule",{value:!0}),e.clearHtml=t,e.default=void 0
+var r={name:"clear-double-boot",initialize:function(e){if("undefined"==typeof FastBoot){var r=e.didCreateRootView
+e.didCreateRootView=function(){t(),r.apply(e,arguments)}}}}
+e.default=r}),define("ember-cli-fastboot/locations/none",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var t=Ember.NoneLocation.extend({implementation:"fastboot",fastboot:Ember.inject.service(),_config:Ember.computed(function(){return Ember.getOwner(this).resolveRegistration("config:environment")}),_fastbootHeadersEnabled:Ember.computed.bool("_config.fastboot.fastbootHeaders"),_redirectCode:Ember.computed(function(){return Ember.get(this,"_config.fastboot.redirectCode")||307}),_response:Ember.computed.readOnly("fastboot.response"),_request:Ember.computed.readOnly("fastboot.request"),setURL:function(e){if(Ember.get(this,"fastboot.isFastBoot")){var t=Ember.get(this,"_response"),r=Ember.get(this,"path"),n=!r||0===r.length
 if(!n){e=this.formatURL(e)
 var i=r!==e
-if(i){var o=Ember.get(this,"_request.host"),a="//"+o+e
-t.statusCode=this.get("_redirectCode"),t.headers.set("location",a)}}Ember.get(this,"_fastbootHeadersEnabled")&&t.headers.set("x-fastboot-path",e)}this._super.apply(this,arguments)}})}),define("ember-cli-fastboot/services/fastboot",["exports"],function(e){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0})
+if(i){var o=Ember.get(this,"_request.host"),a="//".concat(o).concat(e)
+t.statusCode=this.get("_redirectCode"),t.headers.set("location",a)}}Ember.get(this,"_fastbootHeadersEnabled")&&t.headers.set("x-fastboot-path",e)}this._super.apply(this,arguments)}})
+e.default=t}),define("ember-cli-fastboot/services/fastboot",["exports"],function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Object.extend({init:function(){this._super.apply(this,arguments)
 var e=this.request
 delete this.request,this.method=e.method,this.body=e.body,this.cookies=e.cookies,this.headers=e.headers,this.queryParams=e.queryParams,this.path=e.path,this.protocol=e.protocol,this._host=function(){return e.host()}},host:Ember.computed(function(){return this._host()})}),r=Ember.Object.extend({put:function(e,t){var r=this.get("fastboot._fastbootInfo")
@@ -4846,12 +4850,12 @@ r.shoebox||(r.shoebox={}),r.shoebox[e]=t},retrieve:function(e){if(this.get("fast
 if(!t)return
 return t[e]}var r=this.get(e)
 if(r)return r
-var n=document.querySelector("#shoebox-"+e)
+var n=document.querySelector("#shoebox-".concat(e))
 if(n){var i=n.textContent
 if(i)return r=JSON.parse(i),this.set(e,r),r}}}),n=Ember.Service.extend({cookies:Ember.computed.deprecatingAlias("request.cookies",{id:"fastboot.cookies-to-request",until:"0.9.9"}),headers:Ember.computed.deprecatingAlias("request.headers",{id:"fastboot.headers-to-request",until:"0.9.9"}),isFastBoot:"undefined"!=typeof FastBoot,init:function(){this._super.apply(this,arguments)
 var e=r.create({fastboot:this})
-this.set("shoebox",e)},host:Ember.computed(function(){return Ember.deprecate("Usage of fastboot service's `host` property is deprecated.  Please use `request.host` instead.",!1,{id:"fastboot.host-to-request",until:"0.9.9"}),this._fastbootInfo.request.host()}),response:Ember.computed.readOnly("_fastbootInfo.response"),metadata:Ember.computed.readOnly("_fastbootInfo.metadata"),request:Ember.computed(function(){return this.isFastBoot?t.create({request:Ember.get(this,"_fastbootInfo.request")}):null}),deferRendering:function(e){this._fastbootInfo.deferRendering(e)}})
-e.default=n}),define("ember-cli-head/components/head-layout",["exports","ember-cli-head/templates/components/head-layout"],function(e,t){"use strict"
+this.set("shoebox",e)},host:Ember.computed(function(){return this._fastbootInfo.request.host()}),response:Ember.computed.readOnly("_fastbootInfo.response"),metadata:Ember.computed.readOnly("_fastbootInfo.metadata"),request:Ember.computed(function(){return this.isFastBoot?t.create({request:Ember.get(this,"_fastbootInfo.request")}):null}),deferRendering:function(e){this._fastbootInfo.deferRendering(e)}}),i=n
+e.default=i}),define("ember-cli-head/components/head-layout",["exports","ember-cli-head/templates/components/head-layout"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({tagName:"",layout:t.default,shouldTearDownOnInit:!0,headElement:Ember.computed(function(){var e=Ember.getOwner(this).lookup("service:-document")
 return e.head}),init:function(){this._super.apply(this,arguments),Ember.get(this,"shouldTearDownOnInit")&&this._tearDownHead()},_tearDownHead:function(){if(!this._isFastboot()){var e=document.querySelector('meta[name="ember-cli-head-start"]'),t=document.querySelector('meta[name="ember-cli-head-end"]')
 if(e&&t){for(var r=e.nextSibling;r&&r!==t;)document.head.removeChild(r),r=e.nextSibling
