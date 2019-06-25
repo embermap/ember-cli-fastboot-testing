@@ -2525,7 +2525,7 @@ broccoli-clean-css@^1.1.0:
     inline-source-map-comment "^1.0.5"
     json-stable-stringify "^1.0.0"
 
-broccoli-concat@^3.2.2, broccoli-concat@^3.7.3:
+broccoli-concat@^3.2.2, broccoli-concat@^3.7.1, broccoli-concat@^3.7.3:
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/broccoli-concat/-/broccoli-concat-3.7.3.tgz#0dca01311567ffb13180e6b4eb111824628e4885"
   integrity sha512-2Ma9h81EJ0PRb9n4sW0i8KZlcnpTQfKxcj87zvi5DFe1fd8CTDEdseHDotK2beuA2l+LbgVPfd8EHaBJKm/Y8g==
@@ -2635,7 +2635,7 @@ broccoli-funnel@2.0.1:
     symlink-or-copy "^1.0.0"
     walk-sync "^0.3.1"
 
-broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.1.0:
+broccoli-funnel@^1.0.1, broccoli-funnel@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-1.2.0.tgz#cddc3afc5ff1685a8023488fff74ce6fb5a51296"
   integrity sha1-zdw6/F/xaFqAI0iP/3TOb7WlEpY=
@@ -4078,7 +4078,7 @@ debug@2.6.9, debug@^2.1.0, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.3.
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.0, debug@^3.1.0, debug@^3.2.6:
+debug@^3.0.0, debug@^3.0.1, debug@^3.1.0, debug@^3.2.6:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -4514,7 +4514,7 @@ ember-cli-babel-plugin-helpers@^1.0.0, ember-cli-babel-plugin-helpers@^1.1.0:
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.1.0.tgz#de3baedd093163b6c2461f95964888c1676325ac"
   integrity sha512-Zr4my8Xn+CzO0gIuFNXji0eTRml5AxZUTDQz/wsNJ5AJAtyFWCY4QtKdoELNNbiCVGt1lq5yLiwTm4scGKu6xA==
 
-ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2, ember-cli-babel@^6.8.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   integrity sha512-7ceC8joNYxY2wES16iIBlbPSxwKDBhYwC8drU3ZEvuPDMwVv1KzxCNu1fvxyFEBWhwaRNTUxSCsEVoTd9nosGA==
@@ -4671,27 +4671,27 @@ ember-cli-eslint@^5.1.0:
     rsvp "^4.6.1"
     walk-sync "^1.0.0"
 
-ember-cli-fastboot@^1.1.4-beta.1:
-  version "1.1.4-beta.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-1.1.4-beta.1.tgz#7063df36e62b92fd0f60c9a23dd03b5b57aec3fe"
-  integrity sha512-Jx9txTOGX0wgbg3d6N5oy2PSI9FI31tg4KiMY5vtXL3GuEi0S+HLCvh/w+INy+Ka3WLFcjutCdow23VL4gzDoQ==
+ember-cli-fastboot@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-2.1.1.tgz#3890e76f93a132d9eef189c78d18562b421594f2"
+  integrity sha512-qn3QcyDEbcc1/z2gPymwzTu3laSlou2WS3ZmUzlZz3wBi8WmIonzv5+i9ImjhPOP256MaIOnmdpSLi9QH45wbg==
   dependencies:
-    broccoli-concat "^3.2.2"
-    broccoli-funnel "^2.0.0"
-    broccoli-merge-trees "^2.0.0"
-    broccoli-plugin "^1.2.1"
-    chalk "^2.0.1"
-    ember-cli-babel "^6.7.2"
+    broccoli-concat "^3.7.1"
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^3.0.1"
+    broccoli-plugin "^1.3.1"
+    chalk "^2.4.1"
+    ember-cli-babel "^7.1.0"
     ember-cli-lodash-subset "2.0.1"
-    ember-cli-preprocess-registry "^3.1.0"
-    ember-cli-version-checker "^2.1.0"
-    fastboot "^1.1.4-beta.1"
-    fastboot-express-middleware "^1.1.0"
-    fastboot-transform "^0.1.2"
-    fs-extra "^4.0.2"
+    ember-cli-preprocess-registry "^3.1.2"
+    ember-cli-version-checker "^3.0.0"
+    fastboot "^1.2.0"
+    fastboot-express-middleware "^1.2.0"
+    fastboot-transform "^0.1.3"
+    fs-extra "^7.0.0"
     json-stable-stringify "^1.0.1"
     md5-hex "^2.0.0"
-    silent-error "^1.0.0"
+    silent-error "^1.1.0"
 
 ember-cli-get-component-path-option@^1.0.0:
   version "1.0.0"
@@ -4776,11 +4776,6 @@ ember-cli-lodash-subset@2.0.1, ember-cli-lodash-subset@^2.0.1:
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
-ember-cli-lodash-subset@^1.0.7:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-1.0.12.tgz#af2e77eba5dcb0d77f3308d3a6fd7d3450f6e537"
-  integrity sha1-ry5366XcsNd/MwjTpv19NFD25Tc=
-
 ember-cli-mirage@^1.1.0-beta.2:
   version "1.1.0-beta.2"
   resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-1.1.0-beta.2.tgz#a098cd1340a8f7a9044aa735f2eb315e0294c147"
@@ -4823,18 +4818,15 @@ ember-cli-path-utils@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-path-utils/-/ember-cli-path-utils-1.0.0.tgz#4e39af8b55301cddc5017739b77a804fba2071ed"
   integrity sha1-Tjmvi1UwHN3FAXc5t3qAT7ogce0=
 
-ember-cli-preprocess-registry@^3.1.0:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-preprocess-registry/-/ember-cli-preprocess-registry-3.1.2.tgz#083efb21fd922c021ceba9e08f4d9278249fc4db"
-  integrity sha512-YJfcDHMBEjtD505CIhM8dtu5FO2Ku+0OTs/0kdLlj9mhXlbzC+k0JAS5c/0AQ+Nh2f+qZZJ8G19ySdzWwTLSCQ==
+ember-cli-preprocess-registry@^3.1.0, ember-cli-preprocess-registry@^3.1.2:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-preprocess-registry/-/ember-cli-preprocess-registry-3.3.0.tgz#685837a314fbe57224bd54b189f4b9c23907a2de"
+  integrity sha512-60GYpw7VPeB7TvzTLZTuLTlHdOXvayxjAQ+IxM2T04Xkfyu75O2ItbWlftQW7NZVGkaCsXSRAmn22PG03VpLMA==
   dependencies:
     broccoli-clean-css "^1.1.0"
-    broccoli-funnel "^1.0.0"
-    broccoli-merge-trees "^1.0.0"
-    debug "^2.2.0"
-    ember-cli-lodash-subset "^1.0.7"
+    broccoli-funnel "^2.0.1"
+    debug "^3.0.1"
     process-relative-require "^1.0.0"
-    silent-error "^1.0.0"
 
 ember-cli-qunit@^4.3.2:
   version "4.3.2"
@@ -6093,7 +6085,7 @@ fast-sourcemap-concat@^1.4.0:
     source-map-url "^0.3.0"
     sourcemap-validator "^1.1.0"
 
-fastboot-express-middleware@^1.1.0:
+fastboot-express-middleware@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/fastboot-express-middleware/-/fastboot-express-middleware-1.2.0.tgz#3f32fb21d8d01ad7c0c7d876b278601665ea17fa"
   integrity sha1-PzL7IdjQGtfAx9h2snhgFmXqF/o=
@@ -6109,7 +6101,7 @@ fastboot-transform@0.1.1:
   dependencies:
     broccoli-stew "^1.5.0"
 
-fastboot-transform@^0.1.2:
+fastboot-transform@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/fastboot-transform/-/fastboot-transform-0.1.3.tgz#7dea0b117594afd8772baa6c9b0919644e7f7dcd"
   integrity sha512-6otygPIJw1ARp1jJb+6KVO56iKBjhO+5x59RSC9qiZTbZRrv+HZAuP00KD3s+nWMvcFDemtdkugki9DNFTTwCQ==
@@ -6117,21 +6109,7 @@ fastboot-transform@^0.1.2:
     broccoli-stew "^1.5.0"
     convert-source-map "^1.5.1"
 
-fastboot@^1.1.4-beta.1, fastboot@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fastboot/-/fastboot-1.2.0.tgz#35c5747db1943d082f2ba619226d16cd7281e946"
-  integrity sha1-NcV0fbGUPQgvK6YZIm0WzXKB6UY=
-  dependencies:
-    chalk "^2.0.1"
-    cookie "^0.3.1"
-    debug "^3.0.0"
-    exists-sync "0.0.4"
-    najax "^1.0.2"
-    rsvp "^4.7.0"
-    simple-dom "^1.0.0"
-    source-map-support "^0.5.0"
-
-fastboot@^1.2.1:
+fastboot@^1.2.0, fastboot@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/fastboot/-/fastboot-1.2.1.tgz#71e91151293be814b2f9c41fe7513bf4e9b6ef91"
   integrity sha512-WK5Jy71Q6FPoGkooEnWt7Yc2vb23f6C2RtBUutO459TskFnUhzOF8ZJASNNjURQYq8U/pTha2LI4Ix7UInffgg==
