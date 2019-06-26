@@ -58,5 +58,18 @@ jobs:
       env: NAME=deploy
       script: node_modules/.bin/ember deploy production
 
+    - stage: npm release
+      install: skip
+      before_script: skip
+      script: skip
+      deploy:
+        provider: npm
+        email: ryanto@gmail.com
+        api_key:
+          secure: yblp7SWj5oifZ2iywuYeBUTL8eVHanSiGrXwH7zYa7Z+ORr3kFKHJIsWNJo/8jbcb7SwqVv8RbROfkBEFt+VxdpDos2Y/DgnBA06OoHdmdOOAc8d1gFpsHdUDdUUEPXEv1ZKR0+dh7Hcv+qoUHuIkSqNVq8STDkCAHFy7gIEM+sGfJ+9eZZV8HzWe2u61QUilazU8AkASZBICXq2t3Na6PMyoJKDxoVbvUHCdTQywy3i9HhoedSEjoLt1l6x4bhaJ/fvmnf0x2ILI6b8epwSpeg2sgcsoYC5tI9mwNq1zzALiXUDYnCYtV8zAlFWH+bu4QS5nphiHMIkR1wUMyOkS/tG5kKeeAyDEQkJtbqH3en/P00D94rQVZ0XytSQdaIwzA6z73SFd1rdn2jVX4Szm6f37u+E17H7TdfuB+Pzqs3JeeHgOVcIBFE7nO0IwzPjc0SG2Buq3UU2tQjx52A7VTgjsgZFcovVbIBqLVLk7Duj0BTc2zhVluiVlqLjloFrpNMeBPMtVXPvHywhJI19JOoz2RK2KgpMcasQNCbDf+eissIVH6WuRfjhfvxkeR2dTXPAJxHhNFJAqkJbHKmPXyXfSYPdv2F5LdMIJPEAf4aIOdr1v/AjAuM6caNFL7bU2sUyPjt7jI5XgykdQb2BkdT4ZO7Tpm9UGrRpZOqhjIE=
+        on:
+          tags: true
+          repo: embermap/ember-cli-fastboot-testing
+
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
