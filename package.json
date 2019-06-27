@@ -31,7 +31,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "broccoli-asset-rev": "^2.7.0",
+    "broccoli-asset-rev": "^3.0.0",
     "broccoli-plugin": "^2.1.0",
     "broccoli-stew": "^3.0.0",
     "ember-cli": "~3.1.4",
