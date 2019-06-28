@@ -6595,7 +6595,7 @@ throw r.status=e.status,r.body=t,r.response=e,r}function a(e,t,r){return e.ok&&2
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,r){return(0,t.default)(e,r).then(function(e){if(e.ok)return e.json()
 throw e})}}),define("ember-fetch/mixins/adapter-fetch",["exports","fetch","ember-fetch/utils/mung-options-for-fetch","ember-fetch/utils/determine-body-promise"],function(e,t,r,n){"use strict"
 function i(e){var t={}
-return e&&e.forEach(function(e,r){return t[r]=e}),t}Object.defineProperty(e,"__esModule",{value:!0}),e.headersToObject=i,e.default=Ember.Mixin.create({headers:void 0,ajaxOptions:function(e,t,n){var i=n||{}
+return e&&e.forEach(function(e,r){return t[r]=e}),t}Object.defineProperty(e,"__esModule",{value:!0}),e.headersToObject=i,e.default=Ember.Mixin.create({headers:void 0,init:function(){this._super.apply(this,arguments)},ajaxOptions:function(e,t,n){var i=n||{}
 i.url=e,i.type=t
 var o=Ember.get(this,"headers")
 o&&(i.headers=Ember.assign(i.headers||{},o))
