@@ -2,6 +2,7 @@ import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
 import { mockServer } from './-private/mock-server';
 import param from 'jquery-param';
+import * as Comlink from 'comlink';
 
 export function setup(hooks) {
   hooks.beforeEach(async function() {
@@ -39,6 +40,35 @@ export async function visit(url, options = {}) {
 
 export { mockServer };
 
+export const nock = Comlink.wrapChain({
+  listeners: [],
+
+  async postMessage(message) {
+    let response = await fetch('/__nock-proxy', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(message),
+    });
+
+    let result = await response.json();
+
+    for (let listener of this.listeners) {
+      listener({ data: result });
+    }
+  },
+
+  addEventListener(type, listener) {
+    this.listeners.push(listener);
+  },
+
+  removeEventListener(type, listener) {
+    let index = this.listeners.indexOf(listener);
+    this.listeners.splice(index, 1);
+  },
+});
+
 // private
 
 let fetchFromEmberCli = async function(url, headers) {
@@ -50,17 +80,19 @@ let fetchFromEmberCli = async function(url, headers) {
     response = await fetch(endpoint);
   } catch (e) {
     if (e.message && e.message.match(/^Mirage:/)) {
-      error = `Ember CLI FastBoot Testing: It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render ${url}. Please disable Mirage when running FastBoot tests.`;
+      error = `It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render ${url}. Please disable Mirage when running FastBoot tests.`;
     } else {
-      error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests? Error: ${e.message ? e.message : e}.`
+      error = `We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests? Error: ${e.message ? e.message : e}.`
     }
   }
 
   if (response && response.headers && response.headers.get && response.headers.get('x-fastboot-testing') !== 'true') {
-    error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests?`;
+    error = `We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests?`;
   }
 
   if (error) {
+    error = `Ember CLI FastBoot Testing: ${error}`;
+
     // eslint-disable-next-line no-console
     console.error(error);
     throw new Error(error);

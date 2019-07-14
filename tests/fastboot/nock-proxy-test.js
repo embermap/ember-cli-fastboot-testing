@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
-import { setup, visit, mockServer } from 'ember-cli-fastboot-testing/test-support';
+import { setup, visit, nock } from 'ember-cli-fastboot-testing/test-support';
 
-module('Fastboot | network mocking', function(hooks) {
+module('Fastboot | nock proxy', function(hooks) {
   setup(hooks);
 
   test('it will not change an endpoint that already exists', async function(assert) {
@@ -10,24 +10,26 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock an array of models', async function(assert) {
-    await mockServer.get('/api/notes', {
-      data: [
-        {
-          type: 'note',
-          id: '1',
-          attributes: {
-            title: 'test note'
+    await nock('http://localhost:7357')
+      .intercept('/api/notes', 'GET')
+      .reply(200, {
+        data: [
+          {
+            type: 'note',
+            id: '1',
+            attributes: {
+              title: 'test note'
+            }
+          },
+          {
+            type: 'note',
+            id: '2',
+            attributes: {
+              title: 'test 2'
+            }
           }
-        },
-        {
-          type: 'note',
-          id: '2',
-          attributes: {
-            title: 'test 2'
-          }
-        }
-      ]
-    });
+        ]
+      });
 
     await visit('/examples/network/notes');
 
@@ -36,15 +38,17 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock a single model', async function(assert) {
-    await mockServer.get('/api/notes/1', {
-      data: {
-        type: "note",
-        id: "1",
-        attributes: {
-          title: 'test note'
+    await nock('http://localhost:7357')
+      .intercept('/api/notes/1', 'GET')
+      .reply(200, {
+        data: {
+          type: "notes",
+          id: "1",
+          attributes: {
+            title: 'test note'
+          }
         }
-      }
-    });
+      });
 
     await visit('/examples/network/notes/1');
 
@@ -52,15 +56,13 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock 404s', async function(assert) {
-    await mockServer.get(
-      '/api/notes/1',
-      {
+    await nock('http://localhost:7357')
+      .intercept('/api/notes/1', 'GET')
+      .reply(404, {
         errors: [
           { title: "Not found" }
         ]
-      },
-      404
-    );
+      });
 
     await visit('/examples/network/notes/1');
 
@@ -68,9 +70,11 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock a get request', async function(assert) {
-    await mockServer.get('/api/notes', [
-      { id: 1, title: 'get note' },
-    ]);
+    await nock('http://localhost:7357')
+      .intercept('/api/notes', 'GET')
+      .reply(200, [
+        { id: 1, title: 'get note' },
+      ]);
 
     await visit('/examples/network/other/get-request');
 
@@ -78,24 +82,14 @@ module('Fastboot | network mocking', function(hooks) {
   });
 
   test('it can mock a post request', async function(assert) {
-    await mockServer.post('/api/notes', [
-      { id: 1, title: 'post note' },
-    ]);
+    await nock('http://localhost:7357')
+      .intercept('/api/notes', 'POST')
+      .reply(200, [
+        { id: 1, title: 'post note' },
+      ]);
 
     await visit('/examples/network/other/post-request');
 
     assert.dom('[data-test-id="title-1"]').hasText("post note")
-  });
-
-  test('it can mock a large response', async function(assert) {
-    let title = 'a'.repeat(1024 * 1024 * 5); // 5 MB
-
-    await mockServer.get('/api/notes', [
-      { id: 1, title },
-    ]);
-
-    await visit('/examples/network/other/get-request');
-
-    assert.dom('[data-test-id="title-1"]').exists();
   });
 });
