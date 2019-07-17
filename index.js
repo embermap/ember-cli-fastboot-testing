@@ -4,7 +4,9 @@ let FastBoot = require('fastboot');
 let url = require('url');
 let resolve = require('resolve');
 let nock = require('nock');
-let bodyParser = require('body-parser')
+let bodyParser = require('body-parser');
+let path = require('path');
+let fs = require('fs');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
@@ -128,15 +130,28 @@ module.exports = {
 
   postBuild(result) {
     let distPath = result.directory;
+    let configPath = 'config';
+    let pkg = this.project.pkg;
+    if (pkg['ember-addon'] && pkg['ember-addon']['configPath']) {
+      configPath = pkg['ember-addon']['configPath'];
+    }
+
+    let fastbootTestConfigPath = path.resolve(configPath, 'fastboot-testing.js');
+
+    let options = {};
+    if (fs.existsSync(fastbootTestConfigPath)) {
+      options = require(fastbootTestConfigPath);
+    }
 
     if (this.fastboot) {
       this.fastboot.reload({
         distPath
       });
     } else {
-      this.fastboot = new FastBoot({
+      let fastbootOptions = Object.assign({
         distPath
-      });
+      }, options);
+      this.fastboot = new FastBoot(fastbootOptions);
     }
 
     return result;
