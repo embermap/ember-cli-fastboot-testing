@@ -4882,9 +4882,9 @@ ember-cli-lodash-subset@2.0.1, ember-cli-lodash-subset@^2.0.1:
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
 ember-cli-mirage@^1.1.0-beta.2:
-  version "1.1.0-beta.4"
-  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-1.1.0-beta.4.tgz#bf057ae22f1aafe4b4e0cd3e2a569e0bd27a2983"
-  integrity sha512-IilFMqHQxq9zDgZILDI1pqMvVlKPadJvFgYcJVrWiENDlrMN4e5Fns+0Eqi791Zrv58L1VcpKPn5TOjFzNifGg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-1.1.0.tgz#063aa6cdd3855ca0b2d850a994c5ced18b0d6cb4"
+  integrity sha512-fFNB/ovVNa8pr+4Ds/0a+3+cdvwlfLONBw/5OBnqTxA+9Xpw/t3/9TiaSEsEFf5v7PnrUCOoJRBF0/6m82hdYQ==
   dependencies:
     "@miragejs/server" "0.1.9"
     broccoli-file-creator "^2.1.1"
