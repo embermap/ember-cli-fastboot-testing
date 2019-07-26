@@ -17,14 +17,14 @@ module('Fastboot | generic interceptor', function(hooks) {
 
   test('it doesnt work if an interceptor blocks our request to ember-cli', async function(assert) {
     let server = new Pretender(function() {
-      this.get('/__fastboot-testing', () => {
+      this.post('/__fastboot-testing', () => {
         throw new Error("Blocked!");
       });
     });
 
     assert.rejects(
       visit('/'),
-      /We were unable to render \/. Is your test suite blocking or intercepting HTTP requests\? Error: Pretender intercepted GET \/__fastboot-testing\?url=%2F but encountered an error: Blocked/
+      /We were unable to render \/. Is your test suite blocking or intercepting HTTP requests\? Error: Pretender intercepted POST \/__fastboot-testing but encountered an error: Blocked/
     );
 
     server.shutdown();
