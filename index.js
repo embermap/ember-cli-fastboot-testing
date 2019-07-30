@@ -59,24 +59,28 @@ module.exports = {
       res.json({ ok: true });
     });
 
-    app.use('/__fastboot-testing', (req, res) => {
-      let urlToVisit = decodeURIComponent(req.query.url);
+    app.post('/__fastboot-testing', bodyParser.json(), (req, res) => {
+      let urlToVisit = decodeURIComponent(req.body.url);
       let parsed = url.parse(urlToVisit, true);
 
-      let defaults = {};
+      let headers = Object.assign(
+        {},
+        req.headers,
+        req.body.options.headers || {}
+      );
 
-      let headers = Object.assign(req.headers, defaults, req.query.headers);
-
-      let options = {
+      let defaultOptions = {
         request: {
           method: 'GET',
           protocol: 'http',
           url: parsed.path,
           query: parsed.query,
-          headers: headers
+          headers,
         },
-        response: {}
+        response: {},
       };
+
+      let options = Object.assign(defaultOptions, req.body.options);
 
       res.set('x-fastboot-testing', true);
 

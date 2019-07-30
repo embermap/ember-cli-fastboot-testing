@@ -25,7 +25,6 @@
     "ember-auto-import": "^1.2.15",
     "ember-cli-babel": "^7.8.0",
     "fastboot": "^1.2.1",
-    "jquery-param": "^1.0.1",
     "nock": "^10.0.6",
     "resolve": "^1.10.0",
     "whatwg-fetch": "^3.0.0"

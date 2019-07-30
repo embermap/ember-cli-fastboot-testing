@@ -25,6 +25,7 @@ Router.map(function() {
     });
 
     this.route('query-parameters');
+    this.route('visit-customization');
 
     this.route('request-object');
 
