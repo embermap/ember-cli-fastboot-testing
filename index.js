@@ -7,6 +7,7 @@ let nock = require('nock');
 let bodyParser = require('body-parser');
 let path = require('path');
 let fs = require('fs');
+let minimist = require('minimist');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
@@ -85,7 +86,7 @@ module.exports = {
       res.set('x-fastboot-testing', true);
 
       if (!this.fastboot) {
-        const path = this._getPath(process.argv);
+        const path = minimist(process.argv.slice(2)).path;
         if (path) {
           this._createServer(path);
         } else {
@@ -153,19 +154,6 @@ module.exports = {
     }
 
     return result;
-  },
-
-  _getPath(options) {
-    let path;
-    options.forEach((string, index) => {
-      if (string === '--path') {
-        path = options[index + 1];
-      } else if (string.includes('--path=')) {
-        path = string.split('=')[1]
-      }
-    });
-
-    return path;
   },
 
   _createServer(distPath) {
