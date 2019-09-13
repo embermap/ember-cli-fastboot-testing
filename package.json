@@ -18,6 +18,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
+    "test:separate-build": "yarn build --environment test && yarn test --path=dist --filter 'Fastboot | basic'",
     "test:all": "ember try:each"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "ember-auto-import": "^1.2.15",
     "ember-cli-babel": "^7.8.0",
     "fastboot": "^2.0.2",
+    "minimist": "^1.2.0",
     "nock": "^10.0.6",
     "resolve": "^1.10.0",
     "whatwg-fetch": "^3.0.0"

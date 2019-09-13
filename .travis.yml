@@ -40,6 +40,10 @@ jobs:
       env: NAME=test
       script: yarn test
 
+    - stage: test with separate build
+      env: NAME=test with separate build
+      script: yarn test:separate-build
+
     - stage: additional tests
       env: NAME=floating dependencies
       install: yarn install --no-lockfile --non-interactive
