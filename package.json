@@ -18,6 +18,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
+    "test:separate-build": "yarn build --environment test && yarn test --path=dist --filter 'Fastboot | basic'",
     "test:all": "ember try:each"
   },
   "dependencies": {

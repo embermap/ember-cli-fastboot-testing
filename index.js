@@ -84,6 +84,15 @@ module.exports = {
 
       res.set('x-fastboot-testing', true);
 
+      if (!this.fastboot) {
+        const path = this._getPath(process.argv);
+        if (path) {
+          this._createServer(path);
+        } else {
+          return res.json({ err: 'no path found' });
+        }
+      }
+
       this.fastboot
         .visit(urlToVisit, options)
         .then(page => {
@@ -134,6 +143,32 @@ module.exports = {
 
   postBuild(result) {
     let distPath = result.directory;
+
+    if (this.fastboot) {
+      this.fastboot.reload({
+        distPath
+      });
+    } else {
+      this._createServer(distPath)
+    }
+
+    return result;
+  },
+
+  _getPath(options) {
+    let path;
+    options.forEach((string, index) => {
+      if (string === '--path') {
+        path = options[index + 1];
+      } else if (string.includes('--path=')) {
+        path = string.split('=')[1]
+      }
+    });
+
+    return path;
+  },
+
+  _createServer(distPath) {
     let configPath = 'config';
     let pkg = this.project.pkg;
     if (pkg['ember-addon'] && pkg['ember-addon']['configPath']) {
@@ -147,18 +182,10 @@ module.exports = {
       options = require(fastbootTestConfigPath);
     }
 
-    if (this.fastboot) {
-      this.fastboot.reload({
-        distPath
-      });
-    } else {
-      let fastbootOptions = Object.assign({
-        distPath
-      }, options);
-      this.fastboot = new FastBoot(fastbootOptions);
-    }
+    let fastbootOptions = Object.assign({
+      distPath
+    }, options);
 
-    return result;
-  },
-
+    this.fastboot = new FastBoot(fastbootOptions);
+  }
 };
