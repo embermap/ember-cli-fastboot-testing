@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-fastboot-testing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Test your FastBoot-rendered HTML alongside your application's tests.",
   "keywords": [
     "ember-addon"
