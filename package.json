@@ -27,7 +27,7 @@
     "ember-cli-babel": "^7.8.0",
     "fastboot": "^2.0.2",
     "minimist": "^1.2.0",
-    "nock": "^10.0.6",
+    "nock": "^11.3.4",
     "resolve": "^1.10.0",
     "whatwg-fetch": "^3.0.0"
   },
