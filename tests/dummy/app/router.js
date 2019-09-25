@@ -26,6 +26,7 @@ Router.map(function() {
 
     this.route('query-parameters');
     this.route('visit-customization');
+    this.route('global-config');
 
     this.route('request-object');
 
