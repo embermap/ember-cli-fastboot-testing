@@ -175,5 +175,10 @@ module.exports = {
     }, options);
 
     this.fastboot = new FastBoot(fastbootOptions);
+    // In test config, you can define a function `setupFastboot` 
+    // to access the fastboot instance here
+    if (options.setupFastboot && typeof options.setupFastboot === 'function') {
+      options.setupFastboot(this.fastboot);
+    }
   }
 };
