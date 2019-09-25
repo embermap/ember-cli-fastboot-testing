@@ -68,7 +68,7 @@ module.exports = {
       let headers = Object.assign(
         {},
         req.headers,
-        req.body.options.headers || {}
+        JSONfn.parse(req.body.options).headers || {}
       );
 
       let defaultOptions = {
