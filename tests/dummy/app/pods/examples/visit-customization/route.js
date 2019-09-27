@@ -4,7 +4,10 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   fastboot: service('fastboot'),
   async model() {
-
-    return this.fastboot.get('metadata');
+    const { data, add } = this.fastboot.get('metadata'); // add is a function passed via metadata
+    return {
+      data,
+      add: add(1, 2)
+    };
   }
 });

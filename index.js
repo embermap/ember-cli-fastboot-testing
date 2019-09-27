@@ -8,6 +8,7 @@ let bodyParser = require('body-parser');
 let path = require('path');
 let fs = require('fs');
 let minimist = require('minimist');
+let JSONfn = require('json-fn');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
@@ -67,7 +68,7 @@ module.exports = {
       let headers = Object.assign(
         {},
         req.headers,
-        req.body.options.headers || {}
+        JSONfn.parse(req.body.options).headers || {}
       );
 
       let defaultOptions = {
@@ -81,7 +82,7 @@ module.exports = {
         response: {},
       };
 
-      let options = Object.assign(defaultOptions, req.body.options);
+      let options = Object.assign(defaultOptions, JSONfn.parse(req.body.options));
 
       res.set('x-fastboot-testing', true);
 

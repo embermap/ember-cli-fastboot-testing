@@ -1,6 +1,7 @@
 import { fetch } from 'whatwg-fetch';
 import { setupContext, teardownContext } from '@ember/test-helpers';
 import { mockServer } from './-private/mock-server';
+import JSONfn from 'json-fn';
 
 export function setup(hooks) {
   hooks.beforeEach(async function() {
@@ -90,7 +91,7 @@ let fetchFromEmberCli = async function(url, options) {
       },
       body: JSON.stringify({
         url,
-        options,
+        options: JSONfn.stringify(options),
       }),
     });
   } catch (e) {
