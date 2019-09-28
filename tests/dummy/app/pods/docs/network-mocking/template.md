@@ -52,3 +52,17 @@ test('it renders the 404 page when it cannot fetch a note', async function(asser
 ```
 
 The `mockServer` also exposes `post`, `patch`, `put`, and `delete` mocking methods.
+
+## Video
+
+This following video shows how [EmberMap](https://embermap.com) uses FastBoot testing's networking mocking.
+
+<section class="text-left">
+  <iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/YULScHACcus?rel=0"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen></iframe>
+</section>
