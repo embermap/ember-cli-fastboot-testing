@@ -51,8 +51,28 @@ The headers object can be configured with any HTTP header. You can change the ho
 ```js
 await visit('/', {
   headers: {
-    'cookie: user_id=what-12345;'
+    'cookie: user_id=12345;'
     'host': 'example.com'
   }
 });
+```
+
+### Customizing App.visit
+
+FastBoot's main entry point is its `App.visit` API. This method normally takes a URL and an options object that contains request and response data. However, heavily customized FastBoot applications will sometimes require additional data to be present in the options object.
+
+FastBoot testing will pass through any options given to the visit helper when rendering pages in FastBoot. For example, here's how the following test code will translate to a FastBoot render.
+
+```js
+test('It can pass custom options to fastboot', async function(assert) {
+  await visit('/', {
+    meta: {
+      version: '1.2.3'
+    }
+  });
+});
+
+// This will render FastBoot using the following
+
+fastbootApp.visit('/', { meta: { version: '1.2.3' }});
 ```

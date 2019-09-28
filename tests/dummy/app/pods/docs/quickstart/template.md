@@ -1,7 +1,5 @@
 # Quickstart
 
-> This document is a work in progress.
-
 Install the addon.
 
 ```bash

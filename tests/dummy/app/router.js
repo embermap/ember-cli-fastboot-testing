@@ -16,6 +16,7 @@ Router.map(function() {
     this.route('status-code');
     this.route('visit');
     this.route('network-mocking');
+    this.route('fastboot-configuration');
   });
 
   this.route('examples', function() {

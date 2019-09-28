@@ -1,10 +1,8 @@
 # Debugging
 
-> This document is a work in progress.
+## Pause test
 
-## Inspecting HTML
-
-You can use the `pauseTest` helper to inspect FastBoot rendered HTML.
+The `pauseTest` helper can be used to inspect FastBoot rendered HTML.
 
 ```js
 import { module, test, skip } from 'qunit';
@@ -22,3 +20,17 @@ module('FastBoot | debugging test', function(hooks) {
   });
 });
 ```
+
+## Node debugging
+
+The following video shows how to use Node's built in debugging tools to inspect a FastBoot application.
+
+<section class="text-left">
+  <iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/dC9q98t8Oeo?rel=0"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen></iframe>
+</section>

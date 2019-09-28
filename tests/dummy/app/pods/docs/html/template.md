@@ -1,8 +1,6 @@
 # HTML tests
 
-> This document is a work in progress.
-
-You can test rendered HTML using `qunit-dom`.
+Testing FastBoot rendered HTML is the most common use case for this library. Any HTML rendered by FastBoot can be tested the same way you would test an Ember application with `qunit-dom`.
 
 ```js
 import { module, test } from 'qunit';
