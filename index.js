@@ -1,14 +1,17 @@
 'use strict';
 
-let FastBoot = require('fastboot');
-let url = require('url');
 let resolve = require('resolve');
-let nock = require('nock');
-let bodyParser = require('body-parser');
-let path = require('path');
-let fs = require('fs');
 let minimist = require('minimist');
-let JSONfn = require('json-fn');
+
+let {
+  createCleanUpMocks,
+  createFastbootEcho,
+  createFastbootTest,
+  createMockRequest,
+  reloadServer,
+  createServer,
+  makeFastbootTestingConfig
+} = require('./lib/helpers');
 
 module.exports = {
   name: 'ember-cli-fastboot-testing',
@@ -46,95 +49,31 @@ module.exports = {
 
   postBuild(result) {
     let distPath = result.directory;
-    let options = this.makeFastbootTestingConfig({ distPath });
+    let { pkg } = this.project;
 
     if (this.fastboot) {
-      this.fastboot.reload({ distPath });
-      options.setupFastboot(this.fastboot);
+      let options = makeFastbootTestingConfig({ distPath }, pkg);
+      reloadServer(this.fastboot, distPath, options);
     } else {
-      this._createServer(distPath)
+      this.fastboot = createServer(distPath, pkg);
     }
 
     return result;
   },
 
-  makeFastbootTestingConfig(config) {
-    let defaults = {
-      setupFastboot() {}
-    };
-
-    let configPath = 'config';
-    let pkg = this.project.pkg;
-
-    if (pkg['ember-addon'] && pkg['ember-addon']['configPath']) {
-      configPath = pkg['ember-addon']['configPath'];
-    }
-
-    let fastbootTestConfigPath = path.resolve(configPath, 'fastboot-testing.js');
-
-    let customized = fs.existsSync(fastbootTestConfigPath) ?
-      require(fastbootTestConfigPath) :
-      {};
-
-    return Object.assign({}, config, defaults, customized);
-  },
-
-  _createServer(distPath) {
-    let options = this.makeFastbootTestingConfig({ distPath });
-    this.fastboot = new FastBoot(options);
-    options.setupFastboot(this.fastboot);
-  },
-
   _fastbootRenderingMiddleware(app) {
-    app.post('/__mock-request', bodyParser.json({ limit: '50mb' }), (req, res) => {
-      let mock = nock(req.headers.origin)
-        .persist()
-        .intercept(req.body.path, req.body.method)
-        .reply(req.body.statusCode, req.body.response);
-
-      res.json({ mocks: mock.pendingMocks() });
-    });
-
-    app.use('/__cleanup-mocks', (req, res) => {
-      nock.cleanAll()
-
-      res.json({ ok: true });
-    });
-
-    app.post('/__fastboot-testing', bodyParser.json(), (req, res) => {
-      let urlToVisit = decodeURIComponent(req.body.url);
-      let parsed = url.parse(urlToVisit, true);
-
-      let headers = Object.assign(
-        {},
-        req.headers,
-        JSONfn.parse(req.body.options).headers || {}
-      );
-
-      let defaultOptions = {
-        request: {
-          method: 'GET',
-          protocol: 'http',
-          url: parsed.path,
-          query: parsed.query,
-          headers,
-        },
-        response: {},
-      };
-
-      let options = Object.assign(defaultOptions, JSONfn.parse(req.body.options));
-
-      res.set('x-fastboot-testing', true);
-
+    createMockRequest(app);
+    createCleanUpMocks(app);
+    createFastbootTest(app, ({res, options, urlToVisit}) => {
       if (!this.fastboot) {
         const path = minimist(process.argv.slice(2)).path;
         if (path) {
-          this._createServer(path);
+          this.fastboot = createServer(path, this.project.pkg);
         } else {
           return res.json({ err: 'no path found' });
         }
       }
-
+  
       this.fastboot
         .visit(urlToVisit, options)
         .then(page => {
@@ -151,11 +90,11 @@ module.exports = {
         .catch(err => {
           let errorObject;
           let jsonError = {};
-
+  
           errorObject = (typeof err === 'string') ?
             new Error(err) :
             err;
-
+  
           // we need to copy these properties off the error
           // object into a pojo that can be serialized and
           // sent over the wire to the test runner.
@@ -168,18 +107,16 @@ module.exports = {
             'number',
             'stack'
           ];
-
+  
           errorProps.forEach(key => jsonError[key] = errorObject[key]);
-
+  
           res.json({ err: jsonError });
         });
     });
 
     if (this.app && this.app.name === "dummy") {
       // our dummy app has an echo endpoint!
-      app.post('/fastboot-testing/echo', bodyParser.text(), (req, res) => {
-        res.send(req.body);
-      });
+      createFastbootEcho(app);
     }
   },
 };
