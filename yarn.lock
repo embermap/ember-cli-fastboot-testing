@@ -10346,10 +10346,19 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-pretender@3.0.2, pretender@~3.0.1:
+pretender@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.0.2.tgz#1e9123914c4e4bd1b553ca78a401120d300d265f"
   integrity sha512-6gIDHUaJKRZv7ZgP3CsKicvxtBB3brBr2LWKvJYvEyZRicG9JV2SKokK2TIK0b4Zz9+4C79y57MZHpqUjvJqDg==
+  dependencies:
+    fake-xml-http-request "^2.0.0"
+    route-recognizer "^0.3.3"
+    whatwg-fetch "^3.0.0"
+
+pretender@~3.0.1:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.0.3.tgz#98c060c60a94a422f269ed08d5b487ddb6a4b3f9"
+  integrity sha512-XuZ1E2hbIOqhHByeU4wAFDjazXsyK3bsWewj63U/SdhxNqfg5tJjHmqiOT8qwfBVqhJ7PBZT6oFfCi+QRbZLsw==
   dependencies:
     fake-xml-http-request "^2.0.0"
     route-recognizer "^0.3.3"
