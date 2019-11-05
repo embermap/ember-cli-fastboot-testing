@@ -10338,9 +10338,9 @@ pretender@3.0.2:
     whatwg-fetch "^3.0.0"
 
 pretender@~3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.0.3.tgz#98c060c60a94a422f269ed08d5b487ddb6a4b3f9"
-  integrity sha512-XuZ1E2hbIOqhHByeU4wAFDjazXsyK3bsWewj63U/SdhxNqfg5tJjHmqiOT8qwfBVqhJ7PBZT6oFfCi+QRbZLsw==
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.0.4.tgz#e99fb39ae2b67ec7c1a2d0fc8f0cc63d4a8e9aff"
+  integrity sha512-l8geJ6tbBAe9Dl7a5aMKi5nYTabTci/wYBGA1MVVYfq1wLpBe+KYZM3YW+IvXuH4L/Vt1+zudmyigzFAuoWdDg==
   dependencies:
     fake-xml-http-request "^2.0.0"
     route-recognizer "^0.3.3"
