@@ -3033,6 +3033,15 @@ broccoli-output-wrapper@^2.0.0:
   dependencies:
     heimdalljs-logger "^0.1.10"
 
+broccoli-output-wrapper@^3.1.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/broccoli-output-wrapper/-/broccoli-output-wrapper-3.1.1.tgz#d5f2c04b1259fd1df72e4d9951df2d23f202d301"
+  integrity sha512-iIA5EJ7jmG7rmAFerJ1Fi57L7NICN6ErVhw8ClLDVBrLQYXK0uWicwXL2/2HWlGIL0oFFrIiw+/W0BNVib6DSA==
+  dependencies:
+    fs-extra "^8.1.0"
+    heimdalljs-logger "^0.1.10"
+    symlink-or-copy "^1.2.0"
+
 broccoli-persistent-filter@^1.1.5, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.2.0, broccoli-persistent-filter@^1.4.3:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/broccoli-persistent-filter/-/broccoli-persistent-filter-1.4.6.tgz#80762d19000880a77da33c34373299c0f6a3e615"
@@ -3109,6 +3118,19 @@ broccoli-plugin@^3.0.0:
   dependencies:
     broccoli-node-api "^1.6.0"
     broccoli-output-wrapper "^2.0.0"
+    fs-merger "^3.0.1"
+    promise-map-series "^0.2.1"
+    quick-temp "^0.1.3"
+    rimraf "^2.3.4"
+    symlink-or-copy "^1.1.8"
+
+broccoli-plugin@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-4.0.0.tgz#79e6912b01b6d48c1f384013c04b7cd37e0c874a"
+  integrity sha512-Zi21TkITZKqVB/w1ksVyOqDK5WwK3wbCOyXcF8y2EH+Smfd/oW7deqeeFRfDpdz4cTeRGfLM9lLeyys+YuL9hA==
+  dependencies:
+    broccoli-node-api "^1.6.0"
+    broccoli-output-wrapper "^3.1.0"
     fs-merger "^3.0.1"
     promise-map-series "^0.2.1"
     quick-temp "^0.1.3"
@@ -6838,6 +6860,15 @@ fs-extra@^8.0.1:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
+fs-extra@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
+  integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
 fs-merger@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/fs-merger/-/fs-merger-3.0.1.tgz#4fba891e1ac83ce1ea4261b91fee475aaf628cb2"
@@ -7202,6 +7233,11 @@ graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
+
+graceful-fs@^4.2.0:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
+  integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
 
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
