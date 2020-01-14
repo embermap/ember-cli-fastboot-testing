@@ -47,8 +47,11 @@ module.exports = {
     this._fastbootRenderingMiddleware(app);
   },
 
-  postBuild(result) {
-    let distPath = result.directory;
+  // we have to use the outputReady hook to ensure that ember-cli has finished copying the contents to the outputPath directory
+  outputReady(result) {
+    // NOTE: result.directory is not updated and still references the same path as postBuild hook (this might be a bug in ember-cli)
+    // Set the distPath to the "final" outputPath, where EMBER_CLI_TEST_OUTPUT is the path passed to testem (set by ember-cli).
+    let distPath = process.env.EMBER_CLI_TEST_OUTPUT;
     let { pkg } = this.project;
 
     if (this.fastboot) {
@@ -73,7 +76,7 @@ module.exports = {
           return res.json({ err: 'no path found' });
         }
       }
-  
+
       this.fastboot
         .visit(urlToVisit, options)
         .then(page => {
@@ -90,11 +93,11 @@ module.exports = {
         .catch(err => {
           let errorObject;
           let jsonError = {};
-  
+
           errorObject = (typeof err === 'string') ?
             new Error(err) :
             err;
-  
+
           // we need to copy these properties off the error
           // object into a pojo that can be serialized and
           // sent over the wire to the test runner.
@@ -107,9 +110,9 @@ module.exports = {
             'number',
             'stack'
           ];
-  
+
           errorProps.forEach(key => jsonError[key] = errorObject[key]);
-  
+
           res.json({ err: jsonError });
         });
     });
