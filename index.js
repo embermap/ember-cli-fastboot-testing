@@ -51,7 +51,8 @@ module.exports = {
   outputReady(result) {
     // NOTE: result.directory is not updated and still references the same path as postBuild hook (this might be a bug in ember-cli)
     // Set the distPath to the "final" outputPath, where EMBER_CLI_TEST_OUTPUT is the path passed to testem (set by ember-cli).
-    let distPath = process.env.EMBER_CLI_TEST_OUTPUT;
+    // We fall back to result.directory if EMBER_CLI_TEST_OUTPUT is not set.
+    let distPath = process.env.EMBER_CLI_TEST_OUTPUT || result.directory;
     let { pkg } = this.project;
 
     if (this.fastboot) {
