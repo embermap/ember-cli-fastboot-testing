@@ -65,10 +65,13 @@ module.exports = function() {
           npm: {
             devDependencies: {
               "ember-source": urls[0],
-              "ember-data": "latest"
+              // at the time of writing this the current 'latest' of ember-data is
+              // 3.15, which is broken in fastboot. we're going to use 3.13 since it's
+              // the closest working version
+              "ember-data": "~3.13.0"
             },
             resolutions: {
-              "ember-data": "latest"
+              "ember-data": "~3.13.0"
             }
           }
         },
