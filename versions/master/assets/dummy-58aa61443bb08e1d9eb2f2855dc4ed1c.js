@@ -87,11 +87,12 @@ var t=Ember.Route.extend({model:function(){return{SampleGlobal:window.SampleGlob
 e.default=t})),define("dummy/pods/examples/global-config/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"qWd+DyRt",block:'{"symbols":[],"statements":[[6,"p"],[10,"data-test-id","sandboxGlobals"],[8],[1,[21,0,["model","SampleGlobal"]],false],[9],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"dummy/pods/examples/global-config/template.hbs"}})
 e.default=t})),define("dummy/pods/examples/network/notes/index/route",["exports"],(function(e){function t(e,t,n,o,r,s,a){try{var d=e[s](a),l=d.value}catch(i){return void n(i)}d.done?t(l):Promise.resolve(l).then(o,r)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var n,o,r=Ember.Route.extend({model:(n=regeneratorRuntime.mark((function e(){return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",this.store.findAll("note"))
-case 1:case"end":return e.stop()}}),e,this)})),o=function(){var e=this,o=arguments
-return new Promise((function(r,s){var a=n.apply(e,o)
-function d(e){t(a,r,s,d,l,"next",e)}function l(e){t(a,r,s,d,l,"throw",e)}d(void 0)}))},function(){return o.apply(this,arguments)})})
-e.default=r})),define("dummy/pods/examples/network/notes/index/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var n=Ember.Route.extend({model:function(){var e,n=this
+return(e=regeneratorRuntime.mark((function e(){return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",n.store.findAll("note"))
+case 1:case"end":return e.stop()}}),e)})),function(){var n=this,o=arguments
+return new Promise((function(r,s){var a=e.apply(n,o)
+function d(e){t(a,r,s,d,l,"next",e)}function l(e){t(a,r,s,d,l,"throw",e)}d(void 0)}))})()}})
+e.default=n})),define("dummy/pods/examples/network/notes/index/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"9kycD8h6",block:'{"symbols":["note"],"statements":[[0,"The data loaded from the server is:\\n\\n"],[4,"each",[[22,["model"]]],null,{"statements":[[0,"  "],[6,"div"],[11,"data-test-id",[27,["title-",[21,1,["id"]]]]],[8],[0,"\\n    "],[1,[21,1,["title"]],false],[0,"\\n  "],[9],[0,"\\n"]],"parameters":[1]},null]],"hasEval":false}',meta:{moduleName:"dummy/pods/examples/network/notes/index/template.hbs"}})
 e.default=t})),define("dummy/pods/examples/network/notes/note/route",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.Route.extend({})
@@ -104,24 +105,26 @@ var n=Ember.Route.extend({model:function(e){return(0,t.default)("/fastboot-testi
 e.default=n})),define("dummy/pods/examples/network/other/echo/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"xqsxWWsP",block:'{"symbols":[],"statements":[[6,"div"],[10,"data-test-id","echo"],[8],[1,[20,"model"],false],[9],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"dummy/pods/examples/network/other/echo/template.hbs"}})
 e.default=t})),define("dummy/pods/examples/network/other/get-request/route",["exports","fetch"],(function(e,t){function n(e,t,n,o,r,s,a){try{var d=e[s](a),l=d.value}catch(i){return void n(i)}d.done?t(l):Promise.resolve(l).then(o,r)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var o,r,s=Ember.Route.extend({model:(o=regeneratorRuntime.mark((function e(){var n
+var o=Ember.Route.extend({model:function(){return(e=regeneratorRuntime.mark((function e(){var n
 return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,(0,t.default)("/api/notes")
 case 2:return n=e.sent,e.next=5,n.json()
 case 5:return e.abrupt("return",e.sent)
-case 6:case"end":return e.stop()}}),e)})),r=function(){var e=this,t=arguments
-return new Promise((function(r,s){var a=o.apply(e,t)
-function d(e){n(a,r,s,d,l,"next",e)}function l(e){n(a,r,s,d,l,"throw",e)}d(void 0)}))},function(){return r.apply(this,arguments)})})
-e.default=s})),define("dummy/pods/examples/network/other/get-request/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+case 6:case"end":return e.stop()}}),e)})),function(){var t=this,o=arguments
+return new Promise((function(r,s){var a=e.apply(t,o)
+function d(e){n(a,r,s,d,l,"next",e)}function l(e){n(a,r,s,d,l,"throw",e)}d(void 0)}))})()
+var e}})
+e.default=o})),define("dummy/pods/examples/network/other/get-request/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"tGvqjagH",block:'{"symbols":["note"],"statements":[[0,"The data loaded from the server is:\\n\\n"],[4,"each",[[22,["model"]]],null,{"statements":[[0,"  "],[6,"div"],[11,"data-test-id",[27,["title-",[21,1,["id"]]]]],[8],[0,"\\n    "],[1,[21,1,["title"]],false],[0,"\\n  "],[9],[0,"\\n"]],"parameters":[1]},null]],"hasEval":false}',meta:{moduleName:"dummy/pods/examples/network/other/get-request/template.hbs"}})
 e.default=t})),define("dummy/pods/examples/network/other/post-request/route",["exports","fetch"],(function(e,t){function n(e,t,n,o,r,s,a){try{var d=e[s](a),l=d.value}catch(i){return void n(i)}d.done?t(l):Promise.resolve(l).then(o,r)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var o,r,s=Ember.Route.extend({model:(o=regeneratorRuntime.mark((function e(){var n
+var o=Ember.Route.extend({model:function(){return(e=regeneratorRuntime.mark((function e(){var n
 return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,(0,t.default)("/api/notes",{method:"post"})
 case 2:return n=e.sent,e.next=5,n.json()
 case 5:return e.abrupt("return",e.sent)
-case 6:case"end":return e.stop()}}),e)})),r=function(){var e=this,t=arguments
-return new Promise((function(r,s){var a=o.apply(e,t)
-function d(e){n(a,r,s,d,l,"next",e)}function l(e){n(a,r,s,d,l,"throw",e)}d(void 0)}))},function(){return r.apply(this,arguments)})})
-e.default=s})),define("dummy/pods/examples/network/other/post-request/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+case 6:case"end":return e.stop()}}),e)})),function(){var t=this,o=arguments
+return new Promise((function(r,s){var a=e.apply(t,o)
+function d(e){n(a,r,s,d,l,"next",e)}function l(e){n(a,r,s,d,l,"throw",e)}d(void 0)}))})()
+var e}})
+e.default=o})),define("dummy/pods/examples/network/other/post-request/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"fI00vmWv",block:'{"symbols":["note"],"statements":[[0,"The data loaded from the server is:\\n\\n"],[4,"each",[[22,["model"]]],null,{"statements":[[0,"  "],[6,"div"],[11,"data-test-id",[27,["title-",[21,1,["id"]]]]],[8],[0,"\\n    "],[1,[21,1,["title"]],false],[0,"\\n  "],[9],[0,"\\n"]],"parameters":[1]},null]],"hasEval":false}',meta:{moduleName:"dummy/pods/examples/network/other/post-request/template.hbs"}})
 e.default=t})),define("dummy/pods/examples/not-found/template",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"j7ps2SIX",block:'{"symbols":[],"statements":[[6,"div"],[10,"class","container"],[8],[0,"\\n  "],[6,"h1"],[8],[0,"Not found"],[9],[0,"\\n  "],[6,"p"],[8],[0,"\\n    This page doesn\'t exist.\\n\\n    "],[4,"link-to",["index"],null,{"statements":[[0,"Head home?"]],"parameters":[]},null],[0,"\\n  "],[9],[0,"\\n"],[9],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"dummy/pods/examples/not-found/template.hbs"}})
