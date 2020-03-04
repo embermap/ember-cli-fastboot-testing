@@ -57,7 +57,7 @@ module.exports = {
 
     if (this.fastboot) {
       let options = makeFastbootTestingConfig({ distPath }, pkg);
-      reloadServer(this.fastboot, distPath, options);
+      reloadServer(this.fastboot, distPath, pkg, options);
     } else {
       this.fastboot = createServer(distPath, pkg);
     }

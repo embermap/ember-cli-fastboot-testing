@@ -20,6 +20,8 @@ Router.map(function() {
   });
 
   this.route('examples', function() {
+    this.route('environment');
+
     this.route('redirects', function() {
       this.route('transition-to');
       this.route('replace-with');

@@ -38,7 +38,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'test') {
+  if (environment === 'test' || environment == 'specified-by-user') {
     // Testem prefers this...
     ENV.locationType = 'none';
 
