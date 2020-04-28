@@ -1,6 +1,14 @@
 import { fetch } from 'whatwg-fetch';
 
 let createMock = async function(path, method, statusCode, response) {
+  let origin = false;
+
+  if (path.startsWith('http')) {
+    const url = new URL(path);
+    origin = url.origin;
+    path = `${url.pathname}${url.search}`;
+  }
+
   return await fetch('/__mock-request', {
     method: 'post',
     headers: {
@@ -10,7 +18,8 @@ let createMock = async function(path, method, statusCode, response) {
       path,
       method,
       statusCode,
-      response
+      response,
+      origin
     }),
   });
 }

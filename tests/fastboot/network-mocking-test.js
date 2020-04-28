@@ -4,6 +4,7 @@ import {
   visit,
   mockServer
 } from "ember-cli-fastboot-testing/test-support";
+import config from 'dummy/config/environment';
 
 module("Fastboot | network mocking", function(hooks) {
   setup(hooks);
@@ -95,5 +96,15 @@ module("Fastboot | network mocking", function(hooks) {
     await visit("/examples/network/other/get-request");
 
     assert.dom('[data-test-id="title-1"]').exists();
+  });
+
+  test("it can override the origin on a mock response", async function(assert) {
+    const { originForOverride } = config;
+
+    await mockServer.get(`${originForOverride}/api/notes`, [{ id: 1, title: "get note" }]);
+
+    await visit("/examples/network/other/origin-override");
+
+    assert.dom('[data-test-id="title-1"]').hasText("get note");
   });
 });

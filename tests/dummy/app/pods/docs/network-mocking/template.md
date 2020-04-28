@@ -51,6 +51,28 @@ test('it renders the 404 page when it cannot fetch a note', async function(asser
 });
 ```
 
+By default, passing just a path to `mockServer` will use the current host running your app.
+
+Some implementations require a different origin for `mockServer` calls. In that case, you can override the default host by including the hostname with the path.
+
+```js
+test('it makes a call to a different host', async function(assert) {
+  await mockServer.get('http://localhost:3000/api/notes/1', {
+    data: {
+      type: 'note',
+      id: '1',
+      attributes: {
+        title: 'Hello world!'
+      }
+    }
+  });
+
+  await visit('/notes/1');
+
+  assert.dom('[data-test-id="page-not-found"]').exists();
+});
+```
+
 The `mockServer` also exposes `post`, `patch`, `put`, and `delete` mocking methods.
 
 ## Video
