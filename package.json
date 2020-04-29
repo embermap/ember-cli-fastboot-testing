@@ -68,7 +68,7 @@
     "eslint-plugin-node": "^11.0.0",
     "loader.js": "^4.2.3",
     "pretender": "~3.4.1",
-    "qunit-dom": "^0.9.0"
+    "qunit-dom": "^1.2.0"
   },
   "engines": {
     "node": "8.* || >= 10.*"
