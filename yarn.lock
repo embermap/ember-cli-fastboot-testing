@@ -10726,14 +10726,13 @@ pretender@3.1.0:
     route-recognizer "^0.3.3"
     whatwg-fetch "^3.0.0"
 
-pretender@~3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.2.0.tgz#3e653009462f737c1184ca8b7b8d2f03cf47421b"
-  integrity sha512-YnqYFZ9JKcpseQnYE5iR1y1gBATtJTXzI/SXtTFt4mvXabg6U4AIzvNzJok9IhxP5lIyQ9OeWCsg2DkjhQJSKg==
+pretender@~3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.4.1.tgz#04345d99f0da8266f545ff377d4a9f23db9b99dd"
+  integrity sha512-qIQk0vKo739Dbx940Qq2hMZjIXHxWj9bDRQCfWSgoMWDfZTgn0bJ3lD0aJa37F5/MRzG5AtbYXf5JHzoXMsW/Q==
   dependencies:
     fake-xml-http-request "^2.1.1"
     route-recognizer "^0.3.3"
-    whatwg-fetch "^3.0.0"
 
 pretty-hrtime@^1.0.3:
   version "1.0.3"
