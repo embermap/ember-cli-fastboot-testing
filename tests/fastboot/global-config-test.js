@@ -6,6 +6,6 @@ module('Fastboot | global config', function(hooks) {
 
   test('it renders the correct global', async function(assert) {
     await visit('/examples/global-config');
-    assert.dom('[data-test-id="sandboxGlobals"]').hasText('Modified TestSampleGlobal');
+    assert.dom('[data-test-id="sandboxGlobals"]').hasText('TestSampleGlobal');
   });
 });
