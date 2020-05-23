@@ -9,8 +9,7 @@ let {
   createFastbootTest,
   createMockRequest,
   reloadServer,
-  createServer,
-  makeFastbootTestingConfig
+  createServer
 } = require('./lib/helpers');
 
 module.exports = {
@@ -56,8 +55,7 @@ module.exports = {
     let { pkg } = this.project;
 
     if (this.fastboot) {
-      let options = makeFastbootTestingConfig({ distPath }, pkg);
-      reloadServer(this.fastboot, distPath, options);
+      reloadServer(this.fastboot, distPath);
     } else {
       this.fastboot = createServer(distPath, pkg);
     }
