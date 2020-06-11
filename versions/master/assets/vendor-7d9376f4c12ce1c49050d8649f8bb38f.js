@@ -3491,7 +3491,7 @@ function Ee(){a.on.apply(a,arguments)}function we(){a.off.apply(a,arguments)}if(
 e.default={asap:ne,cast:be,Promise:P,EventTarget:o,all:L,allSettled:B,race:q,hash:U,hashSettled:W,rethrow:Q,defer:$,denodeify:N,configure:s,on:Ee,off:we,resolve:Y,reject:X,map:G,async:_e,filter:ee},e.asap=ne,e.cast=be,e.Promise=P,e.EventTarget=o,e.all=L,e.allSettled=B,e.race=q,e.hash=U,e.hashSettled=W,e.rethrow=Q,e.defer=$,e.denodeify=N,e.configure=s,e.on=Ee,e.off=we,e.resolve=Y,e.reject=X,e.map=G,e.async=_e,e.filter=ee})),t("ember")}(),function(){if("undefined"==typeof FastBoot){var e=document.getElementById("fastboot-body-start")
 if(e&&"function"==typeof Ember.ViewUtils.isSerializationFirstNode&&Ember.ViewUtils.isSerializationFirstNode(e.nextSibling)){Ember.ApplicationInstance.reopen({_bootSync:function(e){return void 0===e&&(e={_renderMode:"rehydrate"}),this._super(e)}}),e.parentNode.removeChild(e)
 var t=document.getElementById("fastboot-body-end")
-t.parentNode.removeChild(t)}}}()
+t&&t.parentNode.removeChild(t)}}}()
 var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r]
 n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_templateObject=_taggedTemplateLiteral(["template-compiler:main"],["template-compiler:main"]),_templateObject2=_taggedTemplateLiteral(["template-options:main"],["template-options:main"])
 function _taggedTemplateLiteral(e,t){return Object.freeze(Object.defineProperties(e,{raw:{value:Object.freeze(t)}}))}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}if(function(){var e=Ember.__loader.require("container").privatize,t=Ember,r=t.Application,n=(t.Component,t.computed,t.getOwner),i=Ember.__loader.require("@glimmer/reference"),o=i.combineTagged,a=Ember.__loader.require("@glimmer/runtime"),s=a.clientBuilder,u=function(){function e(t){_classCallCheck(this,e),this.tag=o(t),this.list=t}return _createClass(e,[{key:"value",value:function(){for(var e=[],t=this.list,r=0;r<t.length;r++){var n=this._normalizeStringValue(t[r].value())
@@ -6039,8 +6039,8 @@ e.isClipboardSupported=t
 var r=Ember.Helper.helper(t)
 e.default=r})),define("ember-cli-clipboard/templates/components/copy-button",["exports"],(function(e){"use strict"
 e.__esModule=!0,e.default=Ember.HTMLBars.template({id:"sogRpHge",block:'{"symbols":["&default"],"statements":[[13,1],[0,"\\n"]],"hasEval":false}',meta:{moduleName:"ember-cli-clipboard/templates/components/copy-button.hbs"}})})),define("ember-cli-fastboot/instance-initializers/clear-double-boot",["exports"],(function(e){"use strict"
-function t(){var e=document.getElementById("fastboot-body-start")
-if(e){for(var t=document.getElementById("fastboot-body-end"),r=document.querySelectorAll('[type="fastboot/shoebox"]'),n=[],i=0;i<r.length;i++)n.push(r[i])
+function t(){var e=document.getElementById("fastboot-body-start"),t=document.getElementById("fastboot-body-end")
+if(e&&t){for(var r=document.querySelectorAll('[type="fastboot/shoebox"]'),n=[],i=0;i<r.length;i++)n.push(r[i])
 var o,a=e.parentElement
 do{o=e.nextSibling,a.removeChild(e),e=o}while(o&&o!==t&&n.indexOf(o)<0)
 t.parentElement.removeChild(t)}}Object.defineProperty(e,"__esModule",{value:!0}),e.clearHtml=t,e.default=void 0
