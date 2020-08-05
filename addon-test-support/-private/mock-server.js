@@ -25,27 +25,27 @@ let createMock = async function(path, method, statusCode, response) {
 }
 
 export let mockServer = {
-  async get(path, response, status = 200) {
+  get(path, response, status = 200) {
     return createMock(path, "GET", status, response);
   },
 
-  async post(path, response, status = 200) {
+  post(path, response, status = 200) {
     return createMock(path, "POST", status, response);
   },
 
-  async patch(path, response, status = 200) {
+  patch(path, response, status = 200) {
     return createMock(path, "PATCH", status, response);
   },
 
-  async put(path, response, status = 200) {
+  put(path, response, status = 200) {
     return createMock(path, "PUT", status, response);
   },
 
-  async delete(path, response, status = 200) {
+  delete(path, response, status = 200) {
     return createMock(path, "DELETE", status, response);
   },
 
-  async cleanUp() {
+  cleanUp() {
     return fetch('/__cleanup-mocks');
   }
 };
