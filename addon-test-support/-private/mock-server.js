@@ -1,6 +1,6 @@
 import { fetch } from 'whatwg-fetch';
 
-let createMock = async function(path, method, statusCode, response) {
+let createMock = function(path, method, statusCode, response) {
   let origin = false;
 
   if (path.startsWith('http')) {
@@ -9,7 +9,7 @@ let createMock = async function(path, method, statusCode, response) {
     path = `${url.pathname}${url.search}`;
   }
 
-  return await fetch('/__mock-request', {
+  return fetch('/__mock-request', {
     method: 'post',
     headers: {
       "Content-Type": "application/json",
