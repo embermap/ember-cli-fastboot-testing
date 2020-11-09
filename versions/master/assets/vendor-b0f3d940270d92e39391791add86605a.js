@@ -3668,7 +3668,7 @@ var r=Error(e)
 this.stack=r.stack},e.DOMException.prototype=Object.create(Error.prototype),e.DOMException.prototype.constructor=e.DOMException}function S(n,i){return new r((function(r,a){var u=new w(n,i)
 if(u.signal&&u.signal.aborted)return a(new e.DOMException("Aborted","AbortError"))
 var l=new XMLHttpRequest
-function c(){l.abort()}l.onload=function(){var e,t,n,i={status:l.status,statusText:l.statusText,headers:(e=l.getAllResponseHeaders()||"",t=new m,n=e.replace(/\r?\n[\t ]+/g," "),n.split(/\r?\n/).forEach((function(e){var r=e.split(":"),n=r.shift().trim()
+function c(){l.abort()}l.onload=function(){var e,t,n,i={status:l.status,statusText:l.statusText,headers:(e=l.getAllResponseHeaders()||"",t=new m,n=e.replace(/\r?\n[\t ]+/g," "),n.split("\r").map((function(e){return 0===e.indexOf("\n")?e.substr(1,e.length):e})).forEach((function(e){var r=e.split(":"),n=r.shift().trim()
 if(n){var i=r.join(":").trim()
 t.append(n,i)}})),t)}
 i.url="responseURL"in l?l.responseURL:i.headers.get("X-Request-URL")
