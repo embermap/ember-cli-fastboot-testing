@@ -51,7 +51,7 @@ The headers object can be configured with any HTTP header. You can change the ho
 ```js
 await visit('/', {
   headers: {
-    'cookie: user_id=12345;'
+    'cookie': 'user_id=12345;'
     'host': 'example.com'
   }
 });
