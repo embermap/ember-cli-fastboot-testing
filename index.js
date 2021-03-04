@@ -19,17 +19,12 @@ module.exports = {
     return false;
   },
 
-  isEnabled() {
-    // enable this addon if were building for the dummy
-    // app. that's because this is most likely an addon docs
-    // build and we need this addon enabled for our docs
-    // to deploy correctly.
-    return this.app.name === "dummy" ||
-      this.app.env !== "production";
-  },
-
   included() {
     this._super.included.apply(this, arguments);
+
+    const isEnabled = this.app.name === "dummy" || this.app.env !== "production";
+
+    if (!isEnabled) return;
 
     try {
       resolve.sync('ember-cli-fastboot/package.json', { basedir: this.project.root });
