@@ -107,4 +107,18 @@ module("Fastboot | network mocking", function(hooks) {
 
     assert.dom('[data-test-id="title-1"]').hasText("get note");
   });
+
+  test("it can add headers a mock response", async function(assert) {
+
+    await mockServer.get(
+      '/api/notes',
+      { data: [] },
+      200,
+      {'x-test': 'foo'}
+    );
+
+    await visit("/examples/network/other/headers");
+
+    assert.dom('[data-test-id="headers"]').hasText("foo");
+  });
 });
