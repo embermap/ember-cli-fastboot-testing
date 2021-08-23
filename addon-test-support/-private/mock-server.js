@@ -1,6 +1,6 @@
 import { fetch } from 'whatwg-fetch';
 
-let createMock = function(path, method, statusCode, response) {
+let createMock = function(path, method, statusCode, response, responseHeaders) {
   let origin = false;
 
   if (path.startsWith('http')) {
@@ -19,30 +19,31 @@ let createMock = function(path, method, statusCode, response) {
       method,
       statusCode,
       response,
+      responseHeaders,
       origin
     }),
   });
 }
 
 export let mockServer = {
-  get(path, response, status = 200) {
-    return createMock(path, "GET", status, response);
+  get(path, response, status = 200, responseHeaders) {
+    return createMock(path, "GET", status, response, responseHeaders);
   },
 
-  post(path, response, status = 200) {
-    return createMock(path, "POST", status, response);
+  post(path, response, status = 200, responseHeaders) {
+    return createMock(path, "POST", status, response, responseHeaders);
   },
 
-  patch(path, response, status = 200) {
-    return createMock(path, "PATCH", status, response);
+  patch(path, response, status = 200, responseHeaders) {
+    return createMock(path, "PATCH", status, response, responseHeaders);
   },
 
-  put(path, response, status = 200) {
-    return createMock(path, "PUT", status, response);
+  put(path, response, status = 200, responseHeaders) {
+    return createMock(path, "PUT", status, response, responseHeaders);
   },
 
-  delete(path, response, status = 200) {
-    return createMock(path, "DELETE", status, response);
+  delete(path, response, status = 200, responseHeaders) {
+    return createMock(path, "DELETE", status, response, responseHeaders);
   },
 
   cleanUp() {

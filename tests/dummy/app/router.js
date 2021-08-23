@@ -38,6 +38,7 @@ Router.map(function() {
 
       this.route('other', function() {
         this.route('get-request');
+        this.route('headers');
         this.route('post-request');
         this.route('origin-override');
         this.route('echo');
