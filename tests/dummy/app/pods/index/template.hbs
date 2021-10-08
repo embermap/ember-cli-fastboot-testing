@@ -1,10 +1,11 @@
-{{docs-header}}
+<DocsHeader />
 
-{{docs-hero
-  logo='ember-cli'
-  slimHeading='Fastboot'
-  strongHeading='Testing'
-  byline="Test your Fastboot rendered html alongside your application's tests."}}
+<DocsHero
+  @logo='ember-cli'
+  @slimHeading='Fastboot'
+  @strongHeading='Testing'
+  @byline="Test your Fastboot rendered html alongside your application's tests."
+/>
 
 <div class='container'>
   <section class="max-w-md mx-auto text-center mt-16">
@@ -14,17 +15,22 @@
       src="https://www.youtube.com/embed/CNCR9fTAyTQ?rel=0"
       frameborder="0"
       allow="autoplay; encrypted-media"
-      allowfullscreen></iframe>
+      allowfullscreen
+      title="EmberMap: FastBoot testing"
+    ></iframe>
   </section>
 
   <section class='max-w-md mx-auto text-right my-16'>
-    {{#link-to "docs" class="
-      py-2 px-3
-      rounded no-underline
-      text-white bg-brand
-      font-bold"}}
+    <LinkTo
+      @route="docs"
+      class="
+        py-2 px-3
+        rounded no-underline
+        text-white bg-brand
+        font-bold"
+    >
       Get started &rarr;
-    {{/link-to}}
+    </LinkTo>
   </section>
 
 </div>

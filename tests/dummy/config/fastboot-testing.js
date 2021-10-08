@@ -5,7 +5,7 @@ module.exports = {
   buildSandboxGlobals(defaultGlobals) {
     return Object.assign({}, defaultGlobals, {
       SampleGlobal: `TestSampleGlobal`,
-      najax
+      najax,
     });
   },
 };

@@ -1,5 +1,5 @@
-import DS from 'ember-data';
+import Model, { attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  title: DS.attr('string'),
-});
+export default class NoteModel extends Model {
+  @attr('string') title;
+}

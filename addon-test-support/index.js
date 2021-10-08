@@ -4,12 +4,12 @@ import { mockServer } from './-private/mock-server';
 import JSONfn from 'json-fn';
 
 export function setup(hooks) {
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     await mockServer.cleanUp();
     return setupContext(this);
   });
 
-  hooks.afterEach(async function() {
+  hooks.afterEach(async function () {
     await mockServer.cleanUp();
     return teardownContext(this);
   });
@@ -32,17 +32,15 @@ export function setup(hooks) {
  * @param {Integer} [options.destroyAppInstanceInMs] whether to destroy the instance in the given number of ms. This is a failure mechanism to not wedge the Node process (See: https://github.com/ember-fastboot/fastboot/issues/90)
  * @param {ClientRequest} [options.request] Node's `ClientRequest` object is provided to the Ember application via the FastBoot service.
  * @param {ClientResponse} [options.response] Node's `ServerResponse` object is provided to the Ember application via the FastBoot service.
- * @returns {Promise<Result>} result
+ * @return {Promise<Result>} result
  */
 export async function fastboot(url, options = {}) {
   let response = await fetchFromEmberCli(url, options);
   let result = await response.json();
 
-  let body = result.err ?
-    formatError(result.err) :
-    extractBody(result.html);
+  let body = result.err ? formatError(result.err) : extractBody(result.html);
 
-  result.htmlDocument = parseHtml(result.html)
+  result.htmlDocument = parseHtml(result.html);
   result.body = body;
 
   return result;
@@ -65,7 +63,7 @@ export async function fastboot(url, options = {}) {
  * @param {Integer} [options.destroyAppInstanceInMs] whether to destroy the instance in the given number of ms. This is a failure mechanism to not wedge the Node process (See: https://github.com/ember-fastboot/fastboot/issues/90)
  * @param {ClientRequest} [options.request] Node's `ClientRequest` object is provided to the Ember application via the FastBoot service.
  * @param {ClientResponse} [options.response] Node's `ServerResponse` object is provided to the Ember application via the FastBoot service.
- * @returns {Promise<Result>} result
+ * @return {Promise<Result>} result
  */
 export async function visit(url, options = {}) {
   let result = await fastboot(url, options);
@@ -79,7 +77,7 @@ export { mockServer };
 
 // private
 
-let fetchFromEmberCli = async function(url, options) {
+let fetchFromEmberCli = async function (url, options) {
   let response;
   let error;
 
@@ -98,11 +96,18 @@ let fetchFromEmberCli = async function(url, options) {
     if (e.message && e.message.match(/^Mirage:/)) {
       error = `Ember CLI FastBoot Testing: It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render ${url}. Please disable Mirage when running FastBoot tests.`;
     } else {
-      error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests? Error: ${e.message ? e.message : e}.`
+      error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests? Error: ${
+        e.message ? e.message : e
+      }.`;
     }
   }
 
-  if (response && response.headers && response.headers.get && response.headers.get('x-fastboot-testing') !== 'true') {
+  if (
+    response &&
+    response.headers &&
+    response.headers.get &&
+    response.headers.get('x-fastboot-testing') !== 'true'
+  ) {
     error = `Ember CLI FastBoot Testing: We were unable to render ${url}. Is your test suite blocking or intercepting HTTP requests?`;
   }
 
@@ -115,12 +120,12 @@ let fetchFromEmberCli = async function(url, options) {
   return response;
 };
 
-let parseHtml = function(str) {
+let parseHtml = function (str) {
   let parser = new DOMParser();
-  return parser.parseFromString(str, "text/html");
-}
+  return parser.parseFromString(str, 'text/html');
+};
 
-let extractBody = function(html) {
+let extractBody = function (html) {
   let start = '<script type="x/boundary" id="fastboot-body-start"></script>';
   let end = '<script type="x/boundary" id="fastboot-body-end"></script>';
 
@@ -128,15 +133,15 @@ let extractBody = function(html) {
   let endPosition = html.indexOf(end);
 
   if (!startPosition || !endPosition) {
-    throw "Could not find fastboot boundary";
+    throw 'Could not find fastboot boundary';
   }
 
   let startAt = startPosition + start.length;
   let endAt = endPosition - startAt;
 
   return html.substr(startAt, endAt);
-}
+};
 
-let formatError = function(err) {
+let formatError = function (err) {
   return `<pre>${err.stack}</pre>`;
 };

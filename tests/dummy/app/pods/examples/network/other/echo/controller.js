@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-  queryParams: ['message']
-});
+export default class extends Controller {
+  queryParams = ['message'];
+}
