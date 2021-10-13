@@ -13,7 +13,7 @@ let {
 } = require('./lib/helpers');
 
 module.exports = {
-  name: 'ember-cli-fastboot-testing',
+  name: require('./package').name,
 
   isDevelopingAddon() {
     return false;

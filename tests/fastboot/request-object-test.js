@@ -49,11 +49,17 @@ module('FastBoot | request object test', function(hooks) {
   });
 
   test('it includes cookies in request headers', async function (assert) {
+    // Make sure at least *some* cookie is present otherwise cookie header does not exist.
+    document.cookie = 'foo=bar; path=/';
+
     await visit('/examples/request-object');
 
     assert
       .dom('[data-test-id=headers] [data-header-name=cookie]')
       .includesText('cookie: ');
+
+    // Delete dummy cookie
+    document.cookie = 'foo=bar; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT';
   });
 
   test('it can specify cookies header in visit request', async function (assert) {

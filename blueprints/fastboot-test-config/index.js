@@ -6,7 +6,7 @@ module.exports = {
     return entityName;
   },
 
-  fileMapTokens(options) {
+  fileMapTokens() {
     let configPath = 'config';
     let pkg = this.project.pkg;
 
@@ -14,7 +14,7 @@ module.exports = {
       configPath = pkg['ember-addon']['configPath'];
     }
     return {
-      __config__(options) {
+      __config__() {
         return configPath
       }
     }
