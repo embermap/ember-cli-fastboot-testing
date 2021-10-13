@@ -1,10 +1,10 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
-export default Route.extend({
-  headData: service(),
+export default class extends Route {
+  @service headData;
 
   afterModel() {
-    this.set('headData.title', 'Fastboot testing');
+    this.headData.set('title', 'Fastboot testing');
   }
-});
+}

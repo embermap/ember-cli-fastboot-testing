@@ -1,8 +1,7 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
 
-export default Route.extend({
-
+export default class extends Route {
   // this endpoint is defined in index.js, it's used to represent
   // a url that ember-cli might already have in it's express router.
 
@@ -11,10 +10,9 @@ export default Route.extend({
   model(params) {
     return fetch('/fastboot-testing/echo', {
       method: 'POST',
-      body: params.message
-    }).then(response => {
+      body: params.message,
+    }).then((response) => {
       return response.text();
     });
   }
-
-});
+}
