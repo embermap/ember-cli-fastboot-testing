@@ -6,8 +6,8 @@ const Router = AddonDocsRouter.extend({
   rootURL: config.rootURL,
 });
 
-Router.map(function() {
-  docsRoute(this, function() {
+Router.map(function () {
+  docsRoute(this, function () {
     this.route('quickstart');
     this.route('debugging');
     this.route('videos');
@@ -19,8 +19,8 @@ Router.map(function() {
     this.route('fastboot-configuration');
   });
 
-  this.route('examples', function() {
-    this.route('redirects', function() {
+  this.route('examples', function () {
+    this.route('redirects', function () {
       this.route('transition-to');
       this.route('replace-with');
     });
@@ -31,12 +31,12 @@ Router.map(function() {
 
     this.route('request-object');
 
-    this.route('network', function() {
-      this.route('notes', function() {
+    this.route('network', function () {
+      this.route('notes', function () {
         this.route('note', { path: ':note_id' });
       });
 
-      this.route('other', function() {
+      this.route('other', function () {
         this.route('get-request');
         this.route('headers');
         this.route('post-request');
@@ -45,7 +45,7 @@ Router.map(function() {
       });
     });
 
-    this.route('errors', function() {
+    this.route('errors', function () {
       this.route('throw-message');
       this.route('throw-error-object');
       this.route('access-document');

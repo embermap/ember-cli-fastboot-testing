@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const getChannelURL = require('ember-source-channel-url');
 const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
@@ -12,7 +12,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.20.7',
-            'ember-data': '~3.20.5'
+            'ember-data': '~3.20.5',
           },
         },
       },
@@ -21,33 +21,33 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.24.3',
-            'ember-data': '~3.24.2'
+            'ember-data': '~3.24.2',
           },
         },
       },
       {
-        name: "fastboot-1.2",
+        name: 'fastboot-1.2',
         npm: {
           dependencies: {
-            fastboot: "~1.2.1"
+            fastboot: '~1.2.1',
           },
           devDependencies: {
-            "ember-source": "~3.20.7",
-            'ember-data': '~3.20.5'
-          }
-        }
+            'ember-source': '~3.20.7',
+            'ember-data': '~3.20.5',
+          },
+        },
       },
       {
-        name: "fastboot-2.0",
+        name: 'fastboot-2.0',
         npm: {
           dependencies: {
-            fastboot: "~2.0.3"
+            fastboot: '~2.0.3',
           },
           devDependencies: {
-            "ember-source": "~3.20.7",
-            'ember-data': '~3.20.5'
-          }
-        }
+            'ember-source': '~3.20.7',
+            'ember-data': '~3.20.5',
+          },
+        },
       },
       {
         name: 'ember-release',

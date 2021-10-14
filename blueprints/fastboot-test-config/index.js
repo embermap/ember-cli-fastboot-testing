@@ -1,6 +1,7 @@
 /* eslint-env node */
 module.exports = {
-  description: 'Generates test config for adding custom Fastboot sandbox globals',
+  description:
+    'Generates test config for adding custom Fastboot sandbox globals',
 
   normalizeEntityName(entityName) {
     return entityName;
@@ -15,9 +16,8 @@ module.exports = {
     }
     return {
       __config__() {
-        return configPath
-      }
-    }
-  }
-
+        return configPath;
+      },
+    };
+  },
 };
