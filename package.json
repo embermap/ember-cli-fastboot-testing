@@ -69,6 +69,7 @@
     "loader.js": "^4.2.3",
     "najax": "^1.0.4",
     "pretender": "~3.4.1",
+    "semver": "^7.3.5",
     "qunit-dom": "^1.2.0"
   },
   "engines": {
