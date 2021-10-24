@@ -21,7 +21,7 @@ module('Fastboot | basic', function (hooks) {
   test('it gets a success response code', async function (assert) {
     let { statusCode } = await visit('/');
 
-    assert.equal(statusCode, 200);
+    assert.strictEqual(statusCode, 200);
   });
 
   test('it preserves all query parameters', async function (assert) {
