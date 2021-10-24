@@ -1,124 +1,120 @@
-import { module, test } from "qunit";
+import { module, test } from 'qunit';
 import {
   setup,
   visit,
-  mockServer
-} from "ember-cli-fastboot-testing/test-support";
+  mockServer,
+} from 'ember-cli-fastboot-testing/test-support';
 import config from 'dummy/config/environment';
 
-module("Fastboot | network mocking", function(hooks) {
+module('Fastboot | network mocking', function (hooks) {
   setup(hooks);
 
-  test("it will not change an endpoint that already exists", async function(assert) {
-    await visit("/examples/network/other/echo?message=hello%20world");
-    assert.dom('[data-test-id="echo"]').hasText("hello world");
+  test('it will not change an endpoint that already exists', async function (assert) {
+    await visit('/examples/network/other/echo?message=hello%20world');
+    assert.dom('[data-test-id="echo"]').hasText('hello world');
   });
 
-  test("it can mock an array of models", async function(assert) {
-    await mockServer.get("/api/notes", {
+  test('it can mock an array of models', async function (assert) {
+    await mockServer.get('/api/notes', {
       data: [
         {
-          type: "note",
-          id: "1",
+          type: 'note',
+          id: '1',
           attributes: {
-            title: "test note"
-          }
+            title: 'test note',
+          },
         },
         {
-          type: "note",
-          id: "2",
+          type: 'note',
+          id: '2',
           attributes: {
-            title: "test 2"
-          }
-        }
-      ]
+            title: 'test 2',
+          },
+        },
+      ],
     });
 
-    await visit("/examples/network/notes");
+    await visit('/examples/network/notes');
 
-    assert.dom('[data-test-id="title-1"]').hasText("test note");
-    assert.dom('[data-test-id="title-2"]').hasText("test 2");
+    assert.dom('[data-test-id="title-1"]').hasText('test note');
+    assert.dom('[data-test-id="title-2"]').hasText('test 2');
   });
 
-  test("it can mock a single model", async function(assert) {
-    await mockServer.get("/api/notes/1", {
+  test('it can mock a single model', async function (assert) {
+    await mockServer.get('/api/notes/1', {
       data: {
-        type: "note",
-        id: "1",
+        type: 'note',
+        id: '1',
         attributes: {
-          title: "test note"
-        }
-      }
+          title: 'test note',
+        },
+      },
     });
 
-    await visit("/examples/network/notes/1");
+    await visit('/examples/network/notes/1');
 
-    assert.dom('[data-test-id="title"]').hasText("test note");
+    assert.dom('[data-test-id="title"]').hasText('test note');
   });
 
-  test("it can mock 404s", async function(assert) {
+  test('it can mock 404s', async function (assert) {
     await mockServer.get(
-      "/api/notes/1",
+      '/api/notes/1',
       {
-        errors: [{ title: "Not found" }]
+        errors: [{ title: 'Not found' }],
       },
       404
     );
 
-    await visit("/examples/network/notes/1");
+    await visit('/examples/network/notes/1');
 
     assert
       .dom()
-      .includesText("Ember Data Request GET /api/notes/1 returned a 404");
+      .includesText('Ember Data Request GET /api/notes/1 returned a 404');
   });
 
-  test("it can mock a get request", async function(assert) {
-    await mockServer.get("/api/notes", [{ id: 1, title: "get note" }]);
+  test('it can mock a get request', async function (assert) {
+    await mockServer.get('/api/notes', [{ id: 1, title: 'get note' }]);
 
-    await visit("/examples/network/other/get-request");
+    await visit('/examples/network/other/get-request');
 
-    assert.dom('[data-test-id="title-1"]').hasText("get note");
+    assert.dom('[data-test-id="title-1"]').hasText('get note');
   });
 
-  test("it can mock a post request", async function(assert) {
-    await mockServer.post("/api/notes", [{ id: 1, title: "post note" }]);
+  test('it can mock a post request', async function (assert) {
+    await mockServer.post('/api/notes', [{ id: 1, title: 'post note' }]);
 
-    await visit("/examples/network/other/post-request");
+    await visit('/examples/network/other/post-request');
 
-    assert.dom('[data-test-id="title-1"]').hasText("post note");
+    assert.dom('[data-test-id="title-1"]').hasText('post note');
   });
 
-  test("it can mock a large response", async function(assert) {
-    let title = "a".repeat(1024 * 1024 * 5); // 5 MB
+  test('it can mock a large response', async function (assert) {
+    let title = 'a'.repeat(1024 * 1024 * 5); // 5 MB
 
-    await mockServer.get("/api/notes", [{ id: 1, title }]);
+    await mockServer.get('/api/notes', [{ id: 1, title }]);
 
-    await visit("/examples/network/other/get-request");
+    await visit('/examples/network/other/get-request');
 
     assert.dom('[data-test-id="title-1"]').exists();
   });
 
-  test("it can override the origin on a mock response", async function(assert) {
+  test('it can override the origin on a mock response', async function (assert) {
     const { originForOverride } = config;
 
-    await mockServer.get(`${originForOverride}/api/notes`, [{ id: 1, title: "get note" }]);
+    await mockServer.get(`${originForOverride}/api/notes`, [
+      { id: 1, title: 'get note' },
+    ]);
 
-    await visit("/examples/network/other/origin-override");
+    await visit('/examples/network/other/origin-override');
 
-    assert.dom('[data-test-id="title-1"]').hasText("get note");
+    assert.dom('[data-test-id="title-1"]').hasText('get note');
   });
 
-  test("it can add headers a mock response", async function(assert) {
+  test('it can add headers a mock response', async function (assert) {
+    await mockServer.get('/api/notes', { data: [] }, 200, { 'x-test': 'foo' });
 
-    await mockServer.get(
-      '/api/notes',
-      { data: [] },
-      200,
-      {'x-test': 'foo'}
-    );
+    await visit('/examples/network/other/headers');
 
-    await visit("/examples/network/other/headers");
-
-    assert.dom('[data-test-id="headers"]').hasText("foo");
+    assert.dom('[data-test-id="headers"]').hasText('foo');
   });
 });

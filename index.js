@@ -9,7 +9,7 @@ let {
   createFastbootTest,
   createMockRequest,
   reloadServer,
-  createServer
+  createServer,
 } = require('./lib/helpers');
 
 module.exports = {
@@ -22,14 +22,19 @@ module.exports = {
   included() {
     this._super.included.apply(this, arguments);
 
-    const isEnabled = this.app.name === "dummy" || this.app.env !== "production";
+    const isEnabled =
+      this.app.name === 'dummy' || this.app.env !== 'production';
 
     if (!isEnabled) return;
 
     try {
-      resolve.sync('ember-cli-fastboot/package.json', { basedir: this.project.root });
-    } catch(err) {
-      throw new Error(`Unable to find FastBoot. Did you forget to add ember-cli-fastboot to your app? ${err}`);
+      resolve.sync('ember-cli-fastboot/package.json', {
+        basedir: this.project.root,
+      });
+    } catch (err) {
+      throw new Error(
+        `Unable to find FastBoot. Did you forget to add ember-cli-fastboot to your app? ${err}`
+      );
     }
   },
 
@@ -61,7 +66,7 @@ module.exports = {
   _fastbootRenderingMiddleware(app) {
     createMockRequest(app);
     createCleanUpMocks(app);
-    createFastbootTest(app, ({res, options, urlToVisit}) => {
+    createFastbootTest(app, ({ res, options, urlToVisit }) => {
       if (!this.fastboot) {
         const path = minimist(process.argv.slice(2)).path;
         if (path) {
@@ -73,24 +78,22 @@ module.exports = {
 
       this.fastboot
         .visit(urlToVisit, options)
-        .then(page => {
-          page.html().then(html => {
+        .then((page) => {
+          page.html().then((html) => {
             res.json({
               finalized: page.finalized,
               url: page.url,
               statusCode: page.statusCode,
               headers: page.headers.headers,
-              html: html
+              html: html,
             });
           });
         })
-        .catch(err => {
+        .catch((err) => {
           let errorObject;
           let jsonError = {};
 
-          errorObject = (typeof err === 'string') ?
-            new Error(err) :
-            err;
+          errorObject = typeof err === 'string' ? new Error(err) : err;
 
           // we need to copy these properties off the error
           // object into a pojo that can be serialized and
@@ -102,16 +105,16 @@ module.exports = {
             'message',
             'name',
             'number',
-            'stack'
+            'stack',
           ];
 
-          errorProps.forEach(key => jsonError[key] = errorObject[key]);
+          errorProps.forEach((key) => (jsonError[key] = errorObject[key]));
 
           res.json({ err: jsonError });
         });
     });
 
-    if (this.app && this.app.name === "dummy") {
+    if (this.app && this.app.name === 'dummy') {
       // our dummy app has an echo endpoint!
       createFastbootEcho(app);
     }
