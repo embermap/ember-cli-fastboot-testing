@@ -7,7 +7,7 @@ if (semver.lt(version, '3.0.0')) {
   module.exports = {
     resilient: false,
     sandboxGlobals: {
-      SampleGlobal: 'TestSampleGlobal'
+      SampleGlobal: 'TestSampleGlobal',
     },
   };
 } else {
@@ -16,7 +16,7 @@ if (semver.lt(version, '3.0.0')) {
     buildSandboxGlobals(defaultGlobals) {
       return Object.assign({}, defaultGlobals, {
         SampleGlobal: 'TestSampleGlobal',
-        najax
+        najax,
       });
     },
   };

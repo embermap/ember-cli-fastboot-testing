@@ -10,15 +10,14 @@ import { setupMirage } from 'ember-cli-mirage/test-support';
 
   We want to provide a better error message when that happens.
 */
-module('Fastboot | mirage interceptor', function(hooks) {
+module('Fastboot | mirage interceptor', function (hooks) {
   setup(hooks);
   setupMirage(hooks);
 
-  test('it doesnt work if mirage blocks our http request to ember-cli', async function(assert) {
+  test('it doesnt work if mirage blocks our http request to ember-cli', async function (assert) {
     assert.rejects(
       visit('/'),
       /It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render \//
     );
   });
-
 });
