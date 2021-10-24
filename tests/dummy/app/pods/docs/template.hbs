@@ -1,8 +1,8 @@
-{{docs-header}}
+<DocsHeader />
 
-{{#docs-viewer as |viewer|}}
+<DocsViewer as |viewer|>
 
-  {{#viewer.nav as |nav|}}
+  <viewer.nav as |nav|>
     {{nav.section 'Introduction'}}
     {{nav.item 'Why test FastBoot?' 'docs.index'}}
     {{nav.item 'Quickstart' 'docs.quickstart'}}
@@ -20,14 +20,14 @@
     {{nav.item 'HTML tests' 'docs.html'}}
     {{nav.item 'Document tests' 'docs.document'}}
     {{nav.item 'Status code tests' 'docs.status-code'}}
-  {{/viewer.nav}}
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     <div class="container">
       <div class="docs-section">
         {{outlet}}
       </div>
     </div>
-  {{/viewer.main}}
+  </viewer.main>
 
-{{/docs-viewer}}
+</DocsViewer>

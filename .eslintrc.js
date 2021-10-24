@@ -1,11 +1,17 @@
+'use strict';
+
 module.exports = {
   globals: {
     server: true,
   },
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
-    sourceType: 'module'
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true,
+    },
   },
   plugins: [
     'ember'
@@ -23,6 +29,7 @@ module.exports = {
     // node files
     {
       files: [
+        '.eslintrc.js',
         'ember-cli-build.js',
         'index.js',
         'testem.js',
