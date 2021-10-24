@@ -6701,7 +6701,7 @@ ember-qunit@^5.1.5:
     silent-error "^1.1.1"
     validate-peer-dependencies "^1.2.0"
 
-ember-resolver@^8.0.4:
+ember-resolver@^8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-8.0.3.tgz#40f243aa58281bf195c695fe84a6b291e204690a"
   integrity sha512-fA53fxfG821BRqNiB9mQDuzZpzSRcSAYZTYBlRQOHsJwoYdjyE7idz4YcytbSsa409G5J2kP6B+PiKOBh0odlw==
