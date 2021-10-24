@@ -1,12 +1,13 @@
 /* eslint-env node */
 module.exports = {
-  description: 'Generates test config for adding custom Fastboot sandbox globals',
+  description:
+    'Generates test config for adding custom Fastboot sandbox globals',
 
   normalizeEntityName(entityName) {
     return entityName;
   },
 
-  fileMapTokens(options) {
+  fileMapTokens(/* options */) {
     let configPath = 'config';
     let pkg = this.project.pkg;
 
@@ -14,10 +15,9 @@ module.exports = {
       configPath = pkg['ember-addon']['configPath'];
     }
     return {
-      __config__(options) {
-        return configPath
-      }
-    }
-  }
-
+      __config__(/* options */) {
+        return configPath;
+      },
+    };
+  },
 };

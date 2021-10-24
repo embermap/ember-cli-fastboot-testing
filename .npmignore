@@ -9,7 +9,10 @@
 .ember-cli
 .eslintrc.js
 .gitignore
+.prettierignore
+.prettierrc.js
 .watchmanconfig
+.template-lintrc.js
 .travis.yml
 bower.json
 ember-cli-build.js

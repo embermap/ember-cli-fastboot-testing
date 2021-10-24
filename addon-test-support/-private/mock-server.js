@@ -1,6 +1,12 @@
 import { fetch } from 'whatwg-fetch';
 
-let createMock = function(path, method, statusCode, response, responseHeaders) {
+let createMock = function (
+  path,
+  method,
+  statusCode,
+  response,
+  responseHeaders
+) {
   let origin = false;
 
   if (path.startsWith('http')) {
@@ -12,7 +18,7 @@ let createMock = function(path, method, statusCode, response, responseHeaders) {
   return fetch('/__mock-request', {
     method: 'post',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       path,
@@ -20,33 +26,33 @@ let createMock = function(path, method, statusCode, response, responseHeaders) {
       statusCode,
       response,
       responseHeaders,
-      origin
+      origin,
     }),
   });
-}
+};
 
 export let mockServer = {
   get(path, response, status = 200, responseHeaders) {
-    return createMock(path, "GET", status, response, responseHeaders);
+    return createMock(path, 'GET', status, response, responseHeaders);
   },
 
   post(path, response, status = 200, responseHeaders) {
-    return createMock(path, "POST", status, response, responseHeaders);
+    return createMock(path, 'POST', status, response, responseHeaders);
   },
 
   patch(path, response, status = 200, responseHeaders) {
-    return createMock(path, "PATCH", status, response, responseHeaders);
+    return createMock(path, 'PATCH', status, response, responseHeaders);
   },
 
   put(path, response, status = 200, responseHeaders) {
-    return createMock(path, "PUT", status, response, responseHeaders);
+    return createMock(path, 'PUT', status, response, responseHeaders);
   },
 
   delete(path, response, status = 200, responseHeaders) {
-    return createMock(path, "DELETE", status, response, responseHeaders);
+    return createMock(path, 'DELETE', status, response, responseHeaders);
   },
 
   cleanUp() {
     return fetch('/__cleanup-mocks');
-  }
+  },
 };

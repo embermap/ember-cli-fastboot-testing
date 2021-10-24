@@ -12,13 +12,13 @@ import Pretender from 'pretender';
 
   We want to provide a better error message when that happens.
 */
-module('Fastboot | generic interceptor', function(hooks) {
+module('Fastboot | generic interceptor', function (hooks) {
   setup(hooks);
 
-  test('it doesnt work if an interceptor blocks our request to ember-cli', async function(assert) {
-    let server = new Pretender(function() {
+  test('it doesnt work if an interceptor blocks our request to ember-cli', async function (assert) {
+    let server = new Pretender(function () {
       this.post('/__fastboot-testing', () => {
-        throw new Error("Blocked!");
+        throw new Error('Blocked!');
       });
     });
 
@@ -30,13 +30,13 @@ module('Fastboot | generic interceptor', function(hooks) {
     server.shutdown();
   });
 
-  test('mocked response', function(assert) {
-    let server = new Pretender(function() {
+  test('mocked response', function (assert) {
+    let server = new Pretender(function () {
       this.get('/__fastboot-testing', () => {
         return [
           200,
-          {"Content-Type": "application/json"},
-          JSON.stringify({ mocked: true })
+          { 'Content-Type': 'application/json' },
+          JSON.stringify({ mocked: true }),
         ];
       });
     });
