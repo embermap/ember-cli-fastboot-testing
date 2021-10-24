@@ -38,6 +38,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
+    "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.5.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
@@ -88,6 +89,9 @@
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
+  },
+  "ember": {
+    "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
