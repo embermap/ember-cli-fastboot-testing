@@ -67,14 +67,15 @@ jobs:
       fail-fast: false
       matrix:
         try-scenario:
-          - ember-lts-3.4
-          - ember-lts-3.8
-          - ember-lts-3.12
+          - ember-lts-3.20
+          - ember-lts-3.24
           - fastboot-1.2
           - fastboot-2.0
           - ember-release
           - ember-beta
           - ember-canary
+          - ember-default-with-jquery
+          - ember-classic
           - embroider-safe
           - embroider-optimized
 

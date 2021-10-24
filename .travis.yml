@@ -48,14 +48,15 @@ jobs:
       env: NAME=floating dependencies
       install: yarn install --no-lockfile --non-interactive
       script: yarn test
-    - env: EMBER_TRY_SCENARIO=ember-lts-3.4
-    - env: EMBER_TRY_SCENARIO=ember-lts-3.8
-    - env: EMBER_TRY_SCENARIO=ember-lts-3.12
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.20
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.24
     - env: EMBER_TRY_SCENARIO=fastboot-1.2
     - env: EMBER_TRY_SCENARIO=fastboot-2.0
     - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - env: EMBER_TRY_SCENARIO=ember-classic
     - env: EMBER_TRY_SCENARIO=embroider-safe
     - env: EMBER_TRY_SCENARIO=embroider-optimized
 
