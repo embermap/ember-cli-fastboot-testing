@@ -11,7 +11,8 @@ module.exports = async function () {
         name: 'ember-lts-3.20',
         npm: {
           devDependencies: {
-            'ember-source': '~3.20.5',
+            'ember-source': '~3.20.7',
+            'ember-data': '~3.20.5',
           },
         },
       },
@@ -20,16 +21,31 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.24.3',
+            'ember-data': '~3.24.2',
           },
         },
       },
       {
         name: 'fastboot-1.2',
         npm: {
+          dependencies: {
+            fastboot: '~1.2.1',
+          },
           devDependencies: {
-            'ember-source': '~3.20.5',
+            'ember-source': '~3.20.7',
             'ember-data': '~3.20.5',
-            fastboot: '~1.2.0',
+          },
+        },
+      },
+      {
+        name: 'fastboot-2.0',
+        npm: {
+          dependencies: {
+            fastboot: '~2.0.3',
+          },
+          devDependencies: {
+            'ember-source': '~3.20.7',
+            'ember-data': '~3.20.5',
           },
         },
       },
@@ -80,6 +96,9 @@ module.exports = async function () {
           }),
         },
         npm: {
+          devDependencies: {
+            'ember-source': '~3.28.0',
+          },
           ember: {
             edition: 'classic',
           },
