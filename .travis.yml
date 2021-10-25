@@ -1,9 +1,9 @@
 ---
 language: node_js
-sudo: false
-dist: trusty
 node_js:
   - "12"
+
+dist: xenial
 
 addons:
   chrome: stable

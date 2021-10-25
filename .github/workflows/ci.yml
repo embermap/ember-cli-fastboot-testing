@@ -25,7 +25,7 @@ jobs:
       - name: Lint
         run: yarn lint:js
       - name: Run Tests
-        run: yarn test
+        run: yarn test:ember
 
   floating:
     name: "Floating Dependencies"
@@ -40,7 +40,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --no-lockfile
       - name: Run Tests
-        run: yarn test
+        run: yarn test:ember
 
   separate_build:
     name: "Tests with separate build"
