@@ -14,7 +14,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build",
+    "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
@@ -22,9 +22,10 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "test": "ember test",
-    "test:separate-build": "yarn build --environment test && yarn test --path=dist --filter 'Fastboot | basic'",
-    "test:all": "ember try:each"
+    "test": "npm-run-all lint test:*",
+    "test:ember": "ember test",
+    "test:ember-compatibility": "ember try:each",
+    "test:separate-build": "yarn build --environment test && yarn test:ember --path=dist --filter 'Fastboot | basic'"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

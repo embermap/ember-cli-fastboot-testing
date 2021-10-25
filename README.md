@@ -16,3 +16,11 @@ You can view the most-upvoted feature requests with [this link](https://github.c
 ## About
 
 This library is developed and maintained by [EmberMap](https://embermap.com/). If your company is looking to see how it can get the most out of Ember, please [get in touch](mailto:info@embermap.com)!
+
+## Contributing
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).
