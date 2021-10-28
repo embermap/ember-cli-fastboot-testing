@@ -14,6 +14,7 @@
 /.eslintignore
 /.eslintrc.js
 /.git/
+/.github/
 /.gitignore
 /.prettierignore
 /.prettierrc.js
@@ -28,6 +29,7 @@
 /ember-cli-build.js
 /testem.js
 /tests/
+/vendor/tailwind.min.css
 /yarn-error.log
 /yarn.lock
 .gitkeep
