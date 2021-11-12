@@ -1,0 +1,1 @@
+:root{--brand-primary:#7972CE}.bg-brand{background-color:var(--brand-primary)}.text-brand{color:var(--brand-primary)}.container{padding-left:1rem;padding-right:1rem;max-width:1400px;margin-left:auto;margin-right:auto}@media (min-width:768px){.container{padding-left:1.5rem;padding-right:1.5rem}}
