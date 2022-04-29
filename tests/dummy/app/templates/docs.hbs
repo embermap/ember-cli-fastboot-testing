@@ -1,0 +1,33 @@
+<DocsHeader />
+
+<DocsViewer as |viewer|>
+
+  <viewer.nav as |nav|>
+    <nav.section @label="Introduction" />
+    <nav.item @label="Why test FastBoot?" @route="docs.index" />
+    <nav.item @label="Quickstart" @route="docs.quickstart" />
+
+    <nav.section @label="Usage & options" />
+    <nav.item @label="Visit helper" @route="docs.visit" />
+    <nav.item @label="Network mocking" @route="docs.network-mocking" />
+    <nav.item @label="FastBoot configuration" @route="docs.fastboot-configuration" />
+
+    <nav.section @label="Tips & tricks" />
+    <nav.item @label="Debugging" @route="docs.debugging" />
+    <nav.item @label="Videos" @route="docs.videos" />
+
+    <nav.section @label="Test types" />
+    <nav.item @label="HTML tests" @route="docs.html" />
+    <nav.item @label="Document tests" @route="docs.document" />
+    <nav.item @label="Status code tests" @route="docs.status-code" />
+  </viewer.nav>
+
+  <viewer.main>
+    <div class="container">
+      <div class="docs-section">
+        {{outlet}}
+      </div>
+    </div>
+  </viewer.main>
+
+</DocsViewer>
