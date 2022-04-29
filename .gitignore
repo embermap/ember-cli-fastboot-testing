@@ -26,3 +26,6 @@
 /package.json.ember-try
 
 .DS_Store
+
+# broccoli-debug
+/DEBUG/
