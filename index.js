@@ -48,16 +48,21 @@ module.exports = {
 
   // we have to use the outputReady hook to ensure that ember-cli has finished copying the contents to the outputPath directory
   outputReady(result) {
-    // NOTE: result.directory is not updated and still references the same path as postBuild hook (this might be a bug in ember-cli)
-    // Set the distPath to the "final" outputPath, where EMBER_CLI_TEST_OUTPUT is the path passed to testem (set by ember-cli).
-    // We fall back to result.directory if EMBER_CLI_TEST_OUTPUT is not set.
-    let distPath = process.env.EMBER_CLI_TEST_OUTPUT || result.directory;
-    let { pkg } = this.project;
+    const isEnabled =
+      this.app.name === 'dummy' || this.app.env !== 'production';
 
-    if (this.fastboot) {
-      reloadServer(this.fastboot, distPath);
-    } else {
-      this.fastboot = createServer(distPath, pkg);
+    if (isEnabled) {
+      // NOTE: result.directory is not updated and still references the same path as postBuild hook (this might be a bug in ember-cli)
+      // Set the distPath to the "final" outputPath, where EMBER_CLI_TEST_OUTPUT is the path passed to testem (set by ember-cli).
+      // We fall back to result.directory if EMBER_CLI_TEST_OUTPUT is not set.
+      let distPath = process.env.EMBER_CLI_TEST_OUTPUT || result.directory;
+      let { pkg } = this.project;
+
+      if (this.fastboot) {
+        reloadServer(this.fastboot, distPath);
+      } else {
+        this.fastboot = createServer(distPath, pkg);
+      }
     }
 
     return result;
