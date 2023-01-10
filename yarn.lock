@@ -10983,9 +10983,9 @@ minipass@^2.2.0:
     yallist "^3.0.0"
 
 miragejs@^0.1.43:
-  version "0.1.44"
-  resolved "https://registry.yarnpkg.com/miragejs/-/miragejs-0.1.44.tgz#9e88f50f14e978c9181b12a5858723f49c9364b5"
-  integrity sha512-uYcWKgvSawAwLoFcheERHmLz1UmyD+4aYB74bB6fcymKQs0cA5oU4GjfnLpKPTeZ58UCwxwfCApL8SM0C2+4BQ==
+  version "0.1.47"
+  resolved "https://registry.yarnpkg.com/miragejs/-/miragejs-0.1.47.tgz#c4a8dff21adfc0ce3181d78987f11848d74c6869"
+  integrity sha512-99tuCbIAlMhNhyF3s5d3+5/FdJ7O4jSq/5e3e+sDv7L8dZdwJuwutXe0pobJ7hm6yRChTDjK+Nn8dZZd175wbg==
   dependencies:
     "@miragejs/pretender-node-polyfill" "^0.1.0"
     inflected "^2.0.4"
