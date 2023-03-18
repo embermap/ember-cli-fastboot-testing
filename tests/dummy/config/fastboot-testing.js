@@ -11,13 +11,15 @@ if (semver.lt(version, '3.0.0')) {
     },
   };
 } else {
-  module.exports = {
-    resilient: false,
-    buildSandboxGlobals(defaultGlobals) {
-      return Object.assign({}, defaultGlobals, {
-        SampleGlobal: 'TestSampleGlobal',
-        najax,
-      });
-    },
+  module.exports = () => {
+    return {
+      resilient: false,
+      buildSandboxGlobals(defaultGlobals) {
+        return Object.assign({}, defaultGlobals, {
+          SampleGlobal: 'TestSampleGlobal',
+          najax,
+        });
+      },
+    };
   };
 }

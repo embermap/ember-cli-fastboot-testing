@@ -5,14 +5,17 @@ When using this addon a new FastBoot instance will be created specifically for t
 ```js
 // my-app/config/fastboot-tesitng.js
 
-module.exports = {
-  resilient: true,
-  buildSandboxGlobals(defaultGlobals) {
-    return Object.assign({}, defaultGlobals, {
-      SampleGlobal: `TestSampleGlobal`,
-      najax
-    });
-  }
+module.exports = () => {
+  return {
+    resilient: true,
+    buildSandboxGlobals(defaultGlobals) {
+      return {
+        ...defaultGlobals,
+        SampleGlobal: `TestSampleGlobal`,
+        najax,
+      };
+    },
+  };
 };
 ```
 
