@@ -76,6 +76,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
+            'ember-data': '~4.10.0',
           },
         },
       },
