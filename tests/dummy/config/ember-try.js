@@ -40,6 +40,7 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': '~3.20.7',
             'ember-data': '~3.20.5',
+            'ember-qunit': '^5.1.5',
           },
         },
       },
@@ -52,6 +53,7 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': '~3.20.7',
             'ember-data': '~3.20.5',
+            'ember-qunit': '^5.1.5',
           },
         },
       },
@@ -76,7 +78,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
-            'ember-data': '~4.10.0',
           },
         },
       },
