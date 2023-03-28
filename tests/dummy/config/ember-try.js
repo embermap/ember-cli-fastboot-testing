@@ -46,9 +46,10 @@ module.exports = async function () {
         name: 'fastboot-2.0',
         npm: {
           devDependencies: {
-            'ember-source': '~3.20.7',
+            'ember-cli-fastboot': '^2.0.0',
             'ember-data': '~3.20.5',
             'ember-qunit': '^5.1.5',
+            'ember-source': '~3.20.7',
             fastboot: '~2.0.3',
           },
         },
@@ -57,6 +58,7 @@ module.exports = async function () {
         name: 'fastboot-3.0',
         npm: {
           devDependencies: {
+            'ember-cli-fastboot': '^3.0.0',
             fastboot: '^3.0.0',
           },
         },
