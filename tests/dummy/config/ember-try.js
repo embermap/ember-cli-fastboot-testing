@@ -34,26 +34,30 @@ module.exports = async function () {
       {
         name: 'fastboot-1.2',
         npm: {
-          dependencies: {
-            fastboot: '~1.2.1',
-          },
           devDependencies: {
             'ember-source': '~3.20.7',
             'ember-data': '~3.20.5',
             'ember-qunit': '^5.1.5',
+            fastboot: '~1.2.1',
           },
         },
       },
       {
         name: 'fastboot-2.0',
         npm: {
-          dependencies: {
-            fastboot: '~2.0.3',
-          },
           devDependencies: {
             'ember-source': '~3.20.7',
             'ember-data': '~3.20.5',
             'ember-qunit': '^5.1.5',
+            fastboot: '~2.0.3',
+          },
+        },
+      },
+      {
+        name: 'fastboot-3.0',
+        npm: {
+          devDependencies: {
+            fastboot: '^3.0.0',
           },
         },
       },
