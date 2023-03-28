@@ -1,5 +1,4 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # compiled output
 /dist/
 /tmp/
@@ -23,9 +22,10 @@
 # ember-try
 /.node_modules.ember-try/
 /bower.json.ember-try
+/npm-shrinkwrap.json.ember-try
 /package.json.ember-try
-
-.DS_Store
+/package-lock.json.ember-try
+/yarn.lock.ember-try
 
 # broccoli-debug
 /DEBUG/

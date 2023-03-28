@@ -16,7 +16,7 @@ export function setup(hooks) {
 }
 
 /**
- * TODO
+ * @todo
  *
  * @example
  * ```
@@ -32,7 +32,7 @@ export function setup(hooks) {
  * @param {Integer} [options.destroyAppInstanceInMs] whether to destroy the instance in the given number of ms. This is a failure mechanism to not wedge the Node process (See: https://github.com/ember-fastboot/fastboot/issues/90)
  * @param {ClientRequest} [options.request] Node's `ClientRequest` object is provided to the Ember application via the FastBoot service.
  * @param {ClientResponse} [options.response] Node's `ServerResponse` object is provided to the Ember application via the FastBoot service.
- * @returns {Promise<Result>} result
+ * @return {Promise<Result>} result
  */
 export async function fastboot(url, options = {}) {
   let response = await fetchFromEmberCli(url, options);
@@ -47,7 +47,7 @@ export async function fastboot(url, options = {}) {
 }
 
 /**
- * TODO
+ * @todo
  *
  * @example
  * ```
@@ -63,7 +63,7 @@ export async function fastboot(url, options = {}) {
  * @param {Integer} [options.destroyAppInstanceInMs] whether to destroy the instance in the given number of ms. This is a failure mechanism to not wedge the Node process (See: https://github.com/ember-fastboot/fastboot/issues/90)
  * @param {ClientRequest} [options.request] Node's `ClientRequest` object is provided to the Ember application via the FastBoot service.
  * @param {ClientResponse} [options.response] Node's `ServerResponse` object is provided to the Ember application via the FastBoot service.
- * @returns {Promise<Result>} result
+ * @return {Promise<Result>} result
  */
 export async function visit(url, options = {}) {
   let result = await fastboot(url, options);
