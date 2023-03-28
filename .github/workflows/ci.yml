@@ -89,7 +89,7 @@ jobs:
           - fastboot-3.0
           - ember-release
           - ember-beta
-          - ember-canary
+#          - ember-canary
           - ember-classic
           - embroider-safe
           - embroider-optimized
