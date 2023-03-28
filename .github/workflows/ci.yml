@@ -86,6 +86,7 @@ jobs:
           - ember-lts-4.8
           - fastboot-1.2
           - fastboot-2.0
+          - fastboot-3.0
           - ember-release
           - ember-beta
           - ember-canary
