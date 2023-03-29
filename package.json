@@ -49,7 +49,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-plugin": "^4.0.7",
     "broccoli-stew": "^3.0.0",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.1",
     "fastboot": "^4.1.0",
     "ember-cli": "~4.11.0",
     "ember-cli-addon-docs": "github:ember-learn/ember-cli-addon-docs#eb825bcc1e721dbebc73e5dbd98db2ebb3026dd3",
