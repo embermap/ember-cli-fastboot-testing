@@ -3,7 +3,7 @@
 When using this addon a new FastBoot instance will be created specifically for the testing environment. The options provided to the instance can be customized through a config file.
 
 ```js
-// my-app/config/fastboot-tesitng.js
+// my-app/config/fastboot-testing.js
 
 module.exports = () => {
   return {
