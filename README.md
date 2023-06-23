@@ -1,7 +1,7 @@
 # Ember CLI Fastboot Testing
 
-[![npm version](https://img.shields.io/npm/v/ember-cli-fastboot-testing.svg?style=flat-square)](http://badge.fury.io/js/ember-cli-fastboot-testing)
-[![Build Status](https://img.shields.io/github/workflow/status/embermap/ember-cli-fastboot-testing/CI?style=flat-square)](https://github.com/embermap/ember-cli-fastboot-testing/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/ember-cli-fastboot-testing.svg)](http://badge.fury.io/js/ember-cli-fastboot-testing)
+[![CI](https://github.com/embermap/ember-cli-fastboot-testing/actions/workflows/ci.yml/badge.svg)](https://github.com/embermap/ember-cli-fastboot-testing/actions/workflows/ci.yml)
 
 A collection of APIs for testing Fastboot rendered applications.
 
