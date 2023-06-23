@@ -57,8 +57,8 @@
   "-latest": {
     "path": "",
     "name": "Latest",
-    "sha": "cf7e2d45718d57f3106dec613a7537ec10a65270",
-    "tag": "v0.6.0"
+    "sha": "a0cde67aade5d68b9dadca882480d341f3e3743d",
+    "tag": "v0.6.1"
   },
   "v0.0.9": {
     "path": "versions/v0.0.9",
@@ -179,5 +179,11 @@
     "name": "v0.6.0",
     "sha": "cf7e2d45718d57f3106dec613a7537ec10a65270",
     "tag": "v0.6.0"
+  },
+  "v0.6.1": {
+    "path": "versions/v0.6.1",
+    "name": "v0.6.1",
+    "sha": "a0cde67aade5d68b9dadca882480d341f3e3743d",
+    "tag": "v0.6.1"
   }
 }
