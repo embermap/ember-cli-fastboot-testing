@@ -17,7 +17,7 @@ module('Fastboot | mirage interceptor', function (hooks) {
   test('it doesnt work if mirage blocks our http request to ember-cli', async function (assert) {
     assert.rejects(
       visit('/'),
-      /It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render \//
+      /It looks like Mirage is intercepting ember-cli-fastboot-testing's attempt to render \//,
     );
   });
 });

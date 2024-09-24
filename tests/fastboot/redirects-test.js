@@ -6,7 +6,7 @@ module('FastBoot | redirects test', function (hooks) {
 
   test('redirects with a transition to', async function (assert) {
     let { headers, statusCode, url } = await visit(
-      '/examples/redirects/transition-to'
+      '/examples/redirects/transition-to',
     );
 
     assert.strictEqual(statusCode, 307);
@@ -16,7 +16,7 @@ module('FastBoot | redirects test', function (hooks) {
 
   test('redirects with a replace with', async function (assert) {
     let { headers, statusCode, url } = await visit(
-      '/examples/redirects/replace-with'
+      '/examples/redirects/replace-with',
     );
 
     assert.strictEqual(statusCode, 307);
