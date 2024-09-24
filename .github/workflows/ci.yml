@@ -19,11 +19,11 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 18
           cache: yarn
 
       - name: Install Dependencies
@@ -41,10 +41,10 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 18
           cache: yarn
 
       - name: Install Dependencies
@@ -58,11 +58,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 18
           cache: yarn
 
       - name: Install Dependencies
@@ -84,22 +84,24 @@ jobs:
           - ember-lts-3.28
           - ember-lts-4.4
           - ember-lts-4.8
+          - ember-lts-4.12
+          - ember-lts-5.4
+          - ember-lts-5.8
           - fastboot-1.2
           - fastboot-2.0
           - fastboot-3.0
           - ember-release
           - ember-beta
 #          - ember-canary
-          - ember-classic
           - embroider-safe
           - embroider-optimized
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 18
           cache: yarn
 
       - name: Install Dependencies
@@ -115,11 +117,11 @@ jobs:
     needs: [ test, try-scenarios ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 18
           cache: yarn
 
       - name: Install Dependencies

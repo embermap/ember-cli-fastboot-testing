@@ -1,5 +1,6 @@
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 :root {
-  --brand-primary: #7972CE;
+  --brand-primary: #7972ce;
 }
 
 .bg-brand {
@@ -18,7 +19,7 @@
   margin-right: auto;
 }
 
-@media (min-width: 768px) {
+@media (width >= 1768px) {
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;

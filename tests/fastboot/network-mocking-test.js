@@ -62,7 +62,7 @@ module('Fastboot | network mocking', function (hooks) {
       {
         errors: [{ title: 'Not found' }],
       },
-      404
+      404,
     );
 
     await visit('/examples/network/notes/1');

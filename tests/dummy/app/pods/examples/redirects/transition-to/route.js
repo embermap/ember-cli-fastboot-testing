@@ -5,6 +5,6 @@ export default class extends Route {
   @service router;
 
   redirect() {
-    this.router.transitionTo('/');
+    this.router.transitionTo('/examples');
   }
 }

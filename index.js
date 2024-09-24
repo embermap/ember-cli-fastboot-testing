@@ -33,7 +33,7 @@ module.exports = {
       });
     } catch (err) {
       throw new Error(
-        `Unable to find FastBoot. Did you forget to add ember-cli-fastboot to your app? ${err}`
+        `Unable to find FastBoot. Did you forget to add ember-cli-fastboot to your app? ${err}`,
       );
     }
   },
