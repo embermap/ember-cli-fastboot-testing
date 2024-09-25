@@ -10,8 +10,8 @@ module('FastBoot | redirects test', function (hooks) {
     );
 
     assert.strictEqual(statusCode, 307);
-    assert.strictEqual(url, '/');
-    assert.deepEqual(headers.location, [`//${window.location.host}/`]);
+    assert.strictEqual(url, '/examples');
+    assert.deepEqual(headers.location, [`//${window.location.host}/examples`]);
   });
 
   test('redirects with a replace with', async function (assert) {
@@ -20,7 +20,7 @@ module('FastBoot | redirects test', function (hooks) {
     );
 
     assert.strictEqual(statusCode, 307);
-    assert.strictEqual(url, '/');
-    assert.deepEqual(headers.location, [`//${window.location.host}/`]);
+    assert.strictEqual(url, '/examples');
+    assert.deepEqual(headers.location, [`//${window.location.host}/examples`]);
   });
 });

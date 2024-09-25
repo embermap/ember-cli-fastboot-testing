@@ -5,6 +5,6 @@ export default class extends Route {
   @service router;
 
   redirect() {
-    this.router.replaceWith('/');
+    this.router.replaceWith('/examples');
   }
 }
