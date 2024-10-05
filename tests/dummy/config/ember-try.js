@@ -68,6 +68,7 @@ module.exports = async function () {
             'ember-source': '~3.20.7',
             'ember-data': '~3.20.5',
             'ember-qunit': '^5.1.5',
+            'ember-resolver': '^10.0.0',
           },
           // ember-cli-fastboot v3 incorrectly passed args to json-stable-stringify
           // which results in TypeError in latest versions of json-stable-stringify,
@@ -89,6 +90,7 @@ module.exports = async function () {
             'ember-cli-fastboot': '^2.0.0',
             'ember-data': '~3.20.5',
             'ember-qunit': '^5.1.5',
+            'ember-resolver': '^10.0.0',
             'ember-source': '~3.20.7',
           },
           // ember-cli-fastboot v3 incorrectly passed args to json-stable-stringify
