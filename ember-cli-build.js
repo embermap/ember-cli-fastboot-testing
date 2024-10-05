@@ -12,6 +12,9 @@ module.exports = function (defaults) {
         },
       },
     },
+    autoImport: {
+      forbidEval: true,
+    },
   });
 
   app.import('vendor/tailwind.min.css');

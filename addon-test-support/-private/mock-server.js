@@ -5,7 +5,7 @@ let createMock = function (
   method,
   statusCode,
   response,
-  responseHeaders
+  responseHeaders,
 ) {
   let origin = false;
 

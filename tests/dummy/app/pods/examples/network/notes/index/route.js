@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 export default class extends Route {
   @service store;
 
-  async model() {
+  model() {
     return this.store.findAll('note');
   }
 }
