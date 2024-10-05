@@ -30,7 +30,6 @@
     "test:separate-build": "yarn build --environment test && yarn test:ember --path=dist --filter 'Fastboot | basic'"
   },
   "dependencies": {
-    "@babel/core": "^7.25.2",
     "body-parser": "^1.20.3",
     "ember-auto-import": "^2.8.1",
     "ember-cli-babel": "^8.2.0",
@@ -42,6 +41,7 @@
     "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
     "@babel/plugin-proposal-decorators": "^7.24.7",
     "@ember/optional-features": "^2.1.0",
