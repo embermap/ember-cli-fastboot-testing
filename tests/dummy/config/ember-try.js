@@ -57,51 +57,6 @@ module.exports = async function () {
         },
       },
       {
-        name: 'fastboot-1.2',
-        npm: {
-          dependencies: {
-            fastboot: '~1.2.1',
-          },
-          devDependencies: {
-            '@ember/test-helpers': '^2.9.3',
-            'ember-cli': '~4.12.0',
-            'ember-source': '~3.20.7',
-            'ember-data': '~3.20.5',
-            'ember-qunit': '^5.1.5',
-            'ember-resolver': '^10.0.0',
-          },
-          // ember-cli-fastboot v3 incorrectly passed args to json-stable-stringify
-          // which results in TypeError in latest versions of json-stable-stringify,
-          // hence pinning.
-          resolutions: {
-            'json-stable-stringify': '1.0.2',
-          },
-        },
-      },
-      {
-        name: 'fastboot-2.0',
-        npm: {
-          dependencies: {
-            fastboot: '~2.0.3',
-          },
-          devDependencies: {
-            '@ember/test-helpers': '^2.9.3',
-            'ember-cli': '~4.12.0',
-            'ember-cli-fastboot': '^2.0.0',
-            'ember-data': '~3.20.5',
-            'ember-qunit': '^5.1.5',
-            'ember-resolver': '^10.0.0',
-            'ember-source': '~3.20.7',
-          },
-          // ember-cli-fastboot v3 incorrectly passed args to json-stable-stringify
-          // which results in TypeError in latest versions of json-stable-stringify,
-          // hence pinning.
-          resolutions: {
-            'json-stable-stringify': '1.0.2',
-          },
-        },
-      },
-      {
         name: 'fastboot-3.0',
         npm: {
           dependencies: {
