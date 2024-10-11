@@ -5,13 +5,13 @@ module('Fastboot | basic', function (hooks) {
   setup(hooks);
 
   test('it renders the correct h1 title', async function (assert) {
-    await visit('/');
+    await visit('/examples');
 
     assert.dom('h1').includesText('FastbootTesting');
   });
 
   test('it renders the correct og:title', async function (assert) {
-    let { htmlDocument } = await visit('/');
+    let { htmlDocument } = await visit('/examples');
 
     assert
       .dom('meta[property="og:title"]', htmlDocument)
@@ -19,7 +19,7 @@ module('Fastboot | basic', function (hooks) {
   });
 
   test('it gets a success response code', async function (assert) {
-    let { statusCode } = await visit('/');
+    let { statusCode } = await visit('/examples');
 
     assert.strictEqual(statusCode, 200);
   });

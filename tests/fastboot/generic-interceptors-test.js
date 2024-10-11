@@ -24,7 +24,7 @@ module('Fastboot | generic interceptor', function (hooks) {
 
     assert.rejects(
       visit('/'),
-      /We were unable to render \/. Is your test suite blocking or intercepting HTTP requests\? Error: Pretender intercepted POST \/__fastboot-testing but encountered an error: Blocked/
+      /We were unable to render \/. Is your test suite blocking or intercepting HTTP requests\? Error: Pretender intercepted POST \/__fastboot-testing but encountered an error: Blocked/,
     );
 
     server.shutdown();
@@ -43,7 +43,7 @@ module('Fastboot | generic interceptor', function (hooks) {
 
     assert.rejects(
       visit('/'),
-      /We were unable to render \/. Is your test suite blocking or intercepting HTTP requests\?/
+      /We were unable to render \/. Is your test suite blocking or intercepting HTTP requests\?/,
     );
 
     server.shutdown();
