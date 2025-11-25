@@ -1,7 +1,7 @@
 'use strict';
 
-let resolve = require('resolve');
-let minimist = require('minimist');
+const resolve = require('resolve');
+const minimist = require('minimist');
 
 module.exports = {
   name: require('./package').name,
@@ -39,7 +39,7 @@ module.exports = {
 
   // we have to use the outputReady hook to ensure that ember-cli has finished copying the contents to the outputPath directory
   outputReady(result) {
-    let { reloadServer, createServer } = require('./lib/helpers');
+    const { reloadServer, createServer } = require('./lib/helpers');
 
     const isEnabled =
       this.app.name === 'dummy' || this.app.env !== 'production';
