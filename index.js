@@ -1,16 +1,7 @@
 'use strict';
 
-let resolve = require('resolve');
-let minimist = require('minimist');
-
-let {
-  createCleanUpMocks,
-  createFastbootEcho,
-  createFastbootTest,
-  createMockRequest,
-  reloadServer,
-  createServer,
-} = require('./lib/helpers');
+const resolve = require('resolve');
+const minimist = require('minimist');
 
 module.exports = {
   name: require('./package').name,
@@ -48,6 +39,8 @@ module.exports = {
 
   // we have to use the outputReady hook to ensure that ember-cli has finished copying the contents to the outputPath directory
   outputReady(result) {
+    const { reloadServer, createServer } = require('./lib/helpers');
+
     const isEnabled =
       this.app.name === 'dummy' || this.app.env !== 'production';
 
@@ -69,6 +62,13 @@ module.exports = {
   },
 
   _fastbootRenderingMiddleware(app) {
+    const {
+      createCleanUpMocks,
+      createFastbootEcho,
+      createFastbootTest,
+      createMockRequest,
+      createServer,
+    } = require('./lib/helpers');
     createMockRequest(app);
     createCleanUpMocks(app);
     createFastbootTest(app, ({ res, options, urlToVisit }) => {
