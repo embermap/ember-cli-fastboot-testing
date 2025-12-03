@@ -109,7 +109,8 @@
   },
   "volta": {
     "node": "18.20.4",
-    "yarn": "1.22.22"
+    "yarn": "1.22.22",
+    "pnpm": "10.24.0"
   },
   "ember": {
     "edition": "octane"
