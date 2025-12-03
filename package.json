@@ -93,6 +93,7 @@
     "prettier": "^3.3.3",
     "qunit": "^2.22.0",
     "qunit-dom": "^3.2.1",
+    "release-plan": "^0.17.2",
     "semver": "^7.6.3",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
@@ -106,6 +107,10 @@
   "engines": {
     "node": "18.* || 20.* || >= 22"
   },
+  "volta": {
+    "node": "18.20.4",
+    "yarn": "1.22.22"
+  },
   "ember": {
     "edition": "octane"
   },
@@ -118,8 +123,5 @@
   },
   "fastbootDependencies": [
     "crypto"
-  ],
-  "volta": {
-    "node": "18.20.4"
-  }
+  ]
 }
