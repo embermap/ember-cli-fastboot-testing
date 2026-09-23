@@ -7,7 +7,7 @@ module.exports = () => {
         // here you can add globals to the Fastboot renderer
       };
     },
-    setupFastboot(fastbootInstance) {
+    setupFastboot(/* fastbootInstance */) {
       // here you can access the fastboot instance which runs the tests
     },
   };

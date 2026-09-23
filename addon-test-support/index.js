@@ -112,7 +112,6 @@ let fetchFromEmberCli = async function (url, options) {
   }
 
   if (error) {
-    // eslint-disable-next-line no-console
     console.error(error);
     throw new Error(error);
   }
