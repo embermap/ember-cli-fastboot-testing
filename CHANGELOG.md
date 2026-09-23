@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2026-09-23)
+
+* ember-cli-fastboot-testing 0.8.0 (major)
+
+#### :boom: Breaking Change
+* `ember-cli-fastboot-testing`
+  * [#930](https://github.com/embermap/ember-cli-fastboot-testing/pull/930) drop support for node < 20 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :house: Internal
+* `ember-cli-fastboot-testing`
+  * [#928](https://github.com/embermap/ember-cli-fastboot-testing/pull/928) bump release-plan to ^0.20.0 ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## Release (2025-12-03)
 
 * ember-cli-fastboot-testing 0.7.0 (major)
