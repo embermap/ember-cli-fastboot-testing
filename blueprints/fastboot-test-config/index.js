@@ -1,4 +1,3 @@
-/* eslint-env node */
 module.exports = {
   description:
     'Generates test config for adding custom Fastboot sandbox globals',

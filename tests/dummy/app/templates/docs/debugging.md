@@ -5,14 +5,14 @@
 The `pauseTest` helper can be used to inspect FastBoot rendered HTML.
 
 ```js
-import { module, test, skip } from 'qunit';
-import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+import { module, test, skip } from "qunit";
+import { setup, visit } from "ember-cli-fastboot-testing/test-support";
 
-module('FastBoot | debugging test', function(hooks) {
+module("FastBoot | debugging test", function (hooks) {
   setup(hooks);
 
-  test('it renders the correct html', async function(assert) {
-    await visit('/');
+  test("it renders the correct html", async function (assert) {
+    await visit("/");
 
     await this.pauseTest();
 

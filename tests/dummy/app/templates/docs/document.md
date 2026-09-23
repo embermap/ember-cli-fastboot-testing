@@ -7,18 +7,18 @@ However, a common use case for FastBoot is to generate `head`, `title`, and `met
 To write these sort of tests, use the `htmlDocument` returned from `visit` to get a `Document` object that you can assert against with `qunit-dom`.
 
 ```js
-import { module, test, skip } from 'qunit';
-import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+import { module, test, skip } from "qunit";
+import { setup, visit } from "ember-cli-fastboot-testing/test-support";
 
-module('FastBoot | document test', function(hooks) {
+module("FastBoot | document test", function (hooks) {
   setup(hooks);
 
-  test('it renders the correct og:title', async function(assert) {
-    let { htmlDocument } = await visit('/');
+  test("it renders the correct og:title", async function (assert) {
+    let { htmlDocument } = await visit("/");
 
     assert
       .dom('head meta[property="og:title"]', htmlDocument)
-      .hasAttribute('content', 'Fastboot testing');
+      .hasAttribute("content", "Fastboot testing");
   });
 });
 ```

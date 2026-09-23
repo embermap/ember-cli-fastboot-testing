@@ -28,7 +28,8 @@
       <td data-test-id="headers">
         {{#each-in this.request.headers.headers as |header value|}}
           <div data-header-name={{header}}>
-            {{header}}: {{value}}
+            {{header}}:
+            {{value}}
           </div>
         {{/each-in}}
       </td>
@@ -41,7 +42,8 @@
       <td data-test-id="query-params">
         {{#each-in this.request.queryParams as |param value|}}
           <div>
-            {{param}}: {{value}}
+            {{param}}:
+            {{value}}
           </div>
         {{/each-in}}
       </td>
@@ -72,7 +74,8 @@
       <td>
         {{#each-in this.request.cookies as |cookie value|}}
           <div>
-            {{cookie}}: {{value}}
+            {{cookie}}:
+            {{value}}
           </div>
         {{/each-in}}
       </td>

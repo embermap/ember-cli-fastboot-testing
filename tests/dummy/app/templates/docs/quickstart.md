@@ -15,19 +15,18 @@ ember g fastboot-test home-page
 Open the test file, `tests/fastboot/home-page-test.js`.
 
 ```js
-import { module, test } from 'qunit';
-import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+import { module, test } from "qunit";
+import { setup, visit } from "ember-cli-fastboot-testing/test-support";
 
-module('FastBoot | home-page test', function(hooks) {
+module("FastBoot | home-page test", function (hooks) {
   setup(hooks);
 
-  test('it renders a page...', async function(assert) {
-    await visit('/');
+  test("it renders a page...", async function (assert) {
+    await visit("/");
 
     // replace this line with a real assertion!
     assert.ok(true);
   });
-
 });
 ```
 
