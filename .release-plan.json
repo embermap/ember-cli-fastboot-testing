@@ -1,26 +1,8 @@
 {
   "solution": {
     "ember-cli-fastboot-testing": {
-      "impact": "major",
-      "oldVersion": "0.7.0",
-      "newVersion": "0.8.0",
-      "tagName": "latest",
-      "constraints": [
-        {
-          "impact": "major",
-          "reason": "Appears in changelog section :boom: Breaking Change"
-        },
-        {
-          "impact": "minor",
-          "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
-        }
-      ],
-      "pkgJSONPath": "./package.json"
+      "oldVersion": "0.8.0"
     }
   },
-  "description": "## Release (2026-09-28)\n\n* ember-cli-fastboot-testing 0.8.0 (major)\n\n#### :boom: Breaking Change\n* `ember-cli-fastboot-testing`\n  * [#930](https://github.com/embermap/ember-cli-fastboot-testing/pull/930) drop support for node < 20 ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### :rocket: Enhancement\n* `ember-cli-fastboot-testing`\n  * [#932](https://github.com/embermap/ember-cli-fastboot-testing/pull/932) Add factboot v5 and v6 to supported range ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### :house: Internal\n* `ember-cli-fastboot-testing`\n  * [#931](https://github.com/embermap/ember-cli-fastboot-testing/pull/931) Update to v6.7 with ember-cli-update ([@SergeAstapov](https://github.com/SergeAstapov))\n  * [#928](https://github.com/embermap/ember-cli-fastboot-testing/pull/928) bump release-plan to ^0.20.0 ([@SergeAstapov](https://github.com/SergeAstapov))\n\n#### Committers: 1\n- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))\n"
+  "description": "\n\n\n\n"
 }
