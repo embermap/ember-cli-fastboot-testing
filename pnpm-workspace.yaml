@@ -1,4 +1,4 @@
 onlyBuiltDependencies:
-  - '@parcel/watcher'
+  - "@parcel/watcher"
   - core-js
   - ember-modal-dialog

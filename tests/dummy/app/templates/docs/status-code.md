@@ -10,22 +10,21 @@ We can use 300 status codes for routes that redirect, and 400/500 status codes w
 
 FastBoot testing provides support for testing status codes. The `visit` helper will return a `statusCode` with every request it makes.
 
-
 ```js
-import { module, test, skip } from 'qunit';
-import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
+import { module, test, skip } from "qunit";
+import { setup, visit } from "ember-cli-fastboot-testing/test-support";
 
-module('FastBoot | status code test', function(hooks) {
+module("FastBoot | status code test", function (hooks) {
   setup(hooks);
 
-  test('it gets a success response code', async function(assert) {
-    let { statusCode } = await visit('/');
+  test("it gets a success response code", async function (assert) {
+    let { statusCode } = await visit("/");
 
     assert.equal(statusCode, 200);
   });
 
-  test('it gets a 404 response code', async function(assert) {
-    let { statusCode } = await visit('/file-not-found');
+  test("it gets a 404 response code", async function (assert) {
+    let { statusCode } = await visit("/file-not-found");
 
     assert.equal(statusCode, 404);
   });

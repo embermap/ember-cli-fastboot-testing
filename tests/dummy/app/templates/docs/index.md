@@ -10,7 +10,6 @@ Take this code example. It's a button component that renders with a loading spin
 
 ```js
 Component.extend({
-
   didRender() {
     this._super(...arguments);
 
@@ -18,14 +17,13 @@ Component.extend({
     // need to figure out how to adjust the left margin so we can
     // make room for the spinner
     let spinnerWidth = this.element
-      .querySelector('[data-loading-spinner]')
+      .querySelector("[data-loading-spinner]")
       .offsetWidth();
     let offset = spinnerWidth / 2;
 
-    this.set('spinnerOffset', `margin-left: -${offset}px`);
-  }  
-
-})
+    this.set("spinnerOffset", `margin-left: -${offset}px`);
+  },
+});
 ```
 
 This code relies on the `offsetWidth` of an element in our template preform this calculation. We've got this code tested in our application and it's passing, but when we go to render a page using this component in FastBoot we get a 500 error.

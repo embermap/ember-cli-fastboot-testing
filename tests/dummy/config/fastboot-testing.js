@@ -1,6 +1,5 @@
 const najax = require('najax');
 const semver = require('semver');
-const { URL } = require('node:url');
 
 const version = require(require.resolve('fastboot/package.json')).version;
 
@@ -26,6 +25,7 @@ if (semver.lt(version, '3.0.0')) {
            */
           URL,
           AbortController,
+          structuredClone,
 
           // This is being actively used throughout codebase in many places.
           URLSearchParams,

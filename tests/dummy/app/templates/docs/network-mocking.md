@@ -9,24 +9,28 @@ FastBoot Testing exposes an API for intercepting requests made from your FastBoo
 The following example shows how to mock a test that fetches note data.
 
 ```js
-import { module, test } from 'qunit';
-import { setup, visit, mockServer } from 'ember-cli-fastboot-testing/test-support';
+import { module, test } from "qunit";
+import {
+  setup,
+  visit,
+  mockServer,
+} from "ember-cli-fastboot-testing/test-support";
 
-module('Fastboot | Note page', function(hooks) {
+module("Fastboot | Note page", function (hooks) {
   setup(hooks);
 
-  test('it can render a note', async function(assert) {
-    await mockServer.get('/api/notes/1', {
+  test("it can render a note", async function (assert) {
+    await mockServer.get("/api/notes/1", {
       data: {
-        type: 'note',
-        id: '1',
+        type: "note",
+        id: "1",
         attributes: {
-          title: 'Hello world!'
-        }
-      }
+          title: "Hello world!",
+        },
+      },
     });
 
-    await visit('/notes/1');
+    await visit("/notes/1");
 
     assert.dom('[data-test-id="title"]').hasText("Hello world!");
   });
@@ -38,14 +42,10 @@ The `mockServer#get` method maps a URL to a response for the lifecycle of the te
 By default, the `mockServer` will use a status code of 200. However, an optional status code can be passed in as the third parameter.
 
 ```js
-test('it renders the 404 page when it cannot fetch a note', async function(assert) {
-  await mockServer.get(
-    '/api/notes/1',
-    { error: 'Note not found' },
-    404
-  );
+test("it renders the 404 page when it cannot fetch a note", async function (assert) {
+  await mockServer.get("/api/notes/1", { error: "Note not found" }, 404);
 
-  await visit('/notes/1');
+  await visit("/notes/1");
 
   assert.dom('[data-test-id="page-not-found"]').exists();
 });
@@ -56,18 +56,18 @@ By default, passing just a path to `mockServer` will use the current host runnin
 Some implementations require a different origin for `mockServer` calls. In that case, you can override the default host by including the hostname with the path.
 
 ```js
-test('it makes a call to a different host', async function(assert) {
-  await mockServer.get('http://localhost:3000/api/notes/1', {
+test("it makes a call to a different host", async function (assert) {
+  await mockServer.get("http://localhost:3000/api/notes/1", {
     data: {
-      type: 'note',
-      id: '1',
+      type: "note",
+      id: "1",
       attributes: {
-        title: 'Hello world!'
-      }
-    }
+        title: "Hello world!",
+      },
+    },
   });
 
-  await visit('/notes/1');
+  await visit("/notes/1");
 
   assert.dom('[data-test-id="page-not-found"]').exists();
 });
