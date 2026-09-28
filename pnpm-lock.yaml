@@ -20,11 +20,8 @@ importers:
       ember-cli-babel:
         specifier: ^8.3.2
         version: 8.3.2(@babel/core@7.28.5)
-      ember-template-imports:
-        specifier: ^4.3.0
-        version: 4.4.0
       fastboot:
-        specifier: ^6.0.0
+        specifier: ^3.0.3 || ^4.1.5 || ^5.0.0 || ^6.0.0
         version: 6.0.0
       json-fn:
         specifier: ^1.1.1
@@ -4580,10 +4577,6 @@ packages:
   ember-svg-jar@2.7.1:
     resolution: {integrity: sha512-Y957CMG/IlpdrIu+Gl5KMYBZN6zL2Eyz2CQl2RRfpExFA3uJpv1+Br8vbtxLEs1OoPTlR+YYHcUXfgqS7dHaXw==}
     engines: {node: 12.* || 14.* || >= 16}
-
-  ember-template-imports@4.4.0:
-    resolution: {integrity: sha512-HNOHabTEMbRluci1uScvh3ljMDo9E46dHHNcJAIf5yjOhIQ/zN4Y0DVDWrRfcbihlHvt4v/iF69G+8tffC1YkA==}
-    engines: {node: 16.* || >= 18}
 
   ember-template-lint@7.9.3:
     resolution: {integrity: sha512-iqC4rv/oVlXViGuf7hlOA/bC550ZqacZKAc8WvQV0ueeCtIYPkYYK+Tc7FwpM8qGx3jiwu/ZsTuNfPInI5pL7Q==}
@@ -16091,14 +16084,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
-      - supports-color
-
-  ember-template-imports@4.4.0:
-    dependencies:
-      broccoli-stew: 3.0.0
-      content-tag: 4.2.0
-      ember-cli-version-checker: 5.1.2
-    transitivePeerDependencies:
       - supports-color
 
   ember-template-lint@7.9.3:
