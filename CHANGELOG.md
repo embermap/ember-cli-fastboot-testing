@@ -1,5 +1,10 @@
 # Changelog
 
+
+
+
+
+
 ## Release (2026-09-28)
 
 * ember-cli-fastboot-testing 0.8.0 (major)
