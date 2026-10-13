@@ -98,7 +98,7 @@
     "loader.js": "^4.7.0",
     "miragejs": "^0.1.48",
     "najax": "^1.0.7",
-    "node-fetch": "^2.7.0",
+    "node-fetch": "^3.3.2",
     "pretender": "~3.4.7",
     "prettier": "^3.9.8",
     "prettier-plugin-ember-template-tag": "^2.1.0",
