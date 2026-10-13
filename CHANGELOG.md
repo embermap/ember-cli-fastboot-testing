@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2026-10-13)
+
+* ember-cli-fastboot-testing 0.9.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-cli-fastboot-testing`
+  * [#934](https://github.com/embermap/ember-cli-fastboot-testing/pull/934) widen nock support range ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 1
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## Release (2026-09-28)
 
 * ember-cli-fastboot-testing 0.8.0 (major)
