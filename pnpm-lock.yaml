@@ -30,7 +30,7 @@ importers:
         specifier: ^1.2.6
         version: 1.2.8
       nock:
-        specifier: ^14.0.17
+        specifier: ^14 || ^15
         version: 14.0.17
       resolve:
         specifier: ^1.22.12
