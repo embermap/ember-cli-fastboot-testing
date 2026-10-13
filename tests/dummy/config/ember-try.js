@@ -100,8 +100,10 @@ module.exports = async function () {
           // ember-cli-fastboot v3 incorrectly passed args to json-stable-stringify
           // which results in TypeError in latest versions of json-stable-stringify,
           // hence pinning.
-          resolutions: {
-            'json-stable-stringify': '1.0.2',
+          pnpm: {
+            overrides: {
+              'json-stable-stringify': '1.0.2',
+            },
           },
         },
       },
